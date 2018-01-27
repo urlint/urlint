@@ -1,0 +1,78 @@
+{
+  "name": "urlint-cli",
+  "description": "Lint an URL from your CLI.",
+  "homepage": "https://documentup.com/Kikobeats/urlint-cli",
+  "version": "0.0.0",
+  "main": "index.js",
+  "bin": {
+    "urlint": "bin/index.js"
+  },
+  "author": {
+    "email": "josefrancisco.verdu@gmail.com",
+    "name": "Kiko Beats",
+    "url": "https://kikobeats.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Kikobeats/urlint-cli.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Kikobeats/urlint-cli/issues"
+  },
+  "keywords": [
+    "classify",
+    "cli",
+    "http",
+    "link",
+    "links",
+    "lint",
+    "linter",
+    "status",
+    "url",
+    "validate"
+  ],
+  "dependencies": {
+    "chalk": "~2.3.0",
+    "import-jsx": "~1.3.0",
+    "ink": "~0.4.1",
+    "lodash": "~4.17.4",
+    "meow": "~4.0.0",
+    "update-notifier": "~2.3.0",
+    "urlint": "~1.0.2"
+  },
+  "devDependencies": {
+    "finepack": "latest",
+    "git-dirty": "latest",
+    "husky": "latest",
+    "lint-staged": "latest",
+    "prettier-standard": "latest",
+    "standard": "latest",
+    "standard-markdown": "latest"
+  },
+  "engines": {
+    "node": ">= 6"
+  },
+  "files": [
+    "bin"
+  ],
+  "scripts": {
+    "clean": "rm -rf node_modules",
+    "lint": "standard-markdown && standard",
+    "precommit": "lint-staged",
+    "pretest": "npm run lint",
+    "pretty": "prettier-standard index.js {core,test,bin}/**/*.js --single-quote",
+    "test": "exit 0"
+  },
+  "preferGlobal": true,
+  "license": "MIT",
+  "lint-staged": {
+    "package.json": [
+      "finepack",
+      "git add"
+    ],
+    "*.js": [
+      "prettier-standard",
+      "git add"
+    ]
+  }
+}
