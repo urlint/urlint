@@ -1,7 +1,7 @@
 {
   "name": "urlint-cli",
   "description": "Lint an URL from your CLI.",
-  "homepage": "https://documentup.com/Kikobeats/urlint-cli",
+  "homepage": "https://documentup.com/urlint/urlint-cli",
   "version": "1.0.0",
   "main": "index.js",
   "bin": {
@@ -14,10 +14,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Kikobeats/urlint-cli.git"
+    "url": "git+https://github.com/urlint/urlint-cli.git"
   },
   "bugs": {
-    "url": "https://github.com/Kikobeats/urlint-cli/issues"
+    "url": "https://github.com/urlint/urlint-cli/issues"
   },
   "keywords": [
     "classify",
