@@ -2,7 +2,7 @@
   "name": "urlint-cli",
   "description": "Lint an URL from your CLI.",
   "homepage": "https://documentup.com/Kikobeats/urlint-cli",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "main": "index.js",
   "bin": {
     "urlint": "bin/index.js"
