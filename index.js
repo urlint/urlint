@@ -13,9 +13,9 @@ const getHtml = async url => {
 
 const getStatus = statusCode => `${String(statusCode).charAt(0)}xx`
 
-module.exports = async (url, backlist, ...opts) => {
+module.exports = async (url, whitelist, ...opts) => {
   const html = await getHtml(url)
-  const urls = await getUrls({ url, html, backlist })
+  const urls = await getUrls({ url, html, whitelist })
   const emitter = mitt()
 
   const iterator = async (acc, link) => {
