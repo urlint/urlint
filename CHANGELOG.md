@@ -1,3 +1,10 @@
+<a name="1.0.2"></a>
+## 1.0.2 (2018-01-27)
+
+* Fix pass whitelist urls ([5622678](https://github.com/urlint/urlint/commit/5622678))
+
+
+
 <a name="1.0.1"></a>
 ## 1.0.1 (2018-01-27)
 

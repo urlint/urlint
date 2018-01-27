@@ -2,7 +2,7 @@
   "name": "urlint",
   "description": "Get all the links behind an url and classify them based on HTTP status code.",
   "homepage": "https://documentup.com/urlint/urlint",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "main": "index.js",
   "author": {
     "email": "josefrancisco.verdu@gmail.com",
