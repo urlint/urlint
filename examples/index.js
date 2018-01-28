@@ -1,16 +1,16 @@
 'use strict'
 
-const linkScanner = require('.')
+const urlint = require('..')
 
 const url = process.argv[2]
 ;(async () => {
-  const scanner = await linkScanner(url)
+  const emitter = await urlint(url)
 
-  scanner.on('*', function (event, data) {
+  emitter.on('*', function (event, data) {
     console.log(event, data)
   })
 
-  scanner.on('end', function (data) {
+  emitter.on('end', function (data) {
     console.log('finished!')
   })
 })()
