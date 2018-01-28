@@ -32,11 +32,14 @@
     "url-code-status": "~1.0.0"
   },
   "devDependencies": {
+    "ava": "latest",
     "coveralls": "latest",
     "finepack": "latest",
     "git-dirty": "latest",
     "husky": "latest",
     "lint-staged": "latest",
+    "nyc": "latest",
+    "p-event": "latest",
     "prettier-standard": "latest",
     "standard": "latest",
     "standard-markdown": "latest"
@@ -49,11 +52,12 @@
   ],
   "scripts": {
     "clean": "rm -rf node_modules",
+    "coveralls": "nyc report --reporter=text-lcov | coveralls",
     "lint": "standard-markdown && standard",
     "precommit": "lint-staged",
     "pretest": "npm run lint",
     "pretty": "prettier-standard index.js {core,test,bin}/**/*.js --single-quote",
-    "test": "exit 0"
+    "test": "nyc ava test --verbose"
   },
   "license": "MIT",
   "lint-staged": {

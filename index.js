@@ -1,7 +1,7 @@
 'use strict'
 
 const getStatusCode = require('url-code-status')
-const getUrls = require('html-urls')
+const getUrlsFromHtml = require('html-urls')
 const aigle = require('aigle')
 const mitt = require('mitt')
 const got = require('got')
@@ -13,9 +13,14 @@ const getHtml = async url => {
 
 const getStatus = statusCode => `${String(statusCode).charAt(0)}xx`
 
-module.exports = async (url, {whitelist, ...opts}) => {
+const getUrls = async ({url, whitelist}) => {
   const html = await getHtml(url)
-  const urls = await getUrls({ url, html, whitelist })
+  const urls = await getUrlsFromHtml({ url, html, whitelist })
+  return urls
+}
+
+module.exports = async (url, {whitelist, ...opts} = {}) => {
+  const urls = await getUrls({url, whitelist})
   const emitter = mitt()
 
   const iterator = async (acc, link) => {
