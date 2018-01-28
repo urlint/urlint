@@ -1,5 +1,9 @@
 # urlint-cli
 
+<h1 align="center">
+  <img src="demo.png" alt="urlint">
+  <br>
+</h1>
 
 ![Last version](https://img.shields.io/github/tag/urlint/urlint-cli.svg?style=flat-square)
 [![Build Status](https://img.shields.io/travis/urlint/urlint-cli/master.svg?style=flat-square)](https://travis-ci.org/urlint/urlint-cli)
@@ -9,7 +13,7 @@
 [![NPM Status](https://img.shields.io/npm/dm/urlint-cli.svg?style=flat-square)](https://www.npmjs.org/package/urlint-cli)
 [![Donate](https://img.shields.io/badge/donate-paypal-blue.svg?style=flat-square)](https://paypal.me/Kikobeats)
 
-> Lint an URL from your CLI.
+> Check the availability of links on your website.
 
 ## Install
 

@@ -1,6 +1,6 @@
 {
   "name": "urlint-cli",
-  "description": "Lint an URL from your CLI.",
+  "description": "Check the availability of links on your website.",
   "homepage": "https://documentup.com/urlint/urlint-cli",
   "version": "1.0.1",
   "main": "index.js",
