@@ -1,5 +1,3 @@
-# urlint-cli
-
 <h1 align="center">
   <img src="demo.png" alt="urlint">
   <br>
@@ -7,7 +5,6 @@
 
 ![Last version](https://img.shields.io/github/tag/urlint/urlint-cli.svg?style=flat-square)
 [![Build Status](https://img.shields.io/travis/urlint/urlint-cli/master.svg?style=flat-square)](https://travis-ci.org/urlint/urlint-cli)
-[![Coverage Status](https://img.shields.io/coveralls/urlint/urlint-cli.svg?style=flat-square)](https://coveralls.io/github/urlint/urlint-cli)
 [![Dependency status](https://img.shields.io/david/urlint/urlint-cli.svg?style=flat-square)](https://david-dm.org/urlint/urlint-cli)
 [![Dev Dependencies Status](https://img.shields.io/david/dev/urlint/urlint-cli.svg?style=flat-square)](https://david-dm.org/urlint/urlint-cli#info=devDependencies)
 [![NPM Status](https://img.shields.io/npm/dm/urlint-cli.svg?style=flat-square)](https://www.npmjs.org/package/urlint-cli)
