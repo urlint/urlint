@@ -13,6 +13,7 @@ module.exports = chalk.gray(`${chalk.gray(description)}
 
   Options
     -w, --whitelist     Add an url to ignore
+    -c, --concurrence   Adjust the number of concurrent petitions (defaults to 30)
     -v, --version       Output the version number
 
   Examples

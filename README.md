@@ -14,6 +14,12 @@
 
 > Check the availability of links on your website.
 
+## Features
+
+- Classify your website links based on HTTP Status.
+- XML support (RSS/Atom/Feed/Sitemap).
+- Easy CI/CD integration.
+
 ## Install
 
 ```bash
