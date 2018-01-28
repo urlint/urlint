@@ -6,7 +6,7 @@ const mitt = require('mitt')
 
 const getStatus = statusCode => `${String(statusCode).charAt(0)}xx`
 
-module.exports = async (urls, {concurrent = 30} = {}) => {
+module.exports = async (urls, {concurrence = 30} = {}) => {
   const emitter = mitt()
 
   const iterator = async (acc, url) => {
@@ -21,7 +21,7 @@ module.exports = async (urls, {concurrent = 30} = {}) => {
   }
 
   aigle
-    .transformLimit(urls, concurrent, iterator, {})
+    .transformLimit(urls, concurrence, iterator, {})
     .then(data => emitter.emit('end', data))
 
   return emitter
