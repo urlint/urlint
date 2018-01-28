@@ -2,7 +2,6 @@
 
 <h1 align="center">
   <img src="demo.png" alt="urlint">
-
 </h1>
 
 ![Last version](https://img.shields.io/github/tag/urlint/urlint-cli.svg?style=flat-square)
@@ -12,11 +11,9 @@
 [![NPM Status](https://img.shields.io/npm/dm/urlint-cli.svg?style=flat-square)](https://www.npmjs.org/package/urlint-cli)
 [![Donate](https://img.shields.io/badge/donate-paypal-blue.svg?style=flat-square)](https://paypal.me/Kikobeats)
 
-> Check the availability of links on your website.
-
 ## Features
 
-- Classify your website links based on HTTP Status.
+- Get HTTP Status of the links on a website.
 - XML support (RSS/Atom/Feed/Sitemap).
 - Easy CI/CD integration.
 
