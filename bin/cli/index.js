@@ -3,11 +3,10 @@
 
 const { size } = require('lodash')
 const urlint = require('urlint')
-const path = require('path')
 
-const componentPath = path.join(__dirname, './component.js')
-const pkg = require('../package.json')
-const mount = require('./mount')
+const pkg = require('../../package.json')
+const getUrls = require('./get-urls')
+const view = require('../view')
 
 require('update-notifier')({ pkg }).notify()
 
@@ -15,10 +14,15 @@ const cli = require('meow')(require('./help'), {
   pkg,
   description: false,
   flags: {
-    ignore: {
-      alias: 'i',
+    whitelist: {
+      alias: 'w',
       type: 'array',
       default: []
+    },
+    concurrence: {
+      alias: 'c',
+      type: 'number',
+      default: 30
     }
   }
 })
@@ -29,14 +33,16 @@ if (cli.input.length === 0) {
 }
 
 const [url] = cli.input
-const { flags } = cli
-const { ignore, ...opts } = flags
 
-const whitelist = [].concat(ignore)
+const opts = Object.assign({}, cli.flags, {
+  whitelist: [].concat(cli.flags.whitelist)
+})
 ;(async () => {
-  const emitter = await urlint(url, Object.assign({ whitelist }, opts))
+  const urls = await getUrls(url, opts)
+  const emitter = await urlint(urls, opts)
+
   console.log()
-  mount(componentPath, { emitter, ...opts })
+  view({ emitter, ...opts })
 
   emitter.on('end', data => {
     const exitCode = size(data) > 1 ? 1 : 0

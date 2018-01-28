@@ -29,7 +29,7 @@ module.exports = class Counter extends Component {
   addStatusCode (statusCode, payload) {
     const status = this.state.count[statusCode]
     const links = this.state.links[statusCode]
-    const linkItem = [payload.statusCode, payload.normalizeUrl]
+    const linkItem = [payload.statusCode, payload.url]
 
     let nextCount
     let nextLinks
