@@ -1,8 +1,5 @@
 # urlint-cli
 
-[![Greenkeeper badge](https://badges.greenkeeper.io/urlint/urlint-cli.svg)](https://greenkeeper.io/)
-
-
 ![Last version](https://img.shields.io/github/tag/urlint/urlint-cli.svg?style=flat-square)
 [![Build Status](https://img.shields.io/travis/urlint/urlint-cli/master.svg?style=flat-square)](https://travis-ci.org/urlint/urlint-cli)
 [![Coverage Status](https://img.shields.io/coveralls/urlint/urlint-cli.svg?style=flat-square)](https://coveralls.io/github/urlint/urlint-cli)
