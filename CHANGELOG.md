@@ -1,3 +1,12 @@
+<a name="1.0.3"></a>
+## 1.0.3 (2018-01-28)
+
+* Add test ([5c8eded](https://github.com/urlint/urlint/commit/5c8eded))
+* Move HTTP layer out of the library ([0124179](https://github.com/urlint/urlint/commit/0124179))
+* Update example ([778403f](https://github.com/urlint/urlint/commit/778403f))
+
+
+
 <a name="1.0.2"></a>
 ## 1.0.2 (2018-01-27)
 
