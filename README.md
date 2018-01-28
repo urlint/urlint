@@ -35,9 +35,9 @@ $ npm install urlint --save
 
 ## API
 
-### urlint(url, [options])
+### urlint(urls, [options])
 
-#### url
+#### urls
 
 *Required*<br>
 Type: `string`
@@ -46,12 +46,12 @@ The target URL.
 
 #### options
 
-##### foo
+##### concurrence
 
-Type: `boolean`<br>
-Default: `false`
+Type: `number`<br>
+Default: `30`
 
-Lorem ipsum.
+The number of urls that can be resolved in parallel.
 
 ## License
 
