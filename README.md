@@ -2,7 +2,7 @@
 
 <h1 align="center">
   <img src="demo.png" alt="urlint">
-  <br>
+
 </h1>
 
 ![Last version](https://img.shields.io/github/tag/urlint/urlint-cli.svg?style=flat-square)
