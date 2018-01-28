@@ -1,3 +1,10 @@
+<a name="1.0.4"></a>
+## 1.0.4 (2018-01-28)
+
+* Fix typo ([26486e7](https://github.com/urlint/urlint/commit/26486e7))
+
+
+
 <a name="1.0.3"></a>
 ## 1.0.3 (2018-01-28)
 
