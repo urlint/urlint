@@ -1,7 +1,7 @@
 # urlint-cli
 
 <h1 align="center">
-  <img src="demo.png" alt="urlint">
+  <img src="https://urlint.co/static/images/demo.png" alt="urlint">
 </h1>
 
 ![Last version](https://img.shields.io/github/tag/urlint/urlint-cli.svg?style=flat-square)
