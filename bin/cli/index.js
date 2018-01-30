@@ -1,7 +1,8 @@
 #!/usr/bin/env node
 'use strict'
 
-const { size } = require('lodash')
+const normalizeUrl = require('normalize-url')
+const { first, size, isEmpty } = require('lodash')
 const urlint = require('urlint')
 
 const pkg = require('../../package.json')
@@ -27,12 +28,12 @@ const cli = require('meow')(require('./help'), {
   }
 })
 
-if (cli.input.length === 0) {
+if (isEmpty(cli.input)) {
   cli.showHelp()
   process.exit()
 }
 
-const [url] = cli.input
+const url = normalizeUrl(first(cli.input))
 
 const opts = Object.assign({}, cli.flags, {
   whitelist: [].concat(cli.flags.whitelist)
