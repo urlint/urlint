@@ -1,3 +1,10 @@
+<a name="1.0.5"></a>
+## 1.0.5 (2018-02-01)
+
+* Fix pass opts ([fcdec3e](https://github.com/urlint/urlint/commit/fcdec3e))
+
+
+
 <a name="1.0.4"></a>
 ## 1.0.4 (2018-01-28)
 
