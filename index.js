@@ -6,11 +6,11 @@ const mitt = require('mitt')
 
 const getStatus = statusCode => `${String(statusCode).charAt(0)}xx`
 
-module.exports = async (urls, {concurrence = 30} = {}) => {
+module.exports = async (urls, {concurrence = 30, ...opts} = {}) => {
   const emitter = mitt()
 
   const iterator = async (acc, url) => {
-    const statusCode = await getStatusCode(url)
+    const statusCode = await getStatusCode(url, opts)
     const status = getStatus(statusCode)
     const data = { statusCode, url }
 
