@@ -2,8 +2,9 @@
 'use strict'
 
 const normalizeUrl = require('normalize-url')
-const { first, size, isEmpty } = require('lodash')
+const { first, isEmpty } = require('lodash')
 const urlint = require('urlint')
+const isCI = require('is-ci')
 
 const pkg = require('../../package.json')
 const getUrls = require('./get-urls')
@@ -24,6 +25,31 @@ const cli = require('meow')(require('./help'), {
       alias: 'c',
       type: 'number',
       default: 30
+    },
+    quiet: {
+      alias: 'q',
+      type: 'boolean',
+      default: isCI
+    },
+    followRedirect: {
+      alias: 'f',
+      type: 'boolean',
+      default: true
+    },
+    logspeed: {
+      alias: 's',
+      type: 'number',
+      default: 100
+    },
+    timeout: {
+      alias: 't',
+      type: 'number',
+      default: false
+    },
+    retries: {
+      alias: 'r',
+      type: 'number',
+      default: 2
     }
   }
 })
@@ -41,12 +67,6 @@ const opts = Object.assign({}, cli.flags, {
 ;(async () => {
   const urls = await getUrls(url, opts)
   const emitter = await urlint(urls, opts)
-
   console.log()
   view({ emitter, ...opts })
-
-  emitter.on('end', data => {
-    const exitCode = size(data) > 1 ? 1 : 0
-    setTimeout(process.exit, 300, exitCode)
-  })
 })()
