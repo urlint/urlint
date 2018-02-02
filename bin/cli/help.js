@@ -13,7 +13,7 @@ module.exports = chalk.gray(`${chalk.gray(description)}
     $ ${green('urlint')} <url> [<flags>]
 
   Flags
-    -c, --concurrence     Adjust the number of concurrent petitions (defaults to 30)
+    -c, --concurrence     Number of concurrent petitions (defaults to 30)
     -f, --followRedirect  Redirect responses should be followed (defaults to true)
     -h, --help            Show the help information
     -q, --quiet           Show only the resume (defaults to false)
