@@ -15,8 +15,7 @@ const resumeCount = (count, statusCode) => {
 }
 
 const count = state => {
-  const { quiet, count, fetchingUrl = '' } = state
-  if (quiet) return ''
+  const { count, fetchingUrl = '' } = state
 
   const resume = map(count, resumeCount).join(os.EOL)
   const footer = fetchingUrl

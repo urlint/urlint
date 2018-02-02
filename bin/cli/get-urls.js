@@ -3,16 +3,16 @@
 const { getUrl, isUrl } = require('@metascraper/helpers')
 const normalizeUrl = require('normalize-url')
 const getUrlsFromHtml = require('html-urls')
+const { map, reduce } = require('lodash')
 const fromXML = require('xml-urls')
-const { reduce } = require('lodash')
 const got = require('got')
 
 const { isXmlUrl } = fromXML
 
-const fromHTML = async (url, { whitelist, ...opts }) => {
+const fromHTML = async (url, opts) => {
   const { body: html } = await got(url, opts)
-  const urls = await getUrlsFromHtml({ url, html, whitelist })
-  return urls.map(({ normalizeUrl }) => normalizeUrl)
+  const urls = await getUrlsFromHtml({ url, html, ...opts })
+  return map(urls, 'normalizeUrl')
 }
 
 module.exports = async (url, opts) => {

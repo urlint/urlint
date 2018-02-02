@@ -1,7 +1,8 @@
 'use strict'
 
 const chalk = require('chalk')
-const { theme } = require('../view/helpers')
+
+const theme = require('../view/theme')
 const { description } = require('../../package.json')
 
 const green = chalk.hex(theme.green)

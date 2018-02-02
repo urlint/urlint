@@ -1,16 +1,9 @@
 'use strict'
 
 const chalk = require('chalk')
-const { mapValues } = require('lodash')
+const { isEqual, includes, keys, size, mapValues, isNil } = require('lodash')
 
-const THEME = {
-  red: '#ff5c57',
-  green: '#5af78e',
-  yellow: '#f3f99d',
-  blue: '#57c7ff',
-  magenta: '#ff6ac1',
-  cyan: '#9aedfe'
-}
+const theme = require('./theme')
 
 const STATUS_CODE_COLOR = {
   '2': 'green',
@@ -20,7 +13,7 @@ const STATUS_CODE_COLOR = {
   '9': 'red'
 }
 
-const statusCodeColors = mapValues(THEME, hex => chalk.hex(hex))
+const statusCodeColors = mapValues(theme, hex => chalk.hex(hex))
 
 const STATUS_CODE_COLOR_FALLBACK = 'magenta'
 
@@ -39,8 +32,30 @@ const colorizeStatus = (statusCode, str = statusCode) => {
 
 const colorizeLine = chalk.gray
 
+const setState = (state, { statusCode, data }) => {
+  const status = state.count[statusCode]
+  const linkStatus = state.links[statusCode]
+  const linkItem = [data.statusCode, data.url]
+
+  const count = { [statusCode]: isNil(status) ? 1 : status + 1 }
+  const links = {
+    [statusCode]: isNil(linkStatus) ? [linkItem] : linkStatus.concat([linkItem])
+  }
+
+  return { count, links }
+}
+
+const processExit = data => {
+  const statusCodes = keys(data)
+  const isOnly2xx =
+    includes(statusCodes, '2xx') && isEqual(size(statusCodes), 1)
+  const exitCode = isOnly2xx ? 0 : 1
+  process.exit(exitCode)
+}
+
 module.exports = {
   colorizeStatus,
   colorizeLine,
-  theme: THEME
+  setState,
+  processExit
 }
