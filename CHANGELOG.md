@@ -1,3 +1,11 @@
+<a name="1.0.4"></a>
+## 1.0.4 (2018-02-02)
+
+* Disable streaming on CI ([a5a3240](https://github.com/urlint/urlint-cli/commit/a5a3240))
+* Tweaks ([deaed46](https://github.com/urlint/urlint-cli/commit/deaed46))
+
+
+
 <a name="1.0.3"></a>
 ## 1.0.3 (2018-02-02)
 
