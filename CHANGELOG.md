@@ -1,3 +1,12 @@
+<a name="1.0.6"></a>
+## 1.0.6 (2018-02-02)
+
+* Fix pass opts ([fcdec3e](https://github.com/urlint/urlint/commit/fcdec3e))
+* Release 1.0.5 ([1fc48a8](https://github.com/urlint/urlint/commit/1fc48a8))
+* Separate events by name ([21bff52](https://github.com/urlint/urlint/commit/21bff52))
+
+
+
 <a name="1.0.5"></a>
 ## 1.0.5 (2018-02-01)
 
