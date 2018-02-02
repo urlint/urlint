@@ -1,3 +1,11 @@
+<a name="1.0.3"></a>
+## 1.0.3 (2018-02-02)
+
+* Improve render layer ([4471575](https://github.com/urlint/urlint-cli/commit/4471575))
+* Remove test before release ([b3ae229](https://github.com/urlint/urlint-cli/commit/b3ae229))
+
+
+
 <a name="1.0.2"></a>
 ## 1.0.2 (2018-01-30)
 
