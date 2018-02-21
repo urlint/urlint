@@ -1,5 +1,3 @@
-# urlint-cli
-
 <h1 align="center">
   <img src="https://rawgit.com/urlint/www/master/static/images/preview.png" alt="urlint">
 </h1>
