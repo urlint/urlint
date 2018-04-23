@@ -59,7 +59,7 @@
     "standard-markdown": "latest"
   },
   "engines": {
-    "node": ">= 6"
+    "node": ">= 8"
   },
   "files": [
     "bin"
