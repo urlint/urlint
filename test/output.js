@@ -1,7 +1,7 @@
 'use strict'
 
 const test = require('ava')
-const { count, links } = require('../bin/view/render')
+const { count, resume } = require('../bin/view/render')
 
 test('render count', t => {
   const state = {
@@ -46,5 +46,5 @@ test('render links', t => {
     }
   }
 
-  t.snapshot(links(state))
+  t.snapshot(resume(state))
 })

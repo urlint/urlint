@@ -50,5 +50,5 @@ const renderResume = ({ count, links }) => {
 
 module.exports = state =>
   state.end === false ? renderCount(state) : renderResume(state)
-module.exports.renderCount = renderCount
+module.exports.count = renderCount
 module.exports.resume = renderResume
