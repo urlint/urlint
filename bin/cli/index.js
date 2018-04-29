@@ -9,7 +9,7 @@ const isCI = require('is-ci')
 const got = require('got')
 
 const pkg = require('../../package.json')
-const getUrls = require('./get-urls')
+const extractUrls = require('./extract-urls')
 const view = require('../view')
 
 const getUrl = async input => {
@@ -74,7 +74,7 @@ if (isEmpty(cli.input)) {
     whitelist: [].concat(cli.flags.whitelist)
   })
 
-  const urls = await getUrls(url, opts)
+  const urls = await extractUrls(url, opts)
   const emitter = await urlint(urls, opts)
   console.log()
   view({ emitter, ...opts })
