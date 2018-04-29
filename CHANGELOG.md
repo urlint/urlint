@@ -1,3 +1,27 @@
+<a name="1.0.5"></a>
+## 1.0.5 (2018-04-29)
+
+* Follow redirects ([fb60fc7](https://github.com/urlint/urlint-cli/commit/fb60fc7))
+* Need NodeJS > 8 ([74b6760](https://github.com/urlint/urlint-cli/commit/74b6760))
+* Refactor ([b588fed](https://github.com/urlint/urlint-cli/commit/b588fed))
+* Sort by status code ([741c2e7](https://github.com/urlint/urlint-cli/commit/741c2e7))
+* Update README.md ([0d2d5e7](https://github.com/urlint/urlint-cli/commit/0d2d5e7))
+* Update README.md ([f53be83](https://github.com/urlint/urlint-cli/commit/f53be83))
+* fix(package): update @metascraper/helpers to version 3.10.7 ([d188e48](https://github.com/urlint/urlint-cli/commit/d188e48))
+* fix(package): update @metascraper/helpers to version 3.8.0 ([5fca439](https://github.com/urlint/urlint-cli/commit/5fca439))
+* fix(package): update @metascraper/helpers to version 3.9.2 ([67493ad](https://github.com/urlint/urlint-cli/commit/67493ad))
+* fix(package): update chalk to version 2.4.0 ([e1101ba](https://github.com/urlint/urlint-cli/commit/e1101ba))
+* fix(package): update got to version 8.1.0 ([4f8a0de](https://github.com/urlint/urlint-cli/commit/4f8a0de))
+* fix(package): update got to version 8.2.0 ([35e3d3b](https://github.com/urlint/urlint-cli/commit/35e3d3b))
+* fix(package): update got to version 8.3.0 ([d45bf93](https://github.com/urlint/urlint-cli/commit/d45bf93))
+* fix(package): update meow to version 5.0.0 ([9ce8fcf](https://github.com/urlint/urlint-cli/commit/9ce8fcf))
+* fix(package): update neat-log to version 2.0.0 ([d0efe0a](https://github.com/urlint/urlint-cli/commit/d0efe0a))
+* fix(package): update ora to version 2.0.0 ([3801f39](https://github.com/urlint/urlint-cli/commit/3801f39))
+* fix(package): update update-notifier to version 2.4.0 ([60859f0](https://github.com/urlint/urlint-cli/commit/60859f0))
+* fix(package): update update-notifier to version 2.5.0 ([f1e5a91](https://github.com/urlint/urlint-cli/commit/f1e5a91))
+
+
+
 <a name="1.0.4"></a>
 ## 1.0.4 (2018-02-02)
 
