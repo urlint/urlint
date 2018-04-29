@@ -12,7 +12,6 @@ const { isXmlUrl } = fromXML
 const fromHTML = async (url, opts) => {
   const { body: html } = await got(url, opts)
   const urls = await getUrlsFromHtml({ url, html, ...opts })
-  console.log(urls)
   return map(urls, 'normalizeUrl')
 }
 

@@ -1,7 +1,7 @@
 'use strict'
 
-const chalk = require('chalk')
 const { isEqual, includes, keys, size, mapValues, isNil } = require('lodash')
+const chalk = require('chalk')
 
 const theme = require('./theme')
 

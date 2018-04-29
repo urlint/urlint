@@ -1,6 +1,6 @@
 'use strict'
 
-const { map, reduce } = require('lodash')
+const { toNumber, first, chain, map, reduce } = require('lodash')
 const os = require('os')
 
 const spinner = require('ora')({
@@ -10,11 +10,20 @@ const spinner = require('ora')({
 
 const { colorizeStatus, colorizeLine } = require('./helpers')
 
-const resumeCount = (count, statusCode) => {
-  return colorizeStatus(statusCode, `${statusCode} ${count}`)
-}
+const resumeCount = (count, statusCode) =>
+  colorizeStatus(statusCode, `${statusCode} ${count}`)
 
-const count = state => {
+const sortByStatusCode = data =>
+  chain(data)
+    .toPairs()
+    .sortBy(pair => {
+      const statusCode = first(pair)
+      return toNumber(statusCode.charAt(0))
+    })
+    .fromPairs()
+    .value()
+
+const renderCount = state => {
   const { count, fetchingUrl = '' } = state
 
   const resume = map(count, resumeCount).join(os.EOL)
@@ -24,22 +33,22 @@ const count = state => {
   return `${resume}${footer}`
 }
 
-const links = ({ count, links }) => {
-  const total = reduce(count, (acc, count) => acc + count, 0)
-
-  const resume = map(count, (count, statusCode) => {
-    const header = resumeCount(count, statusCode)
+const renderResume = ({ count, links }) => {
+  const info = map(sortByStatusCode(count), (count, statusCode) => {
+    const statusHeader = resumeCount(count, statusCode)
     const rows = map(
       links[statusCode],
       ([statusCode, url]) => `${colorizeStatus(statusCode)} ${url}`
     ).join(os.EOL)
-
-    return header + os.EOL + rows + os.EOL
+    return statusHeader + os.EOL + rows + os.EOL
   }).join(os.EOL)
 
-  return colorizeLine(`${resume}${os.EOL}Total ${total}`)
+  const total = reduce(count, (acc, count) => acc + count, 0)
+
+  return colorizeLine(`${info}${os.EOL}Total ${total}`)
 }
 
-module.exports = state => (state.end === false ? count(state) : links(state))
-module.exports.count = count
-module.exports.links = links
+module.exports = state =>
+  state.end === false ? renderCount(state) : renderResume(state)
+module.exports.renderCount = renderCount
+module.exports.resume = renderResume
