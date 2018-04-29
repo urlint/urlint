@@ -1,14 +1,22 @@
 #!/usr/bin/env node
+
 'use strict'
 
 const normalizeUrl = require('normalize-url')
 const { first, isEmpty } = require('lodash')
 const urlint = require('urlint')
 const isCI = require('is-ci')
+const got = require('got')
 
 const pkg = require('../../package.json')
 const getUrls = require('./get-urls')
 const view = require('../view')
+
+const getUrl = async input => {
+  const normalizedUrl = normalizeUrl(input)
+  const { url } = await got.head(normalizedUrl)
+  return url
+}
 
 require('update-notifier')({ pkg }).notify()
 
@@ -59,12 +67,13 @@ if (isEmpty(cli.input)) {
   process.exit()
 }
 
-const url = normalizeUrl(first(cli.input))
-
-const opts = Object.assign({}, cli.flags, {
-  whitelist: [].concat(cli.flags.whitelist)
-})
 ;(async () => {
+  const url = await getUrl(first(cli.input))
+
+  const opts = Object.assign({}, cli.flags, {
+    whitelist: [].concat(cli.flags.whitelist)
+  })
+
   const urls = await getUrls(url, opts)
   const emitter = await urlint(urls, opts)
   console.log()
