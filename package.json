@@ -32,7 +32,7 @@
     "validate"
   ],
   "dependencies": {
-    "@metascraper/helpers": "~3.9.2",
+    "@metascraper/helpers": "~3.10.7",
     "chalk": "~2.4.0",
     "got": "~8.3.0",
     "html-urls": "~1.0.3",
