@@ -1,3 +1,10 @@
+<a name="1.0.7"></a>
+## 1.0.7 (2018-04-29)
+
+* Reduce default concurrence ([48cb899](https://github.com/urlint/urlint/commit/48cb899))
+
+
+
 <a name="1.0.6"></a>
 ## 1.0.6 (2018-02-02)
 
