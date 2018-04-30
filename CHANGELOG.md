@@ -1,3 +1,10 @@
+<a name="1.1.1"></a>
+## 1.1.1 (2018-04-30)
+
+* Catch error and exit the process ([d3d1295](https://github.com/urlint/urlint-cli/commit/d3d1295))
+
+
+
 <a name="1.1.0"></a>
 # 1.1.0 (2018-04-30)
 
