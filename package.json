@@ -44,7 +44,7 @@
     "ora": "~2.1.0",
     "pretty-ms": "~3.1.0",
     "update-notifier": "~2.5.0",
-    "urlint": "~1.0.7",
+    "urlint": "~1.1.0",
     "xml-urls": "~1.0.1"
   },
   "devDependencies": {
