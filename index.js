@@ -1,25 +1,28 @@
 'use strict'
 
 const getStatusCode = require('url-code-status')
+const timeSpan = require('time-span')
 const aigle = require('aigle')
 const mitt = require('mitt')
 
-const getStatus = statusCode => `${String(statusCode).charAt(0)}xx`
+const getStatusByGroup = statusCode => `${String(statusCode).charAt(0)}xx`
 
 module.exports = async (urls, { concurrence = 8, ...opts } = {}) => {
   const emitter = mitt()
 
   async function iterator (acc, url) {
-    const statusCode = await getStatusCode(url, opts)
     emitter.emit('fetching', { url })
 
-    const status = getStatus(statusCode)
-    const data = { statusCode, url }
+    const end = timeSpan()
+    const statusCode = await getStatusCode(url, opts)
+    const timestamp = end()
+    const statusCodeGroup = getStatusByGroup(statusCode)
+    const data = { statusCodeGroup, statusCode, url, timestamp }
 
-    if (!acc[status]) acc[status] = [data]
-    else acc[status].push(data)
+    emitter.emit('status', data)
 
-    emitter.emit('status', { statusCode: status, data })
+    if (!acc[statusCodeGroup]) acc[statusCodeGroup] = [data]
+    else acc[statusCodeGroup].push(data)
   }
 
   aigle
