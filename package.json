@@ -37,6 +37,7 @@
     "git-dirty": "latest",
     "husky": "latest",
     "lint-staged": "latest",
+    "lodash": "latest",
     "nyc": "latest",
     "p-event": "latest",
     "prettier-standard": "latest",
