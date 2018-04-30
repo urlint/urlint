@@ -2,14 +2,17 @@
 
 const { isEqual, includes, keys, size, isNil } = require('lodash')
 
-const setState = (state, { statusCode, data }) => {
-  const status = state.count[statusCode]
-  const linkStatus = state.links[statusCode]
-  const linkItem = [data.statusCode, data.url]
+const setState = (state, data) => {
+  const { statusCodeGroup } = data
 
-  const count = { [statusCode]: isNil(status) ? 1 : status + 1 }
+  const status = state.count[statusCodeGroup]
+  const linkStatus = state.links[statusCodeGroup]
+  const linkItem = [data.statusCode, data.url, data.timestamp]
+  const count = { [statusCodeGroup]: isNil(status) ? 1 : status + 1 }
   const links = {
-    [statusCode]: isNil(linkStatus) ? [linkItem] : linkStatus.concat([linkItem])
+    [statusCodeGroup]: isNil(linkStatus)
+      ? [linkItem]
+      : linkStatus.concat([linkItem])
   }
 
   return { count, links }

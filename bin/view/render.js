@@ -5,7 +5,9 @@ const prettyMs = require('pretty-ms')
 const { EOL } = require('os')
 
 const spinner = require('ora')({ text: '', color: 'gray' })
-const { green, blue, gray, byStatusCode } = require('./colorize')
+
+const colorize = require('./colorize')
+const { green, blue, gray, byStatusCode, getRequestColor } = colorize
 
 const resumeCount = (count, statusCode) =>
   byStatusCode(statusCode, `${statusCode} ${count}`)
@@ -26,24 +28,31 @@ const renderCount = state => {
   const spinnerFrame = spinner.frame()
   const timestamp = blue(prettyMs(Date.now() - startTimestamp))
   const url = gray(fetchingUrl)
-  const progress = gray(`${current}/${total}`)
+  const progress = gray(`${current} of ${total}`)
 
   return `${EOL}${countByStatusCode}${EOL}${EOL}${timestamp} ${spinnerFrame}${progress} ${url}`
 }
 
-const renderResume = ({ count, links }) => {
+const renderResume = ({ startTimestamp, count, links }) => {
   const info = map(sortByStatusCode(count), (count, statusCode) => {
     const countByStatusCode = resumeCount(count, statusCode)
-    const rows = map(
-      links[statusCode],
-      ([statusCode, url]) => `${byStatusCode(statusCode)} ${url}`
-    ).join(EOL)
+
+    const rows = map(links[statusCode], ([statusCode, url, timestamp]) => {
+      const colorizeStatusCode = byStatusCode(statusCode)
+      const colorTimestamp = getRequestColor(timestamp)
+      const colorizeTimestamp = colorize[colorTimestamp](
+        `+${prettyMs(timestamp)}`
+      )
+      return `${colorizeStatusCode} ${url} ${colorizeTimestamp}`
+    }).join(EOL)
+
     return countByStatusCode + EOL + rows + EOL
   }).join(EOL)
 
   const total = reduce(count, (acc, count) => acc + count, 0)
+  const timestamp = prettyMs(Date.now() - startTimestamp)
 
-  return gray(`${EOL}${info}${EOL}Total ${total}`)
+  return gray(`${EOL}${info}${EOL}${total} links in ${timestamp}`)
 }
 
 module.exports = state => {

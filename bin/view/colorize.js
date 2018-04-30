@@ -38,9 +38,16 @@ const byStatusCode = (statusCode, str = statusCode) => {
   return statusCodeColor(str)
 }
 
+const getRequestColor = timestamp => {
+  if (timestamp < 500) return 'green'
+  if (timestamp < 1200) return 'yellow'
+  return 'red'
+}
+
 module.exports = {
   ...statusCodeColors,
   gray: chalk.gray,
   byStatusCode,
+  getRequestColor,
   theme: THEME
 }

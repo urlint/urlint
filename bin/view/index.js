@@ -21,8 +21,8 @@ module.exports = ({ total, emitter, quiet, logspeed, ...opts }) => {
   const neat = neatLog(render, { ...opts, logspeed, state })
 
   neat.use((state, bus) => {
-    emitter.on('status', ({ statusCode, data }) => {
-      const newState = setState(state, { statusCode, data })
+    emitter.on('status', data => {
+      const newState = setState(state, data)
       state.count = { ...state.count, ...newState.count }
       state.links = { ...state.links, ...newState.links }
     })
