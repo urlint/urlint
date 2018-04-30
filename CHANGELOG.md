@@ -1,3 +1,11 @@
+<a name="1.1.0"></a>
+# 1.1.0 (2018-04-30)
+
+* Add timestamp per each url ([36bf7d3](https://github.com/urlint/urlint/commit/36bf7d3))
+* Fix tests ([291d0fd](https://github.com/urlint/urlint/commit/291d0fd))
+
+
+
 <a name="1.0.7"></a>
 ## 1.0.7 (2018-04-29)
 
