@@ -1,3 +1,17 @@
+<a name="1.1.0"></a>
+# 1.1.0 (2018-04-30)
+
+* Fix tests ([d8bfc60](https://github.com/urlint/urlint-cli/commit/d8bfc60))
+* Improve feedback ([2033bee](https://github.com/urlint/urlint-cli/commit/2033bee))
+* Output timestamp feedback ([fa78222](https://github.com/urlint/urlint-cli/commit/fa78222))
+* Rewrite quiet mode ([05c8dd9](https://github.com/urlint/urlint-cli/commit/05c8dd9))
+* Update deps ([e959b31](https://github.com/urlint/urlint-cli/commit/e959b31))
+* Update deps ([07ff4b5](https://github.com/urlint/urlint-cli/commit/07ff4b5))
+* Update tests ([9046ac0](https://github.com/urlint/urlint-cli/commit/9046ac0))
+* Update whitelist parameter ([dc1d8af](https://github.com/urlint/urlint-cli/commit/dc1d8af))
+
+
+
 <a name="1.0.5"></a>
 ## 1.0.5 (2018-04-29)
 
