@@ -8,8 +8,9 @@ const urlint = require('urlint')
 const isCI = require('is-ci')
 const got = require('got')
 
-const pkg = require('../../package.json')
 const extractUrls = require('./extract-urls')
+const colorize = require('../view/colorize')
+const pkg = require('../../package.json')
 const view = require('../view')
 
 const getUrl = async input => {
@@ -68,14 +69,23 @@ if (isEmpty(cli.input)) {
 }
 
 ;(async () => {
-  const url = await getUrl(first(cli.input))
+  try {
+    const url = await getUrl(first(cli.input))
 
-  const opts = Object.assign({}, cli.flags, {
-    whitelist: cli.flags.whitelist && concat(cli.flags.whitelist)
-  })
+    const opts = Object.assign({}, cli.flags, {
+      whitelist: cli.flags.whitelist && concat(cli.flags.whitelist)
+    })
 
-  const urls = await extractUrls(url, opts)
-  const emitter = await urlint(urls, opts)
+    const urls = await extractUrls(url, opts)
+    const emitter = await urlint(urls, opts)
 
-  view({ total: size(urls), emitter, ...opts })
+    view({ total: size(urls), emitter, ...opts })
+  } catch (err) {
+    let message
+    if (err.name && err.message) message = `${err.name}: ${err.message}`
+    else if (err.message) message = err.message
+    else message = err
+    console.log(colorize.red(message))
+    process.exit(1)
+  }
 })()
