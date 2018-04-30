@@ -2,8 +2,8 @@
 
 'use strict'
 
+const { size, concat, first, isEmpty } = require('lodash')
 const normalizeUrl = require('normalize-url')
-const { concat, first, isEmpty } = require('lodash')
 const urlint = require('urlint')
 const isCI = require('is-ci')
 const got = require('got')
@@ -78,5 +78,5 @@ if (isEmpty(cli.input)) {
   const emitter = await urlint(urls, opts)
   console.log()
 
-  view({ emitter, ...opts })
+  view({ total: size(urls), emitter, ...opts })
 })()

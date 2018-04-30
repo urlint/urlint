@@ -1,17 +1,14 @@
 'use strict'
 
 const { toNumber, first, chain, map, reduce } = require('lodash')
-const os = require('os')
+const prettyMs = require('pretty-ms')
+const { EOL } = require('os')
 
-const spinner = require('ora')({
-  text: '',
-  color: 'blue'
-})
-
-const { colorizeStatus, colorizeLine } = require('./helpers')
+const spinner = require('ora')({ text: '', color: 'gray' })
+const { green, blue, gray, byStatusCode } = require('./colorize')
 
 const resumeCount = (count, statusCode) =>
-  colorizeStatus(statusCode, `${statusCode} ${count}`)
+  byStatusCode(statusCode, `${statusCode} ${count}`)
 
 const sortByStatusCode = data =>
   chain(data)
@@ -24,28 +21,29 @@ const sortByStatusCode = data =>
     .value()
 
 const renderCount = state => {
-  const { count, fetchingUrl = '' } = state
+  const { count, fetchingUrl, startTimestamp, current, total } = state
+  const countByStatusCode = map(count, resumeCount).join(EOL) || green(0)
+  const spinnerFrame = spinner.frame()
+  const timestamp = blue(prettyMs(Date.now() - startTimestamp))
+  const url = gray(fetchingUrl)
+  const progress = gray(`${current}/${total}`)
 
-  const resume = map(count, resumeCount).join(os.EOL)
-  const footer = fetchingUrl
-    ? `${os.EOL}${os.EOL}${spinner.frame()}${colorizeLine(fetchingUrl)}`
-    : ''
-  return `${resume}${footer}`
+  return `${countByStatusCode}${EOL}${EOL}${timestamp} ${spinnerFrame}${progress} ${url}`
 }
 
 const renderResume = ({ count, links }) => {
   const info = map(sortByStatusCode(count), (count, statusCode) => {
-    const statusHeader = resumeCount(count, statusCode)
+    const countByStatusCode = resumeCount(count, statusCode)
     const rows = map(
       links[statusCode],
-      ([statusCode, url]) => `${colorizeStatus(statusCode)} ${url}`
-    ).join(os.EOL)
-    return statusHeader + os.EOL + rows + os.EOL
-  }).join(os.EOL)
+      ([statusCode, url]) => `${byStatusCode(statusCode)} ${url}`
+    ).join(EOL)
+    return countByStatusCode + EOL + rows + EOL
+  }).join(EOL)
 
   const total = reduce(count, (acc, count) => acc + count, 0)
 
-  return colorizeLine(`${info}${os.EOL}Total ${total}`)
+  return gray(`${info}${EOL}Total ${total}`)
 }
 
 module.exports = state =>

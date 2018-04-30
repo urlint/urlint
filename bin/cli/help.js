@@ -1,13 +1,9 @@
 'use strict'
 
-const chalk = require('chalk')
-
-const theme = require('../view/theme')
+const { green, gray } = require('../view/colorize')
 const { description } = require('../../package.json')
 
-const green = chalk.hex(theme.green)
-
-module.exports = chalk.gray(`${chalk.gray(description)}
+module.exports = gray(`${gray(description)}
 
   Usage
     $ ${green('urlint')} <url> [<flags>]
