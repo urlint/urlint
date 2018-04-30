@@ -76,7 +76,6 @@ if (isEmpty(cli.input)) {
 
   const urls = await extractUrls(url, opts)
   const emitter = await urlint(urls, opts)
-  console.log()
 
   view({ total: size(urls), emitter, ...opts })
 })()

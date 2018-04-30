@@ -7,13 +7,15 @@ const render = require('./render')
 
 module.exports = ({ total, emitter, quiet, logspeed, ...opts }) => {
   const state = {
+    quiet,
     total,
     current: 0,
     count: {},
     links: {},
     end: false,
     fetchingUrl: '',
-    startTimestamp: Date.now()
+    startTimestamp: Date.now(),
+    timestamp: {}
   }
 
   const neat = neatLog(render, { ...opts, logspeed, state })

@@ -28,7 +28,7 @@ const renderCount = state => {
   const url = gray(fetchingUrl)
   const progress = gray(`${current}/${total}`)
 
-  return `${countByStatusCode}${EOL}${EOL}${timestamp} ${spinnerFrame}${progress} ${url}`
+  return `${EOL}${countByStatusCode}${EOL}${EOL}${timestamp} ${spinnerFrame}${progress} ${url}`
 }
 
 const renderResume = ({ count, links }) => {
@@ -43,10 +43,14 @@ const renderResume = ({ count, links }) => {
 
   const total = reduce(count, (acc, count) => acc + count, 0)
 
-  return gray(`${info}${EOL}Total ${total}`)
+  return gray(`${EOL}${info}${EOL}Total ${total}`)
 }
 
-module.exports = state =>
-  state.end === false ? renderCount(state) : renderResume(state)
+module.exports = state => {
+  if (state.end) return renderResume(state)
+  if (state.quiet) return ''
+  return renderCount(state)
+}
+
 module.exports.count = renderCount
 module.exports.resume = renderResume
