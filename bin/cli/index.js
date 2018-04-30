@@ -3,7 +3,7 @@
 'use strict'
 
 const normalizeUrl = require('normalize-url')
-const { first, isEmpty } = require('lodash')
+const { concat, first, isEmpty } = require('lodash')
 const urlint = require('urlint')
 const isCI = require('is-ci')
 const got = require('got')
@@ -27,7 +27,7 @@ const cli = require('meow')(require('./help'), {
     whitelist: {
       alias: 'w',
       type: 'array',
-      default: []
+      default: false
     },
     concurrence: {
       alias: 'c',
@@ -71,11 +71,12 @@ if (isEmpty(cli.input)) {
   const url = await getUrl(first(cli.input))
 
   const opts = Object.assign({}, cli.flags, {
-    whitelist: [].concat(cli.flags.whitelist)
+    whitelist: cli.flags.whitelist && concat(cli.flags.whitelist)
   })
 
   const urls = await extractUrls(url, opts)
   const emitter = await urlint(urls, opts)
   console.log()
+
   view({ emitter, ...opts })
 })()
