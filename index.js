@@ -12,12 +12,6 @@ const RESPONSE_PROPS = ['redirectUrls', 'url', 'requestUrl', 'statusCode']
 
 const getStatusByGroup = statusCode => `${String(statusCode).charAt(0)}xx`
 
-const getLastError = aggregatedError => {
-  const errors = Array.from(aggregatedError)
-  const error = errors[errors.length - 1]
-  return error
-}
-
 const fetch = async (targetUrl, opts) => {
   let res
   let timestamp
@@ -40,15 +34,17 @@ const fetch = async (targetUrl, opts) => {
     }
   } catch (aggregatedError) {
     timestamp = timestamp()
-    const error = getLastError(aggregatedError)
-    const { url } = error
+    const errors = Array.from(aggregatedError)
+    const { statusCode, url } = errors
+      .map(dnsErrors)
+      .find(error => error.url && error.statusCode)
 
     return {
       url,
       timestamp,
       requestUrl: url,
       redirectUrls: [],
-      statusCode: error.statusCode || dnsErrors(error).statusCode || 500
+      statusCode: statusCode || 500
     }
   }
 }
