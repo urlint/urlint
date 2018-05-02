@@ -1,3 +1,10 @@
+<a name="1.2.1"></a>
+## 1.2.1 (2018-05-02)
+
+* Fix assign default status code ([ef65b87](https://github.com/urlint/urlint/commit/ef65b87))
+
+
+
 <a name="1.2.0"></a>
 # 1.2.0 (2018-05-02)
 
