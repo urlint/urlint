@@ -26,9 +26,11 @@
   ],
   "dependencies": {
     "aigle": "~1.10.1",
+    "dnserrors": "~2.0.3",
+    "lodash.pick": "~4.4.0",
     "mitt": "~1.1.3",
-    "time-span": "~2.0.0",
-    "url-code-status": "~1.0.0"
+    "reachable-url": "~1.0.0",
+    "time-span": "~2.0.0"
   },
   "devDependencies": {
     "ava": "latest",
