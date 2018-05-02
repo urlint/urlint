@@ -1,3 +1,11 @@
+<a name="1.2.0"></a>
+# 1.2.0 (2018-05-02)
+
+* follow redirects support ([5a9a317](https://github.com/urlint/urlint/commit/5a9a317))
+* Improve error handling ([bdad6cb](https://github.com/urlint/urlint/commit/bdad6cb))
+
+
+
 <a name="1.1.0"></a>
 # 1.1.0 (2018-04-30)
 
