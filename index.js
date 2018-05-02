@@ -22,7 +22,9 @@ const fetch = async (targetUrl, opts) => {
     res = await reachableUrl(targetUrl, { ...opts, followRedirect: false })
     timestamp = timestamp()
     statusCode = res.statusCode
-    if (!isRedirect(statusCode)) { return { ...pick(res, RESPONSE_PROPS), timestamp } }
+    if (!isRedirect(statusCode)) {
+      return { ...pick(res, RESPONSE_PROPS), timestamp }
+    }
 
     timestamp = timeSpan()
     res = await reachableUrl(targetUrl, opts)
@@ -35,16 +37,16 @@ const fetch = async (targetUrl, opts) => {
   } catch (aggregatedError) {
     timestamp = timestamp()
     const errors = Array.from(aggregatedError)
-    const { statusCode, url } = errors
+    const { statusCode = 500, url } = errors
       .map(dnsErrors)
-      .find(error => error.url && error.statusCode)
+      .find(error => !!error.url)
 
     return {
       url,
       timestamp,
       requestUrl: url,
       redirectUrls: [],
-      statusCode: statusCode || 500
+      statusCode: statusCode
     }
   }
 }
