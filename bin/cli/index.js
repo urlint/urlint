@@ -2,21 +2,39 @@
 
 'use strict'
 
-const { size, concat, first, isEmpty } = require('lodash')
+const { chain, size, concat, first, isEmpty } = require('lodash')
 const normalizeUrl = require('normalize-url')
+const reachableUrl = require('reachable-url')
+const dnsErrors = require('dnserrors')
+const { STATUS_CODES } = require('http')
 const urlint = require('urlint')
 const isCI = require('is-ci')
-const got = require('got')
 
+const { gray, red } = require('../view/colorize')
 const extractUrls = require('./extract-urls')
-const colorize = require('../view/colorize')
 const pkg = require('../../package.json')
 const view = require('../view')
 
 const getUrl = async input => {
   const normalizedUrl = normalizeUrl(input)
-  const { url } = await got.head(normalizedUrl)
+  const { url } = await reachableUrl(normalizedUrl)
   return url
+}
+
+const messageError = errors => {
+  return chain(errors)
+    .first()
+    .thru(err => {
+      err = dnsErrors(err)
+      const statusCode = err.statusCode || err.status
+      const httpMessage = STATUS_CODES[statusCode]
+      return { ...err, httpMessage, statusCode }
+    })
+    .thru(
+      ({ httpMessage, statusCode, method, url }) =>
+        `${gray(`${httpMessage} (${red(statusCode)}) ${normalizeUrl(url)}`)}`
+    )
+    .value()
 }
 
 require('update-notifier')({ pkg }).notify()
@@ -80,12 +98,10 @@ if (isEmpty(cli.input)) {
     const emitter = await urlint(urls, opts)
 
     view({ total: size(urls), emitter, ...opts })
-  } catch (err) {
-    let message
-    if (err.name && err.message) message = `${err.name}: ${err.message}`
-    else if (err.message) message = err.message
-    else message = err
-    console.log(colorize.red(message))
+  } catch (aggregatedError) {
+    const error = chain(Array.from(aggregatedError))
+    const message = messageError(error)
+    console.log(message)
     process.exit(1)
   }
 })()
