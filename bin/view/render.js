@@ -1,6 +1,6 @@
 'use strict'
 
-const { concat, toNumber, first, chain, map, reduce } = require('lodash')
+const { size, concat, toNumber, first, chain, map, reduce } = require('lodash')
 const prettyMs = require('pretty-ms')
 const { EOL } = require('os')
 
@@ -53,8 +53,13 @@ const renderResume = ({ startTimestamp, count, links }) => {
         const colorizeTimestamp = colorize[colorTimestamp](
           `+${prettyMs(timestamp)}`
         )
-        const urls = concat(requestUrl, redirectUrls).join(' → ')
-        return `${colorizeStatusCode} ${urls} ${colorizeTimestamp}`
+
+        const urls = concat(requestUrl, redirectUrls)
+        const sizeRedirectUrls = size(redirectUrls)
+        const redirects = urls.join(' → ')
+        const nRedirects = sizeRedirectUrls > 0 ? `(${sizeRedirectUrls}) ` : ''
+
+        return `${colorizeStatusCode} ${nRedirects}${redirects} ${colorizeTimestamp}`
       }
     ).join(EOL)
 
