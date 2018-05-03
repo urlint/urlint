@@ -1,6 +1,6 @@
 'use strict'
 
-const { toNumber, first, chain, map, reduce } = require('lodash')
+const { concat, toNumber, first, chain, map, reduce } = require('lodash')
 const prettyMs = require('pretty-ms')
 const { EOL } = require('os')
 
@@ -37,14 +37,26 @@ const renderResume = ({ startTimestamp, count, links }) => {
   const info = map(sortByStatusCode(count), (count, statusCode) => {
     const countByStatusCode = resumeCount(count, statusCode)
 
-    const rows = map(links[statusCode], ([statusCode, url, timestamp]) => {
-      const colorizeStatusCode = byStatusCode(statusCode)
-      const colorTimestamp = getRequestColor(timestamp)
-      const colorizeTimestamp = colorize[colorTimestamp](
-        `+${prettyMs(timestamp)}`
-      )
-      return `${colorizeStatusCode} ${url} ${colorizeTimestamp}`
-    }).join(EOL)
+    const rows = map(
+      links[statusCode],
+      ({
+        redirectStatusCode,
+        statusCode,
+        requestUrl,
+        timestamp,
+        redirectUrls
+      }) => {
+        const colorizeStatusCode = byStatusCode(
+          redirectStatusCode || statusCode
+        )
+        const colorTimestamp = getRequestColor(timestamp)
+        const colorizeTimestamp = colorize[colorTimestamp](
+          `+${prettyMs(timestamp)}`
+        )
+        const urls = concat(requestUrl, redirectUrls).join(' → ')
+        return `${colorizeStatusCode} ${urls} ${colorizeTimestamp}`
+      }
+    ).join(EOL)
 
     return countByStatusCode + EOL + rows + EOL
   }).join(EOL)

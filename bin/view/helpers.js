@@ -1,28 +1,30 @@
 'use strict'
 
-const { isEqual, includes, keys, size, isNil } = require('lodash')
+const { includes, chain, isEmpty, isNil } = require('lodash')
+
+const VALID_STATUS_CODES = ['2xx', '3xx']
 
 const setState = (state, data) => {
   const { statusCodeGroup } = data
 
   const status = state.count[statusCodeGroup]
   const linkStatus = state.links[statusCodeGroup]
-  const linkItem = [data.statusCode, data.url, data.timestamp]
+
   const count = { [statusCodeGroup]: isNil(status) ? 1 : status + 1 }
   const links = {
-    [statusCodeGroup]: isNil(linkStatus)
-      ? [linkItem]
-      : linkStatus.concat([linkItem])
+    [statusCodeGroup]: isNil(linkStatus) ? [data] : linkStatus.concat(data)
   }
 
   return { count, links }
 }
 
 const processExit = data => {
-  const statusCodes = keys(data)
-  const isOnly2xx =
-    includes(statusCodes, '2xx') && isEqual(size(statusCodes), 1)
-  process.exit(isOnly2xx ? 0 : 1)
+  const statusCodes = chain(data)
+    .keys()
+    .remove(statusCode => !includes(VALID_STATUS_CODES, statusCode))
+    .value()
+
+  process.exit(isEmpty(statusCodes) ? 0 : 1)
 }
 
 module.exports = {

@@ -5,8 +5,8 @@
 const { chain, size, concat, first, isEmpty } = require('lodash')
 const normalizeUrl = require('normalize-url')
 const reachableUrl = require('reachable-url')
-const dnsErrors = require('dnserrors')
 const { STATUS_CODES } = require('http')
+const dnsErrors = require('dnserrors')
 const urlint = require('urlint')
 const isCI = require('is-ci')
 
