@@ -1,3 +1,11 @@
+<a name="1.2.0"></a>
+# 1.2.0 (2018-05-03)
+
+* Exit successful under non 2xx and 3xx status codes ([36b6c8f](https://github.com/urlint/urlint-cli/commit/36b6c8f))
+* Improve error feedback ([f032e00](https://github.com/urlint/urlint-cli/commit/f032e00))
+
+
+
 <a name="1.1.1"></a>
 ## 1.1.1 (2018-04-30)
 
