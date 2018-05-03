@@ -1,3 +1,10 @@
+<a name="1.2.1"></a>
+## 1.2.1 (2018-05-03)
+
+* Add feedback about number of redirects ([deea5c4](https://github.com/urlint/urlint-cli/commit/deea5c4))
+
+
+
 <a name="1.2.0"></a>
 # 1.2.0 (2018-05-03)
 

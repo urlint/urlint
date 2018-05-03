@@ -2,7 +2,7 @@
   "name": "urlint-cli",
   "description": "Check the availability of your links.",
   "homepage": "https://documentup.com/urlint/urlint-cli",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "main": "index.js",
   "bin": {
     "urlint": "./bin/cli/index.js"
