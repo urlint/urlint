@@ -33,6 +33,7 @@
   ],
   "dependencies": {
     "@metascraper/helpers": "~3.10.7",
+    "aggregate-error": "~1.0.0",
     "chalk": "~2.4.1",
     "dnserrors": "~2.0.3",
     "got": "~8.3.0",
@@ -40,7 +41,7 @@
     "is-ci": "~1.1.0",
     "lodash": "~4.17.10",
     "meow": "~5.0.0",
-    "neat-log": "~2.2.0",
+    "neat-log": "~2.3.0",
     "normalize-url": "~2.0.1",
     "ora": "~2.1.0",
     "pretty-ms": "~3.1.0",

@@ -1,13 +1,36 @@
 'use strict'
 
+const { isNil, includes, isEmpty, first, toNumber, chain } = require('lodash')
 const neatLog = require('neat-log')
 
-const { processExit, setState } = require('./helpers')
+const { SUCCESS_STATUS_CODES } = require('./constant')
 const render = require('./render')
 
-module.exports = ({ total, emitter, quiet, logspeed, ...opts }) => {
+const setState = (state, data) => {
+  const { statusCodeGroup } = data
+
+  const status = state.count[statusCodeGroup]
+  const linkStatus = state.links[statusCodeGroup]
+
+  const count = { [statusCodeGroup]: isNil(status) ? 1 : status + 1 }
+  const links = {
+    [statusCodeGroup]: isNil(linkStatus) ? [data] : linkStatus.concat(data)
+  }
+
+  return { count, links }
+}
+
+const sortByStatusCode = data =>
+  chain(data)
+    .toPairs()
+    .sortBy(pair => toNumber(first(pair).charAt(0)))
+    .fromPairs()
+    .value()
+
+module.exports = ({ total, emitter, quiet, verbose, logspeed, ...opts }) => {
   const state = {
     quiet,
+    verbose,
     total,
     current: 0,
     count: {},
@@ -15,7 +38,8 @@ module.exports = ({ total, emitter, quiet, logspeed, ...opts }) => {
     end: false,
     fetchingUrl: '',
     startTimestamp: Date.now(),
-    timestamp: {}
+    timestamp: {},
+    exitCode: null
   }
 
   const neat = neatLog(render, { ...opts, logspeed, state })
@@ -23,21 +47,29 @@ module.exports = ({ total, emitter, quiet, logspeed, ...opts }) => {
   neat.use((state, bus) => {
     emitter.on('status', data => {
       const newState = setState(state, data)
-      state.count = { ...state.count, ...newState.count }
+      state.count = sortByStatusCode({ ...state.count, ...newState.count })
       state.links = { ...state.links, ...newState.links }
     })
 
-    emitter.on('fetching', ({ url }) => {
-      state.fetchingUrl = url
+    emitter.on('fetching', data => {
+      state.fetchingUrl = data.url
       ++state.current
     })
 
     emitter.on('end', data => {
       state.end = true
-      neat.render()
-      processExit(data)
+
+      const errorCodes = chain(data)
+        .keys()
+        .remove(statusCode => !includes(SUCCESS_STATUS_CODES, statusCode))
+        .value()
+
+      state.exitCode = isEmpty(errorCodes) ? 0 : 1
     })
 
-    setInterval(() => bus.emit('render'), logspeed)
+    setInterval(() => {
+      bus.emit('render')
+      if (state.exitCode) process.exit(state.exitCode)
+    }, logspeed)
   })
 }

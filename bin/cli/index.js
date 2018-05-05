@@ -3,6 +3,7 @@
 'use strict'
 
 const { chain, size, concat, first, isEmpty } = require('lodash')
+const AggregateError = require('aggregate-error')
 const normalizeUrl = require('normalize-url')
 const reachableUrl = require('reachable-url')
 const { STATUS_CODES } = require('http')
@@ -21,19 +22,21 @@ const getUrl = async input => {
   return url
 }
 
-const messageError = errors => {
+const messageError = ({ errors, url: originalUrl }) => {
   return chain(errors)
     .first()
     .thru(err => {
-      err = dnsErrors(err)
+      err = Object.assign({}, err, dnsErrors(err))
+      const url = err.url || originalUrl
       const statusCode = err.statusCode || err.status
-      const httpMessage = STATUS_CODES[statusCode]
-      return { ...err, httpMessage, statusCode }
+      const httpMessage = STATUS_CODES[statusCode] || 'Error'
+      return { ...err, httpMessage, statusCode, url }
     })
-    .thru(
-      ({ httpMessage, statusCode, method, url }) =>
-        `${gray(`${httpMessage} (${red(statusCode)}) ${normalizeUrl(url)}`)}`
-    )
+    .thru(({ httpMessage, statusCode, method, url }) => {
+      const status = statusCode ? `(${red(statusCode)}) ` : ''
+      const message = status ? gray(httpMessage) : red(httpMessage)
+      return `${gray(`${message} ${status}${normalizeUrl(url)}`)}`
+    })
     .value()
 }
 
@@ -51,7 +54,12 @@ const cli = require('meow')(require('./help'), {
     concurrence: {
       alias: 'c',
       type: 'number',
-      default: 30
+      default: 8
+    },
+    verbose: {
+      alias: 'v',
+      type: 'boolean',
+      default: false
     },
     quiet: {
       alias: 'q',
@@ -86,9 +94,11 @@ if (isEmpty(cli.input)) {
   process.exit()
 }
 
+let url
 ;(async () => {
   try {
-    const url = await getUrl(first(cli.input))
+    url = first(cli.input)
+    url = await getUrl(url)
 
     const opts = Object.assign({}, cli.flags, {
       whitelist: cli.flags.whitelist && concat(cli.flags.whitelist)
@@ -98,9 +108,9 @@ if (isEmpty(cli.input)) {
     const emitter = await urlint(urls, opts)
 
     view({ total: size(urls), emitter, ...opts })
-  } catch (aggregatedError) {
-    const error = chain(Array.from(aggregatedError))
-    const message = messageError(error)
+  } catch (error) {
+    const errors = error instanceof AggregateError ? Array.from(error) : [error]
+    const message = messageError({ errors, url })
     console.log(message)
     process.exit(1)
   }
