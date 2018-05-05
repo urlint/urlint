@@ -1,3 +1,12 @@
+<a name="1.3.0"></a>
+# 1.3.0 (2018-05-05)
+
+* Add selector support ([e49857b](https://github.com/urlint/urlint-cli/commit/e49857b))
+* Add verbose mode ([27ddf73](https://github.com/urlint/urlint-cli/commit/27ddf73))
+* Update deps ([7ba08d1](https://github.com/urlint/urlint-cli/commit/7ba08d1))
+
+
+
 <a name="1.2.1"></a>
 ## 1.2.1 (2018-05-03)
 
