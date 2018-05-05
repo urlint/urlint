@@ -35,6 +35,7 @@
     "@metascraper/helpers": "~3.10.7",
     "aggregate-error": "~1.0.0",
     "chalk": "~2.4.1",
+    "cheerio": "~1.0.0-rc.2",
     "dnserrors": "~2.0.3",
     "got": "~8.3.0",
     "html-urls": "~1.0.5",

@@ -14,6 +14,7 @@ module.exports = gray(`${gray(description)}
     -h, --help            Show the help information
     -q, --quiet           Show only the resume (defaults to false)
     -r, --retries         Number of request retries when network errors happens (defaults to 2)
+    -s, --selector        Only detects URLs inside the selector
     -t, --timeout         Milliseconds to wait before consider a timeout response
     -v, --verbose         Enable verbose output (defaults to false)
     -v, --version         Output the version number
@@ -30,6 +31,7 @@ module.exports = gray(`${gray(description)}
   )} https://kikobeats.com --whitelist https://www.linkedin.com/in/kikobeats
 
   – Exclude based in a matcher
-    $ ${green(
-    'urlint'
-  )} https://kikobeats.com --whitelist "https://github.com*`)
+    $ ${green('urlint')} https://kikobeats.com --whitelist "https://github.com*
+
+  – Just detect URLs inside body selector
+    $ ${green('urlint')} https://kikobeats.com --selector body`)

@@ -56,6 +56,10 @@ const cli = require('meow')(require('./help'), {
       type: 'number',
       default: 8
     },
+    selector: {
+      alias: 's',
+      type: 'string'
+    },
     verbose: {
       alias: 'v',
       type: 'boolean',

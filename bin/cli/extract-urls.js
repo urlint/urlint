@@ -5,12 +5,15 @@ const normalizeUrl = require('normalize-url')
 const getUrlsFromHtml = require('html-urls')
 const { map, reduce } = require('lodash')
 const fromXML = require('xml-urls')
+const cheerio = require('cheerio')
 const got = require('got')
 
 const { isXmlUrl } = fromXML
 
-const fromHTML = async (url, opts) => {
-  const { body: html } = await got(url, opts)
+const fromHTML = async (url, { selector, ...opts }) => {
+  const { body: rawHtml } = await got(url, opts)
+  const $ = cheerio.load(rawHtml)
+  const html = selector ? $(selector).html() : rawHtml
   const urls = await getUrlsFromHtml({ url, html, ...opts })
   return map(urls, 'normalizeUrl')
 }
