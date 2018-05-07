@@ -67,19 +67,17 @@ const renderLinks = ({ count, links }, { omitErrors = false } = {}) => {
 const renderCount = state => {
   const { count, end } = state
 
-  const total = end ? renderTotal(state) : renderProgress(state)
-
   const header = (() => {
     if (!size(count)) return ''
     const statusCodes = end ? pick(count, SUCCESS_STATUS_CODES) : count
     const statusCodesByCount = map(statusCodes, resumeCount).join(EOL)
-    return `${EOL}${statusCodesByCount}${EOL}`
+    return `${EOL}${statusCodesByCount}${EOL}${EOL}`
   })()
 
-  const footer = `${EOL}${total}`
-  const links = end ? `${EOL}${renderLinks(state, { omitErrors: true })}` : ''
+  const links = end ? `${renderLinks(state, { omitErrors: true })}` : ''
+  const footer = end ? renderTotal(state) : renderProgress(state)
 
-  return `${header}${links}${footer}`
+  return `${header}${links}${footer}${EOL}`
 }
 
 const renderResume = state => {

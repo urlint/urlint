@@ -69,7 +69,7 @@ module.exports = ({ total, emitter, quiet, verbose, logspeed, ...opts }) => {
 
     setInterval(() => {
       bus.emit('render')
-      if (state.exitCode) process.exit(state.exitCode)
+      if (!isNil(state.exitCode)) process.exit(state.exitCode)
     }, logspeed)
   })
 }
