@@ -1,3 +1,10 @@
+<a name="1.3.1"></a>
+## 1.3.1 (2018-05-07)
+
+* Fix exit properly under non errors ([36c218e](https://github.com/urlint/urlint-cli/commit/36c218e))
+
+
+
 <a name="1.3.0"></a>
 # 1.3.0 (2018-05-05)
 
