@@ -2,17 +2,15 @@
 
 'use strict'
 
-const { chain, size, concat, first, isEmpty } = require('lodash')
+const { size, concat, first, isEmpty } = require('lodash')
 const AggregateError = require('aggregate-error')
 const normalizeUrl = require('normalize-url')
 const reachableUrl = require('reachable-url')
-const { STATUS_CODES } = require('http')
-const dnsErrors = require('dnserrors')
 const urlint = require('urlint')
 const isCI = require('is-ci')
 
-const { gray, red } = require('../view/colorize')
 const extractUrls = require('./extract-urls')
+const renderError = require('./render-error')
 const pkg = require('../../package.json')
 const view = require('../view')
 
@@ -20,24 +18,6 @@ const getUrl = async input => {
   const normalizedUrl = normalizeUrl(input)
   const { url } = await reachableUrl(normalizedUrl)
   return url
-}
-
-const messageError = ({ errors, url: originalUrl }) => {
-  return chain(errors)
-    .first()
-    .thru(err => {
-      err = Object.assign({}, err, dnsErrors(err))
-      const url = err.url || originalUrl
-      const statusCode = err.statusCode || err.status
-      const httpMessage = STATUS_CODES[statusCode] || 'Error'
-      return { ...err, httpMessage, statusCode, url }
-    })
-    .thru(({ httpMessage, statusCode, method, url }) => {
-      const status = statusCode ? `(${red(statusCode)}) ` : ''
-      const message = status ? gray(httpMessage) : red(httpMessage)
-      return `${gray(`${message} ${status}${normalizeUrl(url)}`)}`
-    })
-    .value()
 }
 
 require('update-notifier')({ pkg }).notify()
@@ -112,10 +92,15 @@ let url
     const emitter = await urlint(urls, opts)
 
     view({ total: size(urls), emitter, ...opts })
-  } catch (error) {
-    const errors = error instanceof AggregateError ? Array.from(error) : [error]
-    const message = messageError({ errors, url })
-    console.log(message)
+  } catch (genericError) {
+    const errors =
+      genericError instanceof AggregateError
+        ? Array.from(genericError)
+        : [genericError]
+    const error = first(errors)
+    const prettyError = renderError(error)
+
+    console.log(prettyError)
     process.exit(1)
   }
 })()
