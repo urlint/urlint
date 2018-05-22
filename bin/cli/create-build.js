@@ -22,4 +22,7 @@ const noopBuild = {
   error: () => {}
 }
 
-module.exports = () => (!token ? noopBuild : new Build(meta))
+module.exports = () => {
+  console.log('token loaded?', !!token)
+  return !token ? noopBuild : new Build(meta)
+}

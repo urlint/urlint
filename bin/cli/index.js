@@ -79,6 +79,7 @@ if (isEmpty(cli.input)) {
     const build = createBuild()
 
     onExit(async (code, signal) => {
+      console.log('exiting with code', code)
       if (code === 0) await build.pass()
       if (code === 1) await build.fail()
       await build.error()
@@ -88,7 +89,7 @@ if (isEmpty(cli.input)) {
       whitelist: cli.flags.whitelist && concat(cli.flags.whitelist)
     })
 
-    build.start()
+    await build.start()
     const urls = await extractUrls(url, opts)
     const emitter = await urlint(urls, opts)
     view({ total: size(urls), emitter, ...opts })
