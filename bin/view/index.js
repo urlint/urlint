@@ -4,6 +4,7 @@ const { isNil, includes, isEmpty, first, toNumber, chain } = require('lodash')
 const neatLog = require('neat-log')
 
 const { SUCCESS_STATUS_CODES } = require('./constant')
+const build = require('../cli/build')
 const render = require('./render')
 
 const setState = (state, data) => {
@@ -67,9 +68,11 @@ module.exports = ({ total, emitter, quiet, verbose, logspeed, ...opts }) => {
       state.exitCode = isEmpty(errorCodes) ? 0 : 1
     })
 
-    setInterval(() => {
+    setInterval(async () => {
       bus.emit('render')
-      if (!isNil(state.exitCode)) process.exit(state.exitCode)
+      if (!isNil(state.exitCode)) {
+        await build.exit({ buildCode: state.exitCode })
+      }
     }, logspeed)
   })
 }
