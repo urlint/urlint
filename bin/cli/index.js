@@ -3,16 +3,15 @@
 'use strict'
 
 const { size, concat, isEmpty } = require('lodash')
-const onExit = require('signal-exit')
 const urlint = require('urlint')
 const isCI = require('is-ci')
 
 const extractUrls = require('./extract-urls')
 const renderError = require('./render-error')
-const createBuild = require('./create-build')
 const pkg = require('../../package.json')
 const getError = require('./get-error')
 const getUrl = require('./get-url')
+const build = require('./build')
 const view = require('../view')
 
 require('update-notifier')({ pkg }).notify()
@@ -67,24 +66,14 @@ const cli = require('meow')(require('./help'), {
     }
   }
 })
-
-if (isEmpty(cli.input)) {
-  cli.showHelp()
-  process.exit()
-}
-
 ;(async () => {
   try {
+    if (isEmpty(cli.input)) {
+      cli.showHelp()
+      await build.exit({ buildCode: 1, exitCode: 0 })
+    }
+
     const url = await getUrl(cli)
-    const build = createBuild()
-
-    onExit(async (code, signal) => {
-      console.log('exiting with code', code)
-      if (code === 0) await build.pass()
-      if (code === 1) await build.fail()
-      await build.error()
-    })
-
     const opts = Object.assign({}, cli.flags, {
       whitelist: cli.flags.whitelist && concat(cli.flags.whitelist)
     })
@@ -97,6 +86,6 @@ if (isEmpty(cli.input)) {
     const error = getError(genericError)
     const prettyError = renderError(error)
     console.log(prettyError)
-    process.exit(1)
+    await build.exit({ buildCode: 1, exitCode: 1 })
   }
 })()
