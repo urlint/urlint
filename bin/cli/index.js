@@ -2,23 +2,18 @@
 
 'use strict'
 
-const { size, concat, first, isEmpty } = require('lodash')
-const AggregateError = require('aggregate-error')
-const normalizeUrl = require('normalize-url')
-const reachableUrl = require('reachable-url')
+const { size, concat, isEmpty } = require('lodash')
+const onExit = require('signal-exit')
 const urlint = require('urlint')
 const isCI = require('is-ci')
 
 const extractUrls = require('./extract-urls')
 const renderError = require('./render-error')
+const createBuild = require('./create-build')
 const pkg = require('../../package.json')
+const getError = require('./get-error')
+const getUrl = require('./get-url')
 const view = require('../view')
-
-const getUrl = async input => {
-  const normalizedUrl = normalizeUrl(input)
-  const { url } = await reachableUrl(normalizedUrl)
-  return url
-}
 
 require('update-notifier')({ pkg }).notify()
 
@@ -78,28 +73,28 @@ if (isEmpty(cli.input)) {
   process.exit()
 }
 
-let url
 ;(async () => {
   try {
-    url = first(cli.input)
-    url = await getUrl(url)
+    const url = await getUrl(cli)
+    const build = createBuild()
+
+    onExit(async (code, signal) => {
+      if (code === 0) await build.pass()
+      if (code === 1) await build.fail()
+      await build.error()
+    })
 
     const opts = Object.assign({}, cli.flags, {
       whitelist: cli.flags.whitelist && concat(cli.flags.whitelist)
     })
 
+    build.start()
     const urls = await extractUrls(url, opts)
     const emitter = await urlint(urls, opts)
-
     view({ total: size(urls), emitter, ...opts })
   } catch (genericError) {
-    const errors =
-      genericError instanceof AggregateError
-        ? Array.from(genericError)
-        : [genericError]
-    const error = first(errors)
+    const error = getError(genericError)
     const prettyError = renderError(error)
-
     console.log(prettyError)
     process.exit(1)
   }
