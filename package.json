@@ -49,7 +49,7 @@
     "pretty-ms": "~3.1.0",
     "reachable-url": "~1.0.1",
     "update-notifier": "~2.5.0",
-    "urlint": "~1.2.1",
+    "urlint": "~1.4.1",
     "xml-urls": "~1.0.1"
   },
   "devDependencies": {
