@@ -1,3 +1,10 @@
+<a name="1.4.2"></a>
+## 1.4.2 (2018-05-23)
+
+* Update dependency name ([4de7bf5](https://github.com/urlint/urlint/commit/4de7bf5))
+
+
+
 <a name="1.4.1"></a>
 ## 1.4.1 (2018-05-23)
 
