@@ -1,7 +1,7 @@
 {
-  "name": "urlint",
+  "name": "@urlint/core",
   "description": "Get all the links behind an url and classify them based on HTTP status code.",
-  "homepage": "https://documentup.com/urlint/urlint",
+  "homepage": "https://documentup.com/@urlint/core",
   "version": "1.2.1",
   "main": "index.js",
   "author": {
@@ -11,10 +11,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/urlint/urlint.git"
+    "url": "git+https://github.com/urlint/core.git"
   },
   "bugs": {
-    "url": "https://github.com/urlint/urlint/issues"
+    "url": "https://github.com/urlint/core/issues"
   },
   "keywords": [
     "classify",

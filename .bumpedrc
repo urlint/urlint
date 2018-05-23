@@ -18,4 +18,4 @@ plugins:
       command: 'git tag $newVersion && git push && git push --tags'
     Publishing to NPM:
       plugin: bumped-terminal
-      command: npm publish
+      command: npm publish --public

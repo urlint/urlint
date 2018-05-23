@@ -1,10 +1,10 @@
-# urlint
+# urlint-core
 
-![Last version](https://img.shields.io/github/tag/urlint/urlint.svg?style=flat-square)
-[![Build Status](https://img.shields.io/travis/urlint/urlint/master.svg?style=flat-square)](https://travis-ci.org/urlint/urlint)
-[![Coverage Status](https://img.shields.io/coveralls/urlint/urlint.svg?style=flat-square)](https://coveralls.io/github/urlint/urlint)
-[![Dependency status](https://img.shields.io/david/urlint/urlint.svg?style=flat-square)](https://david-dm.org/urlint/urlint)
-[![Dev Dependencies Status](https://img.shields.io/david/dev/urlint/urlint.svg?style=flat-square)](https://david-dm.org/urlint/urlint#info=devDependencies)
+![Last version](https://img.shields.io/github/tag/urlint/urlint-core.svg?style=flat-square)
+[![Build Status](https://img.shields.io/travis/urlint/urlint-core/master.svg?style=flat-square)](https://travis-ci.org/urlint/urlint-core)
+[![Coverage Status](https://img.shields.io/coveralls/urlint/urlint-core.svg?style=flat-square)](https://coveralls.io/github/urlint/urlint-core)
+[![Dependency status](https://img.shields.io/david/urlint/urlint-core.svg?style=flat-square)](https://david-dm.org/urlint/urlint-core)
+[![Dev Dependencies Status](https://img.shields.io/david/dev/urlint/urlint-core.svg?style=flat-square)](https://david-dm.org/urlint/urlint-core#info=devDependencies)
 [![NPM Status](https://img.shields.io/npm/dm/urlint.svg?style=flat-square)](https://www.npmjs.org/package/urlint)
 [![Donate](https://img.shields.io/badge/donate-paypal-blue.svg?style=flat-square)](https://paypal.me/Kikobeats)
 
@@ -13,7 +13,7 @@
 ## Install
 
 ```bash
-$ npm install urlint --save
+$ npm install @urlint/core --save
 ```
 
 ## Usage
@@ -55,7 +55,7 @@ The number of urls that can be resolved in parallel.
 
 ## License
 
-**urlint** © [Kiko Beats](https://kikobeats.com), released under the [MIT](https://github.com/urlint/urlint/blob/master/LICENSE.md) License.<br>
-Authored and maintained by Kiko Beats with help from [contributors](https://github.com/urlint/urlint/contributors).
+**urlint** © [Kiko Beats](https://kikobeats.com), released under the [MIT](https://github.com/urlint/urlint-core/blob/master/LICENSE.md) License.<br>
+Authored and maintained by Kiko Beats with help from [contributors](https://github.com/urlint/urlint-core/contributors).
 
 > [kikobeats.com](https://kikobeats.com) · GitHub [@Kiko Beats](https://github.com/Kikobeats) · Twitter [@Kikobeats](https://twitter.com/Kikobeats)
