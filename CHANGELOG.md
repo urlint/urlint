@@ -1,3 +1,15 @@
+<a name="1.4.0"></a>
+# 1.4.0 (2018-05-23)
+
+* Add Travis build url ([09a6c3a](https://github.com/urlint/urlint-cli/commit/09a6c3a))
+* debug ([850299e](https://github.com/urlint/urlint-cli/commit/850299e))
+* Remove unnecessary dependency ([fa8fb69](https://github.com/urlint/urlint-cli/commit/fa8fb69))
+* Simplify exit workflow ([f4c25e1](https://github.com/urlint/urlint-cli/commit/f4c25e1))
+* Support CI integration ([677d829](https://github.com/urlint/urlint-cli/commit/677d829))
+* Update deps ([d2c9b29](https://github.com/urlint/urlint-cli/commit/d2c9b29))
+
+
+
 <a name="1.3.2"></a>
 ## 1.3.2 (2018-05-09)
 
