@@ -4,7 +4,7 @@
 
 const { size, concat, isEmpty } = require('lodash')
 const { ci: isCI } = require('ci-env')
-const urlint = require('urlint')
+const urlint = require('@urlint/core')
 
 const extractUrls = require('./extract-urls')
 const renderError = require('./render-error')

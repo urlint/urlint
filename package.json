@@ -33,6 +33,7 @@
   ],
   "dependencies": {
     "@metascraper/helpers": "~3.10.8",
+    "@urlint/core": "~1.2.1",
     "chalk": "~2.4.1",
     "cheerio": "~1.0.0-rc.2",
     "ci-env": "~1.6.1",
@@ -49,7 +50,6 @@
     "pretty-ms": "~3.1.0",
     "reachable-url": "~1.0.1",
     "update-notifier": "~2.5.0",
-    "urlint": "~1.2.1",
     "xml-urls": "~1.0.1"
   },
   "devDependencies": {
