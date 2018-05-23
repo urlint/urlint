@@ -1,7 +1,7 @@
 {
-  "name": "urlint-cli",
+  "name": "urlint",
   "description": "Check the availability of your links.",
-  "homepage": "https://documentup.com/urlint/urlint-cli",
+  "homepage": "https://urlint.co",
   "version": "1.4.0",
   "main": "index.js",
   "bin": {
@@ -14,10 +14,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/urlint/urlint-cli.git"
+    "url": "git+https://github.com/urlint/urlint.git"
   },
   "bugs": {
-    "url": "https://github.com/urlint/urlint-cli/issues"
+    "url": "https://github.com/urlint/urlint/issues"
   },
   "keywords": [
     "classify",
