@@ -1,3 +1,11 @@
+<a name="1.4.1"></a>
+## 1.4.1 (2018-05-23)
+
+* Rename ([1cf1748](https://github.com/urlint/urlint/commit/1cf1748))
+* Update deps ([e58116a](https://github.com/urlint/urlint/commit/e58116a))
+
+
+
 <a name="1.4.0"></a>
 # 1.4.0 (2018-05-23)
 
