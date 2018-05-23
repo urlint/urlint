@@ -2,7 +2,7 @@
 
 const Build = require('github-build')
 
-const { repo, sha } = require('ci-env')
+const { buildUrl, repo, sha } = require('ci-env')
 
 const MESSAGE = {
   START: 'Checking URLs availability…',
@@ -22,15 +22,13 @@ const token =
   process.env.urlint_github_token ||
   process.env.URLINT_GITHUB_TOKEN
 
-const url = `https://travis-ci.org/${repo}/builds/${process.env.TRAVIS_JOB_ID}`
-
 const meta = {
   repo,
   sha,
   token,
   label: 'urlint',
   description: MESSAGE.START,
-  url
+  url: buildUrl
 }
 
 const noopBuild = {
