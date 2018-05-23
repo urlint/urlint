@@ -3,8 +3,8 @@
 'use strict'
 
 const { size, concat, isEmpty } = require('lodash')
+const { ci: isCI } = require('ci-env')
 const urlint = require('urlint')
-const isCI = require('is-ci')
 
 const extractUrls = require('./extract-urls')
 const renderError = require('./render-error')
