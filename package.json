@@ -47,7 +47,7 @@
     "normalize-url": "~2.0.1",
     "ora": "~2.1.0",
     "pretty-error": "~2.1.1",
-    "pretty-ms": "~3.1.0",
+    "pretty-ms": "~3.2.0",
     "reachable-url": "~1.0.1",
     "update-notifier": "~2.5.0",
     "xml-urls": "~1.0.1"
