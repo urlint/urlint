@@ -1,3 +1,13 @@
+<a name="1.4.3"></a>
+## 1.4.3 (2018-05-29)
+
+* Fix CI check ([b5a90a1](https://github.com/urlint/urlint/commit/b5a90a1))
+* fix(package): update @metascraper/helpers to version 3.11.4 ([c219c82](https://github.com/urlint/urlint/commit/c219c82))
+* fix(package): update normalize-url to version 3.0.0 ([374021e](https://github.com/urlint/urlint/commit/374021e))
+* fix(package): update pretty-ms to version 3.2.0 ([828ba52](https://github.com/urlint/urlint/commit/828ba52))
+
+
+
 <a name="1.4.2"></a>
 ## 1.4.2 (2018-05-23)
 
