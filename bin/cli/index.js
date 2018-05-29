@@ -3,7 +3,7 @@
 'use strict'
 
 const { size, concat, isEmpty } = require('lodash')
-const { ci: isCI } = require('ci-env')
+const { ci } = require('ci-env')
 const urlint = require('@urlint/core')
 
 const extractUrls = require('./extract-urls')
@@ -42,7 +42,7 @@ const cli = require('meow')(require('./help'), {
     quiet: {
       alias: 'q',
       type: 'boolean',
-      default: isCI
+      default: !isEmpty(ci)
     },
     followRedirect: {
       alias: 'f',
