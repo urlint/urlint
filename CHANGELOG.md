@@ -1,3 +1,10 @@
+<a name="1.4.4"></a>
+## 1.4.4 (2018-05-30)
+
+* Improve url detection ([64f668a](https://github.com/urlint/urlint/commit/64f668a))
+
+
+
 <a name="1.4.3"></a>
 ## 1.4.3 (2018-05-29)
 
