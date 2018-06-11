@@ -1,5 +1,5 @@
 <h1 align="center">
-  <img src="https://rawgit.com/urlint/www/master/static/images/preview.png" alt="urlint">
+  <img src="https://urlint.co/static/images/preview.jpg" alt="urlint">
 </h1>
 
 ![Last version](https://img.shields.io/github/tag/urlint/urlint.svg?style=flat-square)
