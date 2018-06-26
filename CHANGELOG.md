@@ -1,3 +1,11 @@
+<a name="1.5.0"></a>
+# 1.5.0 (2018-06-26)
+
+* Add load config from file ([5b52b63](https://github.com/urlint/urlint/commit/5b52b63)), closes [#40](https://github.com/urlint/urlint/issues/40)
+* Update README.md ([0837525](https://github.com/urlint/urlint/commit/0837525))
+
+
+
 <a name="1.4.4"></a>
 ## 1.4.4 (2018-05-30)
 
