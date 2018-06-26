@@ -5,8 +5,8 @@
 const cosmiconfig = require('cosmiconfig')('urlint')
 
 const { first, size, concat, isEmpty } = require('lodash')
-const { ci } = require('ci-env')
 const urlint = require('@urlint/core')
+const { ci } = require('ci-env')
 
 const extractUrls = require('./extract-urls')
 const renderError = require('./render-error')
@@ -55,6 +55,11 @@ const cli = require('meow')(require('./help'), {
       type: 'number',
       default: 100
     },
+    prerender: {
+      alias: 'p',
+      type: 'boolean',
+      default: 'auto'
+    },
     timeout: {
       alias: 't',
       type: 'number',
@@ -68,7 +73,7 @@ const cli = require('meow')(require('./help'), {
   }
 })
 ;(async () => {
-  const { config } = (await cosmiconfig.search()) || {}
+  const { config = {} } = (await cosmiconfig.search()) || {}
   const input = config.url || first(cli.input)
 
   try {

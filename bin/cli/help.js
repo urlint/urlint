@@ -16,8 +16,8 @@ module.exports = gray(`${gray(description)}
     -r, --retries         Number of request retries when network errors happens (defaults to 2)
     -s, --selector        Only detects URLs inside the selector
     -t, --timeout         Milliseconds to wait before consider a timeout response
+    -p, --prerender       Enable or disable prerendering for getting HTML markup (defaults to auto)
     -v, --verbose         Enable verbose output (defaults to false)
-    -v, --version         Output the version number
     -w, --whitelist       Add one or multiple url pattern to ignore
 
   Examples
