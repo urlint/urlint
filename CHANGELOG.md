@@ -1,3 +1,10 @@
+<a name="1.6.0"></a>
+# 1.6.0 (2018-06-26)
+
+* Add prerender support ([7a7adbe](https://github.com/urlint/urlint/commit/7a7adbe)), closes [#41](https://github.com/urlint/urlint/issues/41)
+
+
+
 <a name="1.5.0"></a>
 # 1.5.0 (2018-06-26)
 
