@@ -2,7 +2,9 @@
 
 'use strict'
 
-const { size, concat, isEmpty } = require('lodash')
+const cosmiconfig = require('cosmiconfig')('urlint')
+
+const { first, size, concat, isEmpty } = require('lodash')
 const { ci } = require('ci-env')
 const urlint = require('@urlint/core')
 
@@ -22,8 +24,7 @@ const cli = require('meow')(require('./help'), {
   flags: {
     whitelist: {
       alias: 'w',
-      type: 'array',
-      default: false
+      type: 'array'
     },
     concurrence: {
       alias: 'c',
@@ -67,16 +68,21 @@ const cli = require('meow')(require('./help'), {
   }
 })
 ;(async () => {
+  const { config } = (await cosmiconfig.search()) || {}
+  const input = config.url || first(cli.input)
+
   try {
-    if (isEmpty(cli.input)) {
+    if (isEmpty(input)) {
       cli.showHelp()
       await build.exit({ buildCode: 1, exitCode: 0 })
     }
 
-    const url = await getUrl(cli)
-    const opts = Object.assign({}, cli.flags, {
-      whitelist: cli.flags.whitelist && concat(cli.flags.whitelist)
-    })
+    const flags = { ...config, ...cli.flags }
+    const url = await getUrl(input)
+    const opts = {
+      ...flags,
+      whitelist: flags.whitelist && concat(flags.whitelist)
+    }
 
     await build.start()
     const urls = await extractUrls(url, opts)

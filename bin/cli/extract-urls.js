@@ -9,11 +9,12 @@ const got = require('got')
 const { isXmlUrl } = fromXML
 
 const fromHTML = async (url, { selector, ...opts }) => {
+  // TODO: Add prerender support
   const { body: rawHtml } = await got(url, opts)
   const $ = cheerio.load(rawHtml)
   const html = selector ? $(selector).html() : rawHtml
   const urls = await getUrlsFromHtml({ url, html, ...opts })
-  return map(urls, 'normalizeUrl')
+  return map(urls, 'normalizedUrl')
 }
 
 module.exports = (url, opts) => {
