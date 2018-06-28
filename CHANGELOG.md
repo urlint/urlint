@@ -1,3 +1,10 @@
+<a name="1.6.2"></a>
+## 1.6.2 (2018-06-28)
+
+* Resolve urls fallbacking in prerendering ([4a7938f](https://github.com/urlint/urlint/commit/4a7938f))
+
+
+
 <a name="1.6.1"></a>
 ## 1.6.1 (2018-06-28)
 
