@@ -26,6 +26,7 @@
   ],
   "dependencies": {
     "aigle": "~1.12.0",
+    "browserless": "~3.6.1",
     "dnserrors": "~2.0.3",
     "lodash.pick": "~4.4.0",
     "mitt": "~1.1.3",
@@ -43,6 +44,7 @@
     "nyc": "latest",
     "p-event": "latest",
     "prettier-standard": "latest",
+    "puppeteer": "latest",
     "standard": "latest",
     "standard-markdown": "latest"
   },
@@ -71,5 +73,8 @@
       "prettier-standard",
       "git add"
     ]
+  },
+  "peerDependencies": {
+    "puppeteer": "1.x"
   }
 }

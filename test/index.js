@@ -65,3 +65,16 @@ test('follow redirects', async t => {
     ])
   })
 })
+
+test('prerendering support', async t => {
+  const urls = ['https://www.linkedin.com/in/kikobeats']
+  const emitter = await urlint(urls)
+  const data = await pEvent(emitter, 'end')
+
+  each(data, data => {
+    const { statusCodeGroup, statusCode, requestUrl } = data
+    t.is(statusCode, 200)
+    t.is(statusCodeGroup, '2xx')
+    t.is(requestUrl, 'https://www.linkedin.com/in/kikobeats')
+  })
+})
