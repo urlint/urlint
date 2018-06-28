@@ -1,3 +1,10 @@
+<a name="1.3.1"></a>
+## 1.3.1 (2018-06-28)
+
+* Fix typo ([188e371](https://github.com/urlint/core/commit/188e371))
+
+
+
 <a name="1.3.0"></a>
 # 1.3.0 (2018-06-28)
 
