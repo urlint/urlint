@@ -1,3 +1,15 @@
+<a name="1.3.0"></a>
+# 1.3.0 (2018-06-28)
+
+* Refactor ([49b7e66](https://github.com/urlint/core/commit/49b7e66))
+* Refactor ([c239097](https://github.com/urlint/core/commit/c239097))
+* Rename ([1390ee1](https://github.com/urlint/core/commit/1390ee1))
+* Update deps ([22b37ed](https://github.com/urlint/core/commit/22b37ed))
+* Use prerendering as fallback ([8b6562c](https://github.com/urlint/core/commit/8b6562c))
+* Use puppeteer flags for CI ([c07e39a](https://github.com/urlint/core/commit/c07e39a))
+
+
+
 <a name="1.2.1"></a>
 ## 1.2.1 (2018-05-02)
 
