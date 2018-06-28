@@ -12,51 +12,57 @@ const RESPONSE_PROPS = ['redirectUrls', 'url', 'requestUrl', 'statusCode']
 
 const getStatusByGroup = statusCode => `${String(statusCode).charAt(0)}xx`
 
-const fetch = async (targetUrl, opts) => {
-  let res
+const withFetch = async (url, opts) => {
+  let data
   let timestamp
   let statusCode
 
+  timestamp = timeSpan()
+  data = await reachableUrl(url, { ...opts, followRedirect: false })
+  timestamp = timestamp()
+  statusCode = data.statusCode
+  if (!isRedirect(statusCode)) { return { ...pick(data, RESPONSE_PROPS), timestamp } }
+
+  timestamp = timeSpan()
+  data = await reachableUrl(url, opts)
+  timestamp = timestamp()
+  return {
+    ...pick(data, RESPONSE_PROPS),
+    redirectStatusCode: statusCode,
+    timestamp
+  }
+}
+
+const withError = (errors, props) => {
+  const { statusCode = 500, url } = errors
+    .map(dnsErrors)
+    .find(error => !!error.url)
+  return {
+    url,
+    requestUrl: url,
+    redirectUrls: [],
+    statusCode: statusCode,
+    ...props
+  }
+}
+
+const fetch = async (url, opts) => {
+  let timestamp = timeSpan()
+
   try {
-    timestamp = timeSpan()
-    res = await reachableUrl(targetUrl, { ...opts, followRedirect: false })
-    timestamp = timestamp()
-    statusCode = res.statusCode
-    if (!isRedirect(statusCode)) {
-      return { ...pick(res, RESPONSE_PROPS), timestamp }
-    }
-
-    timestamp = timeSpan()
-    res = await reachableUrl(targetUrl, opts)
-    timestamp = timestamp()
-    return {
-      ...pick(res, RESPONSE_PROPS),
-      redirectStatusCode: statusCode,
-      timestamp
-    }
+    return await withFetch(url, opts)
   } catch (aggregatedError) {
-    timestamp = timestamp()
     const errors = Array.from(aggregatedError)
-    const { statusCode = 500, url } = errors
-      .map(dnsErrors)
-      .find(error => !!error.url)
-
-    return {
-      url,
-      timestamp,
-      requestUrl: url,
-      redirectUrls: [],
-      statusCode: statusCode
-    }
+    return withError(errors, { timestamp: timestamp() })
   }
 }
 
 module.exports = async (urls, { concurrence = 8, ...opts } = {}) => {
   const emitter = mitt()
 
-  async function iterator (acc, targetUrl) {
-    emitter.emit('fetching', { url: targetUrl })
-    const res = await fetch(targetUrl, opts)
+  async function iterator (acc, url) {
+    emitter.emit('fetching', { url })
+    const res = await fetch(url, opts)
     const statusCodeGroup = getStatusByGroup(
       res.redirectStatusCode || res.statusCode
     )
