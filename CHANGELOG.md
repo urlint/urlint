@@ -1,3 +1,11 @@
+<a name="1.6.1"></a>
+## 1.6.1 (2018-06-28)
+
+* Update deps ([9ad8042](https://github.com/urlint/urlint/commit/9ad8042))
+* fix(package): update neat-log to version 3.0.0 ([d9fcb69](https://github.com/urlint/urlint/commit/d9fcb69))
+
+
+
 <a name="1.6.0"></a>
 # 1.6.0 (2018-06-26)
 
