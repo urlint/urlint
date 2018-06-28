@@ -10,6 +10,7 @@ const { ci } = require('ci-env')
 
 const extractUrls = require('./extract-urls')
 const renderError = require('./render-error')
+const browserless = require('./browserless')
 const pkg = require('../../package.json')
 const getError = require('./get-error')
 const getUrl = require('./get-url')
@@ -91,7 +92,7 @@ const cli = require('meow')(require('./help'), {
 
     await build.start()
     const urls = await extractUrls(url, opts)
-    const emitter = await urlint(urls, opts)
+    const emitter = await urlint(urls, { browserless, ...opts })
     view({ total: size(urls), emitter, ...opts })
   } catch (genericError) {
     const error = getError(genericError)
