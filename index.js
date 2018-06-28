@@ -24,11 +24,13 @@ const prerender = browserless =>
 
 const withPrerender = async (requestUrl, { browserless, ...opts }) => {
   let timestamp = timeSpan()
+
   const { statusCode, url, redirectUrls } = await prerender(browserless)(
     requestUrl,
     opts
   )
-  timestamp = timeSpan()
+
+  timestamp = timestamp()
 
   return { url, requestUrl, redirectUrls, statusCode, timestamp }
 }
