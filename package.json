@@ -26,7 +26,7 @@
   ],
   "dependencies": {
     "aigle": "~1.12.0",
-    "browserless": "~3.6.1",
+    "browserless": "~3.7.0",
     "dnserrors": "~2.0.3",
     "lodash.pick": "~4.4.0",
     "mitt": "~1.1.3",
@@ -61,7 +61,7 @@
     "precommit": "lint-staged",
     "pretest": "npm run lint",
     "pretty": "prettier-standard index.js {core,test,bin}/**/*.js --single-quote",
-    "test": "nyc ava test --verbose"
+    "test": "nyc ava test --verbose --exit"
   },
   "license": "MIT",
   "lint-staged": {

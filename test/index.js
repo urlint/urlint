@@ -4,26 +4,6 @@ const { isNumber, isString, forEach } = require('lodash')
 const pEvent = require('p-event')
 const test = require('ava')
 
-const browserless = require('browserless')({
-  ignoreHTTPSErrors: true,
-  args: [
-    '--disable-notifications',
-    '--disable-offer-store-unmasked-wallet-cards',
-    '--disable-offer-upload-credit-cards',
-    '--disable-setuid-sandbox',
-    '--enable-async-dns',
-    '--enable-simple-cache-backend',
-    '--enable-tcp-fast-open',
-    '--media-cache-size=33554432',
-    '--no-default-browser-check',
-    '--no-pings',
-    '--no-sandbox',
-    '--no-zygote',
-    '--prerender-from-omnibox=disabled',
-    '--single-process'
-  ]
-})
-
 const urlint = require('..')
 
 const each = (data, fn) =>
@@ -32,7 +12,7 @@ const each = (data, fn) =>
 test('resolve an array of urls', async t => {
   const urls = ['https://kikobeats.com', 'https://microlink.io']
 
-  const emitter = await urlint(urls, { browserless })
+  const emitter = await urlint(urls)
   const data = await pEvent(emitter, 'end')
 
   each(data, ({ statusCodeGroup, statusCode, url, timestamp }) => {
@@ -47,7 +27,7 @@ test('resolve DNS errors', async t => {
   const urls = [
     'http://android-app/com.twitter.android/twitter/user?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eandroidseo%7Ctwgr%5Eprofile&screen_name=Kikobeats'
   ]
-  const emitter = await urlint(urls, { browserless })
+  const emitter = await urlint(urls)
   const data = await pEvent(emitter, 'end')
 
   each(data, ({ statusCodeGroup, statusCode, url }) => {
@@ -58,7 +38,7 @@ test('resolve DNS errors', async t => {
 
 test('follow redirects', async t => {
   const urls = ['https://httpbin.org/redirect/6']
-  const emitter = await urlint(urls, { browserless })
+  const emitter = await urlint(urls)
   const data = await pEvent(emitter, 'end')
 
   each(data, data => {
@@ -88,7 +68,7 @@ test('follow redirects', async t => {
 
 test('prerendering support', async t => {
   const urls = ['https://www.linkedin.com/in/kikobeats']
-  const emitter = await urlint(urls, { browserless })
+  const emitter = await urlint(urls)
   const data = await pEvent(emitter, 'end')
 
   each(data, data => {

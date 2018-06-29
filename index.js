@@ -1,6 +1,6 @@
 'use strict'
 
-const createBrowserless = require('browserless')
+const { create: createBrowserless } = require('browserless')
 const reachableUrl = require('reachable-url')
 const isRedirect = require('is-redirect')
 const dnsErrors = require('dnserrors')
@@ -22,9 +22,9 @@ const prerender = browserless =>
     redirectUrls: response.request().redirectChain()
   }))
 
-const withPrerender = async (requestUrl, { browserless, ...opts }) => {
+const withPrerender = async (requestUrl, { getBrowserless, ...opts }) => {
+  const browserless = await getBrowserless()
   let timestamp = timeSpan()
-
   const { statusCode, url, redirectUrls } = await prerender(browserless)(
     requestUrl,
     opts
@@ -74,7 +74,7 @@ const withError = (errors, props) => {
   }
 }
 
-const fetch = async (url, { browserless = createBrowserless(), ...opts }) => {
+const fetch = async (url, { getBrowserless = createBrowserless, ...opts }) => {
   let timestamp = timeSpan()
 
   try {
@@ -85,7 +85,7 @@ const fetch = async (url, { browserless = createBrowserless(), ...opts }) => {
       PROTECTED_STATUS_CODES.includes(err.statusCode)
     )
     if (!hasProtection) return withError(errors, { timestamp: timestamp() })
-    return withPrerender(url, { browserless, opts })
+    return withPrerender(url, { getBrowserless, opts })
   }
 }
 
