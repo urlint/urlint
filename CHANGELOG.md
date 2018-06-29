@@ -1,3 +1,10 @@
+<a name="1.7.0"></a>
+# 1.7.0 (2018-06-29)
+
+* Unify browserless instance ([e7ef6a9](https://github.com/urlint/urlint/commit/e7ef6a9))
+
+
+
 <a name="1.6.2"></a>
 ## 1.6.2 (2018-06-28)
 
