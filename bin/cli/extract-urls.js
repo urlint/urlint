@@ -6,12 +6,10 @@ const getHTML = require('html-get')
 const cheerio = require('cheerio')
 const { map } = require('lodash')
 
-const browserless = require('./browserless')
-
 const { isXmlUrl } = fromXML
 
 const fromHTML = async (url, { selector, prerender, ...opts }) => {
-  const { html: rawHtml } = await getHTML(url, { browserless, prerender })
+  const { html: rawHtml } = await getHTML(url, { prerender })
   const $ = cheerio.load(rawHtml)
   const html = selector ? $(selector).html() : rawHtml
   const urls = await getUrlsFromHtml({ url, html, ...opts })
