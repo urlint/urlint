@@ -2,7 +2,7 @@
   "name": "@urlint/core",
   "description": "Get all the links behind an url and classify them based on HTTP status code.",
   "homepage": "https://documentup.com/@urlint/core",
-  "version": "1.3.2",
+  "version": "1.3.3",
   "main": "index.js",
   "author": {
     "email": "josefrancisco.verdu@gmail.com",

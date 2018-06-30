@@ -1,3 +1,11 @@
+<a name="1.3.3"></a>
+## 1.3.3 (2018-06-30)
+
+* Update deps ([e295bd1](https://github.com/urlint/core/commit/e295bd1))
+* Update deps ([dc2f816](https://github.com/urlint/core/commit/dc2f816))
+
+
+
 <a name="1.3.2"></a>
 ## 1.3.2 (2018-06-29)
 
