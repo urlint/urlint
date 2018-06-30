@@ -1,6 +1,6 @@
 'use strict'
 
-const { create: createBrowserless } = require('browserless')
+const createBrowserless = require('browserless')
 const reachableUrl = require('reachable-url')
 const isRedirect = require('is-redirect')
 const dnsErrors = require('dnserrors')

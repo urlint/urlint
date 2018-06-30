@@ -26,7 +26,7 @@
   ],
   "dependencies": {
     "aigle": "~1.12.0",
-    "browserless": "~3.7.0",
+    "browserless": "~4.0.0",
     "dnserrors": "~2.0.3",
     "lodash.pick": "~4.4.0",
     "mitt": "~1.1.3",
