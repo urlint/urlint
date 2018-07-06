@@ -40,7 +40,7 @@
     "cosmiconfig": "~5.0.5",
     "github-build": "~1.2.0",
     "html-get": "~1.0.6",
-    "html-urls": "~2.0.0",
+    "html-urls": "~2.1.0",
     "lodash": "~4.17.10",
     "meow": "~5.0.0",
     "neat-log": "~3.0.0",
