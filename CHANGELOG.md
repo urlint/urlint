@@ -1,3 +1,13 @@
+<a name="1.7.1"></a>
+## 1.7.1 (2018-07-07)
+
+* Print associate status code per each redirect url ([fe8e8d4](https://github.com/urlint/urlint/commit/fe8e8d4))
+* Update dependencies ([48cc8ca](https://github.com/urlint/urlint/commit/48cc8ca))
+* fix(package): update html-urls to version 2.1.0 ([d191e69](https://github.com/urlint/urlint/commit/d191e69))
+* fix(package): update reachable-url to version 1.1.0 ([802b900](https://github.com/urlint/urlint/commit/802b900))
+
+
+
 <a name="1.7.0"></a>
 # 1.7.0 (2018-06-29)
 
