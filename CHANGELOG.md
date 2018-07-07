@@ -1,3 +1,10 @@
+<a name="1.3.4"></a>
+## 1.3.4 (2018-07-07)
+
+* Associate HTTP status per each redirect ([561d4a8](https://github.com/urlint/core/commit/561d4a8))
+
+
+
 <a name="1.3.3"></a>
 ## 1.3.3 (2018-06-30)
 
