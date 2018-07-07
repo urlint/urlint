@@ -1,6 +1,6 @@
 'use strict'
 
-const { pick, omit, size, concat, map, reduce } = require('lodash')
+const { chain, pick, omit, size, map, reduce } = require('lodash')
 const spinner = require('ora')({ text: '', color: 'gray' })
 const prettyMs = require('pretty-ms')
 const { EOL } = require('os')
@@ -23,39 +23,35 @@ const renderProgress = ({ fetchingUrl, current, total, startTimestamp }) => {
   const spinnerFrame = spinner.frame()
   const url = gray(fetchingUrl)
   const progress = gray(`${current} of ${total}`)
-
   return `${timestamp} ${spinnerFrame}${progress} ${url}`
 }
+
+const renderLink = (url, statusCode) => `${byStatusCode(statusCode)} ${url}`
 
 const renderLinks = ({ count, links }, { omitErrors = false } = {}) => {
   const status = omitErrors ? omit(count, SUCCESS_STATUS_CODES) : count
 
   const info = map(status, (count, statusCode) => {
     const countByStatusCode = resumeCount(count, statusCode)
-
     const rows = map(
       links[statusCode],
       ({
-        redirectStatusCode,
+        redirectStatusCodes,
         statusCode,
+        url,
         requestUrl,
         timestamp,
         redirectUrls
       }) => {
-        const colorizeStatusCode = byStatusCode(
-          redirectStatusCode || statusCode
-        )
+        const links = chain(redirectUrls)
+          .map((url, index) => renderLink(url, redirectStatusCodes[index]))
+          .concat(renderLink(url, statusCode))
+          .value()
         const colorTimestamp = getRequestColor(timestamp)
         const colorizeTimestamp = colorize[colorTimestamp](
           `+${prettyMs(timestamp)}`
         )
-
-        const urls = concat(requestUrl, redirectUrls)
-        const sizeRedirectUrls = size(redirectUrls)
-        const redirects = urls.join(' → ')
-        const nRedirects = sizeRedirectUrls > 0 ? `(${sizeRedirectUrls}) ` : ''
-
-        return `${colorizeStatusCode} ${nRedirects}${redirects} ${colorizeTimestamp}`
+        return `${links.join(' → ')} ${colorizeTimestamp}`
       }
     ).join(EOL)
     return `${countByStatusCode}${EOL}${rows}${EOL}`
