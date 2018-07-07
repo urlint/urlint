@@ -32,25 +32,25 @@
     "validate"
   ],
   "dependencies": {
-    "@urlint/core": "~1.3.2",
+    "@urlint/core": "~1.3.4",
     "chalk": "~2.4.1",
     "cheerio": "~1.0.0-rc.2",
     "ci-env": "~1.6.1",
     "clean-stack": "~1.3.0",
     "cosmiconfig": "~5.0.5",
     "github-build": "~1.2.0",
-    "html-get": "~1.0.6",
+    "html-get": "~1.0.7",
     "html-urls": "~2.1.0",
     "lodash": "~4.17.10",
     "meow": "~5.0.0",
-    "neat-log": "~3.0.0",
+    "neat-log": "~3.0.1",
     "ora": "~2.1.0",
     "pretty-error": "~2.1.1",
     "pretty-ms": "~3.2.0",
     "puppeteer": "~1.5.0",
-    "reachable-url": "~1.1.0",
+    "reachable-url": "~1.1.2",
     "update-notifier": "~2.5.0",
-    "xml-urls": "~1.0.2"
+    "xml-urls": "~1.0.3"
   },
   "devDependencies": {
     "ava": "latest",
