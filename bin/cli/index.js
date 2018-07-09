@@ -8,10 +8,8 @@ const { first, size, concat, isEmpty } = require('lodash')
 const urlint = require('@urlint/core')
 const { ci } = require('ci-env')
 
-const extractUrls = require('./extract-urls')
-const renderError = require('./render-error')
+const prettyError = require('./pretty-error')
 const pkg = require('../../package.json')
-const getError = require('./get-error')
 const getUrl = require('./get-url')
 const build = require('./build')
 const view = require('../view')
@@ -89,13 +87,10 @@ const cli = require('meow')(require('./help'), {
     }
 
     await build.start()
-    const urls = await extractUrls(url, opts)
-    const emitter = await urlint(urls, opts)
-    view({ total: size(urls), emitter, ...opts })
+    const emitter = await urlint(url, opts)
+    view({ total: size(url), emitter, ...opts })
   } catch (genericError) {
-    const error = getError(genericError)
-    const prettyError = renderError(error)
-    console.log(prettyError)
+    console.log(prettyError(genericError))
     await build.exit({ buildCode: 1, exitCode: 1 })
   }
 })()

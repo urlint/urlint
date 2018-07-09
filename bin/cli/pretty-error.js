@@ -2,6 +2,7 @@
 
 const PrettyError = require('pretty-error')
 const cleanStack = require('clean-stack')
+const { chain } = require('lodash')
 
 const pe = new PrettyError()
 
@@ -38,8 +39,16 @@ pe.appendStyle({
   }
 })
 
-module.exports = error => {
+const renderError = error => {
   const stack = cleanStack(error.stack)
   const cleanError = Object.assign({}, error, { stack })
   return pe.render(cleanError)
+}
+
+module.exports = genericError => {
+  const error = chain(genericError)
+    .castArray()
+    .first()
+    .value()
+  return renderError(error)
 }
