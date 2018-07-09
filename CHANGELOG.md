@@ -1,3 +1,10 @@
+<a name="1.4.0"></a>
+# 1.4.0 (2018-07-09)
+
+* Resolve XML urls ([fa3ce10](https://github.com/urlint/core/commit/fa3ce10))
+
+
+
 <a name="1.3.5"></a>
 ## 1.3.5 (2018-07-07)
 
