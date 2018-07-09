@@ -1,3 +1,11 @@
+<a name="1.7.5"></a>
+## 1.7.5 (2018-07-09)
+
+* Move logic into core module ([036b1ab](https://github.com/urlint/urlint/commit/036b1ab))
+* Update dependencies ([4e54054](https://github.com/urlint/urlint/commit/4e54054))
+
+
+
 <a name="1.7.4"></a>
 ## 1.7.4 (2018-07-09)
 
