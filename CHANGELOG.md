@@ -1,3 +1,10 @@
+<a name="1.7.4"></a>
+## 1.7.4 (2018-07-09)
+
+* Fix pass selector ([51aa687](https://github.com/urlint/urlint/commit/51aa687))
+
+
+
 <a name="1.7.3"></a>
 ## 1.7.3 (2018-07-09)
 
