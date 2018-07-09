@@ -1,3 +1,10 @@
+<a name="1.7.3"></a>
+## 1.7.3 (2018-07-09)
+
+* Use verbose on CI environments by default ([363b8e5](https://github.com/urlint/urlint/commit/363b8e5))
+
+
+
 <a name="1.7.2"></a>
 ## 1.7.2 (2018-07-07)
 
