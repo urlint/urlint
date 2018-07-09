@@ -38,7 +38,7 @@ const cli = require('meow')(require('./help'), {
     verbose: {
       alias: 'v',
       type: 'boolean',
-      default: false
+      default: !isEmpty(ci)
     },
     quiet: {
       alias: 'q',
