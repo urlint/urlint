@@ -51,7 +51,6 @@ const cli = require('meow')(require('./help'), {
       default: true
     },
     logspeed: {
-      alias: 's',
       type: 'number',
       default: 100
     },

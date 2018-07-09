@@ -16,7 +16,4 @@ const fromHTML = async (url, { selector, prerender, ...opts }) => {
   return map(urls, 'normalizedUrl')
 }
 
-module.exports = (url, opts) => {
-  const fn = isXmlUrl(url) ? fromXML : fromHTML
-  return fn(url, opts)
-}
+module.exports = (url, opts) => (isXmlUrl(url) ? fromXML : fromHTML)(url, opts)
