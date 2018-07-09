@@ -9,10 +9,20 @@ const urlint = require('..')
 const each = (data, fn) =>
   forEach(data, groupByStatusCode => forEach(groupByStatusCode, fn))
 
-test('resolve an array of urls', async t => {
-  const urls = ['https://kikobeats.com', 'https://microlink.io']
+test('resolve a simple url', async t => {
+  const emitter = urlint('https://kikobeats.com')
+  const data = await pEvent(emitter, 'end')
 
-  const emitter = await urlint(urls)
+  each(data, ({ statusCodeGroup, statusCode, url, timestamp }) => {
+    t.true(isString(statusCodeGroup))
+    t.true(isNumber(statusCode))
+    t.true(isString(url))
+    t.true(isNumber(timestamp))
+  })
+})
+
+test('resolve a collection of urls', async t => {
+  const emitter = urlint(['https://kikobeats.com', 'https://microlink.io'])
   const data = await pEvent(emitter, 'end')
 
   each(data, ({ statusCodeGroup, statusCode, url, timestamp }) => {
@@ -24,10 +34,9 @@ test('resolve an array of urls', async t => {
 })
 
 test('resolve DNS errors', async t => {
-  const urls = [
-    'http://android-app/com.twitter.android/twitter/user?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eandroidseo%7Ctwgr%5Eprofile&screen_name=Kikobeats'
-  ]
-  const emitter = await urlint(urls)
+  const emitter = await urlint(
+    'https://gist.githubusercontent.com/Kikobeats/1e9c32ca811a68f1ac80e41f8bef9901/raw/3e125b9fa10fef45b8c1586023b534ab848304ef/dns-error.html'
+  )
   const data = await pEvent(emitter, 'end')
 
   each(data, ({ statusCodeGroup, statusCode, url }) => {
@@ -37,8 +46,9 @@ test('resolve DNS errors', async t => {
 })
 
 test('follow redirects', async t => {
-  const urls = ['https://httpbin-org.herokuapp.com/redirect/3']
-  const emitter = await urlint(urls)
+  const emitter = await urlint(
+    'https://gist.githubusercontent.com/Kikobeats/1e9c32ca811a68f1ac80e41f8bef9901/raw/f5c90b121644d33ed59fd87019b61fd0c4dce400/follow-redirects.html'
+  )
   const data = await pEvent(emitter, 'end')
 
   each(data, data => {
@@ -65,8 +75,9 @@ test('follow redirects', async t => {
 })
 
 test('prerendering support', async t => {
-  const urls = ['https://es.linkedin.com/in/kikobeats']
-  const emitter = await urlint(urls)
+  const emitter = await urlint(
+    'https://gist.githubusercontent.com/Kikobeats/1e9c32ca811a68f1ac80e41f8bef9901/raw/4ff2f5414d216306dbc677fc6da0c1fbe8f0bad5/prerender.html'
+  )
   const data = await pEvent(emitter, 'end')
 
   each(data, data => {

@@ -2,11 +2,13 @@
 
 const createBrowserless = require('browserless')
 const reachableUrl = require('reachable-url')
+const { first, pick } = require('lodash')
 const dnsErrors = require('dnserrors')
 const timeSpan = require('time-span')
-const pick = require('lodash.pick')
 const aigle = require('aigle')
 const mitt = require('mitt')
+
+const getUrls = require('./get-urls')
 
 const getStatusByGroup = statusCode => `${String(statusCode).charAt(0)}xx`
 
@@ -74,25 +76,35 @@ const fetch = async (url, { getBrowserless = createBrowserless, ...opts }) => {
   }
 }
 
-module.exports = async (urls, { concurrence = 8, ...opts } = {}) => {
-  const emitter = mitt()
+const pingUrl = async ({ acc, url, emitter, ...opts }) => {
+  emitter.emit('fetching', { url })
+  const res = await fetch(url, opts)
+  const statusCodeGroup = getStatusByGroup(
+    first(res.redirectStatusCodes) || res.statusCode
+  )
+  const data = { ...res, statusCodeGroup }
 
-  async function iterator (acc, url) {
-    emitter.emit('fetching', { url })
-    const res = await fetch(url, opts)
-    const statusCodeGroup = getStatusByGroup(
-      res.redirectStatusCodes[0] || res.statusCode
-    )
-    const data = { ...res, statusCodeGroup }
+  emitter.emit('status', data)
+  if (!acc[statusCodeGroup]) acc[statusCodeGroup] = [data]
+  else acc[statusCodeGroup].push(data)
+}
 
-    emitter.emit('status', data)
-    if (!acc[statusCodeGroup]) acc[statusCodeGroup] = [data]
-    else acc[statusCodeGroup].push(data)
-  }
+const pingUrls = async (urls, { emitter, concurrence, ...opts } = {}) =>
+  aigle.transformLimit(
+    urls,
+    concurrence,
+    (acc, url) => pingUrl({ acc, url, emitter, ...opts }),
+    {}
+  )
 
-  aigle
-    .transformLimit(urls, concurrence, iterator, {})
+module.exports = (
+  urls,
+  { emitter = mitt(), concurrence = 8, ...opts } = {}
+) => {
+  getUrls(urls, opts)
+    .then(urls => pingUrls(urls, { emitter, concurrence, ...opts }))
     .then(data => emitter.emit('end', data))
+    .catch(error => emitter.emit('error', error))
 
   return emitter
 }
