@@ -4,7 +4,7 @@
 
 const cosmiconfig = require('cosmiconfig')('urlint')
 
-const { first, concat, isEmpty } = require('lodash')
+const { omit, first, concat, isEmpty } = require('lodash')
 const urlint = require('@urlint/core')
 const { ci } = require('ci-env')
 
@@ -79,7 +79,11 @@ const cli = require('meow')(require('./help'), {
       await build.exit({ buildCode: 1, exitCode: 0 })
     }
 
-    const flags = { ...config, ...cli.flags }
+    const flags = {
+      ...omit(config, ['url']),
+      ...cli.flags
+    }
+
     const url = await getUrl(input)
     const opts = {
       ...flags,
