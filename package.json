@@ -55,7 +55,7 @@
     "node": ">= 6"
   },
   "files": [
-    "index.js"
+    "src"
   ],
   "scripts": {
     "clean": "rm -rf node_modules",
