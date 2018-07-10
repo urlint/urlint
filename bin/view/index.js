@@ -1,6 +1,14 @@
 'use strict'
 
-const { isNil, includes, isEmpty, first, toNumber, chain } = require('lodash')
+const {
+  size,
+  isNil,
+  includes,
+  isEmpty,
+  first,
+  toNumber,
+  chain
+} = require('lodash')
 const neatLog = require('neat-log')
 
 const { SUCCESS_STATUS_CODES } = require('./constant')
@@ -46,6 +54,10 @@ module.exports = ({ total, emitter, quiet, verbose, logspeed, ...opts }) => {
   const neat = neatLog(render, { ...opts, logspeed, state })
 
   neat.use((state, bus) => {
+    emitter.on('urls', urls => {
+      state.total = size(urls)
+    })
+
     emitter.on('status', data => {
       const newState = setState(state, data)
       state.count = sortByStatusCode({ ...state.count, ...newState.count })

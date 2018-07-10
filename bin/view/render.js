@@ -22,7 +22,7 @@ const renderProgress = ({ fetchingUrl, current, total, startTimestamp }) => {
   const timestamp = blue(prettyMs(Date.now() - startTimestamp))
   const spinnerFrame = spinner.frame()
   const url = gray(fetchingUrl)
-  const progress = gray(`${current} of ${total}`)
+  const progress = total ? gray(`${current} of ${total}`) : ''
   return `${timestamp} ${spinnerFrame}${progress} ${url}`
 }
 

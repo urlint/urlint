@@ -4,7 +4,7 @@
 
 const cosmiconfig = require('cosmiconfig')('urlint')
 
-const { first, size, concat, isEmpty } = require('lodash')
+const { first, concat, isEmpty } = require('lodash')
 const urlint = require('@urlint/core')
 const { ci } = require('ci-env')
 
@@ -88,7 +88,7 @@ const cli = require('meow')(require('./help'), {
 
     await build.start()
     const emitter = await urlint(url, opts)
-    view({ total: size(url), emitter, ...opts })
+    view({ emitter, ...opts })
   } catch (genericError) {
     console.log(prettyError(genericError))
     await build.exit({ buildCode: 1, exitCode: 1 })
