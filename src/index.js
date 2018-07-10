@@ -102,7 +102,10 @@ module.exports = (
   { emitter = mitt(), concurrence = 8, ...opts } = {}
 ) => {
   getUrls(urls, opts)
-    .then(urls => pingUrls(urls, { emitter, concurrence, ...opts }))
+    .then(urls => {
+      emitter.emit('urls', urls)
+      return pingUrls(urls, { emitter, concurrence, ...opts })
+    })
     .then(data => emitter.emit('end', data))
     .catch(error => emitter.emit('error', error))
 
