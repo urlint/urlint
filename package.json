@@ -2,7 +2,7 @@
   "name": "urlint",
   "description": "Check the availability of your links.",
   "homepage": "https://urlint.co",
-  "version": "1.7.7",
+  "version": "1.7.8",
   "main": "index.js",
   "bin": {
     "urlint": "./bin/cli/index.js"

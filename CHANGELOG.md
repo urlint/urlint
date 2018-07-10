@@ -1,3 +1,10 @@
+<a name="1.7.8"></a>
+## 1.7.8 (2018-07-10)
+
+* Don't pass url field ([60acf66](https://github.com/urlint/urlint/commit/60acf66))
+
+
+
 <a name="1.7.7"></a>
 ## 1.7.7 (2018-07-10)
 
