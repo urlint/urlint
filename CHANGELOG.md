@@ -1,3 +1,10 @@
+<a name="1.7.7"></a>
+## 1.7.7 (2018-07-10)
+
+* Move urls into a separate event ([c445c8f](https://github.com/urlint/urlint/commit/c445c8f))
+
+
+
 <a name="1.7.6"></a>
 ## 1.7.6 (2018-07-10)
 
