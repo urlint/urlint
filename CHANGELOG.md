@@ -1,3 +1,10 @@
+<a name="1.4.1"></a>
+## 1.4.1 (2018-07-10)
+
+* Fix files field ([453b5a9](https://github.com/urlint/core/commit/453b5a9))
+
+
+
 <a name="1.4.0"></a>
 # 1.4.0 (2018-07-09)
 
