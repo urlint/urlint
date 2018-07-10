@@ -1,3 +1,10 @@
+<a name="1.7.6"></a>
+## 1.7.6 (2018-07-10)
+
+* Update dependencies ([2f6328d](https://github.com/urlint/urlint/commit/2f6328d))
+
+
+
 <a name="1.7.5"></a>
 ## 1.7.5 (2018-07-09)
 
