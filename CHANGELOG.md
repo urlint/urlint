@@ -1,3 +1,10 @@
+<a name="1.4.2"></a>
+## 1.4.2 (2018-07-10)
+
+* Move urls into a separate event ([2a6b69b](https://github.com/urlint/core/commit/2a6b69b))
+
+
+
 <a name="1.4.1"></a>
 ## 1.4.1 (2018-07-10)
 

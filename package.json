@@ -2,7 +2,7 @@
   "name": "@urlint/core",
   "description": "Get all the links behind an url and classify them based on HTTP status code.",
   "homepage": "https://urlint.io",
-  "version": "1.4.1",
+  "version": "1.4.2",
   "main": "src/index.js",
   "author": {
     "email": "josefrancisco.verdu@gmail.com",
