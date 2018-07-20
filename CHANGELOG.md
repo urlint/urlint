@@ -1,3 +1,12 @@
+<a name="1.7.9"></a>
+## 1.7.9 (2018-07-20)
+
+* Update dependencies ([d7a1be2](https://github.com/urlint/urlint/commit/d7a1be2))
+* fix(package): update ora to version 3.0.0 ([05deca9](https://github.com/urlint/urlint/commit/05deca9))
+* fix(package): update puppeteer to version 1.6.0 ([9352e21](https://github.com/urlint/urlint/commit/9352e21))
+
+
+
 <a name="1.7.8"></a>
 ## 1.7.8 (2018-07-10)
 
