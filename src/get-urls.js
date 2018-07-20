@@ -7,8 +7,6 @@ const getHTML = require('html-get')
 const cheerio = require('cheerio')
 const aigle = require('aigle')
 
-const { isXmlUrl } = fromXML
-
 const fromHTML = async (url, { selector, prerender, ...opts }) => {
   const { html: rawHtml } = await getHTML(url, { prerender })
   const $ = cheerio.load(rawHtml)
@@ -21,7 +19,7 @@ module.exports = async (urls, opts) => {
   const collection = concat(urls)
 
   const iterator = async (set, url) => {
-    const urls = await (isXmlUrl(url) ? fromXML : fromHTML)(url, opts)
+    const urls = await (fromXML.isXml(url) ? fromXML : fromHTML)(url, opts)
     return new Set([...set, ...urls])
   }
 
