@@ -1,3 +1,10 @@
+<a name="1.4.3"></a>
+## 1.4.3 (2018-07-20)
+
+* Update dependencies ([c6a26b5](https://github.com/urlint/core/commit/c6a26b5))
+
+
+
 <a name="1.4.2"></a>
 ## 1.4.2 (2018-07-10)
 
