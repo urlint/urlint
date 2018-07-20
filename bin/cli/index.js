@@ -54,7 +54,6 @@ const cli = require('meow')(require('./help'), {
     },
     prerender: {
       alias: 'p',
-      type: 'boolean',
       default: 'auto'
     },
     timeout: {
