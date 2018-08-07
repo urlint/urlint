@@ -40,7 +40,7 @@
     "github-build": "~1.2.0",
     "lodash": "~4.17.10",
     "meow": "~5.0.0",
-    "neat-log": "~3.0.1",
+    "neat-log": "~3.1.0",
     "normalize-url": "~3.2.0",
     "ora": "~3.0.0",
     "pretty-error": "~2.1.1",
