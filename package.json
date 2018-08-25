@@ -43,7 +43,7 @@
     "git-dirty": "latest",
     "husky": "latest",
     "lint-staged": "latest",
-    "lodash": "~4.17.10",
+    "lodash": "latest",
     "nyc": "latest",
     "p-event": "latest",
     "prettier-standard": "latest",
