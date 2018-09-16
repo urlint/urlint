@@ -1,8 +1,9 @@
 'use strict'
 
+const { castArray, first } = require('lodash')
 const PrettyError = require('pretty-error')
 const cleanStack = require('clean-stack')
-const { chain } = require('lodash')
+const isIterable = require('is-iterable')
 
 const pe = new PrettyError()
 
@@ -46,9 +47,10 @@ const renderError = error => {
 }
 
 module.exports = genericError => {
-  const error = chain(genericError)
-    .castArray()
-    .first()
-    .value()
+  const error = first(
+    isIterable(genericError)
+      ? Array.from(genericError)
+      : castArray(genericError)
+  )
   return renderError(error)
 }
