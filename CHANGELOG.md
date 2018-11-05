@@ -1,3 +1,21 @@
+<a name="1.7.10"></a>
+## 1.7.10 (2018-11-05)
+
+* Add beauty-error dependency ([44e175b](https://github.com/urlint/urlint/commit/44e175b))
+* Get first error from Iterable collection ([85a74bf](https://github.com/urlint/urlint/commit/85a74bf))
+* Update dependencies ([8f1a688](https://github.com/urlint/urlint/commit/8f1a688))
+* Update package.json ([b9a365f](https://github.com/urlint/urlint/commit/b9a365f))
+* fix(package): update clean-stack to version 2.0.0 ([5f8105b](https://github.com/urlint/urlint/commit/5f8105b))
+* fix(package): update neat-log to version 3.1.0 ([a0f79b0](https://github.com/urlint/urlint/commit/a0f79b0))
+* fix(package): update normalize-url to version 3.3.0 ([c35fc99](https://github.com/urlint/urlint/commit/c35fc99))
+* fix(package): update pretty-ms to version 4.0.0 ([3af89e2](https://github.com/urlint/urlint/commit/3af89e2))
+* fix(package): update puppeteer to version 1.10.0 ([754d840](https://github.com/urlint/urlint/commit/754d840))
+* fix(package): update puppeteer to version 1.7.0 ([d949d2f](https://github.com/urlint/urlint/commit/d949d2f))
+* fix(package): update puppeteer to version 1.8.0 ([7163f3a](https://github.com/urlint/urlint/commit/7163f3a))
+* fix(package): update puppeteer to version 1.9.0 ([a2ebae2](https://github.com/urlint/urlint/commit/a2ebae2))
+
+
+
 <a name="1.7.9"></a>
 ## 1.7.9 (2018-07-20)
 
