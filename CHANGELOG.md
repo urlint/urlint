@@ -1,3 +1,11 @@
+<a name="1.5.0"></a>
+# 1.5.0 (2018-11-18)
+
+* build: update dependencies ([69cc50e](https://github.com/urlint/core/commit/69cc50e))
+* Latest for dev ([7d9f2ac](https://github.com/urlint/core/commit/7d9f2ac))
+
+
+
 <a name="1.4.3"></a>
 ## 1.4.3 (2018-07-20)
 
