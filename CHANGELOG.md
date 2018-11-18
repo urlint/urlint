@@ -1,3 +1,13 @@
+<a name="1.7.11"></a>
+## 1.7.11 (2018-11-18)
+
+* refactor: migrate husky ([13b564c](https://github.com/urlint/urlint/commit/13b564c))
+* build: update dependencies ([a071914](https://github.com/urlint/urlint/commit/a071914))
+* fix(package): update beauty-error to version 1.1.0 ([00a1aab](https://github.com/urlint/urlint/commit/00a1aab))
+* fix(package): update normalize-url to version 4.0.0 ([9b8a036](https://github.com/urlint/urlint/commit/9b8a036))
+
+
+
 <a name="1.7.10"></a>
 ## 1.7.10 (2018-11-05)
 
