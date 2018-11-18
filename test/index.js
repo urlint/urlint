@@ -35,7 +35,7 @@ test('resolve a collection of urls', async t => {
 
 test('resolve DNS errors', async t => {
   const emitter = await urlint(
-    'https://gist.githubusercontent.com/Kikobeats/1e9c32ca811a68f1ac80e41f8bef9901/raw/3e125b9fa10fef45b8c1586023b534ab848304ef/dns-error.html'
+    'https://gist.githubusercontent.com/Kikobeats/1e9c32ca811a68f1ac80e41f8bef9901/raw/4ff2f5414d216306dbc677fc6da0c1fbe8f0bad5/dns-error.html'
   )
   const data = await pEvent(emitter, 'end')
 
@@ -47,8 +47,9 @@ test('resolve DNS errors', async t => {
 
 test('follow redirects', async t => {
   const emitter = await urlint(
-    'https://gist.githubusercontent.com/Kikobeats/1e9c32ca811a68f1ac80e41f8bef9901/raw/f5c90b121644d33ed59fd87019b61fd0c4dce400/follow-redirects.html'
+    'https://gist.githubusercontent.com/Kikobeats/36587e833e76f57386ebe7a048b733c0/raw/2bca227045f3a0069be59b4235c6461dee4a6454/index.html'
   )
+
   const data = await pEvent(emitter, 'end')
 
   each(data, data => {
