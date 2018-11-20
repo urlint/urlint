@@ -1,3 +1,10 @@
+<a name="1.7.12"></a>
+## 1.7.12 (2018-11-20)
+
+* Fix travis url ([55dbc14](https://github.com/urlint/urlint/commit/55dbc14))
+
+
+
 <a name="1.7.11"></a>
 ## 1.7.11 (2018-11-18)
 
