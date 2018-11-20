@@ -2,7 +2,7 @@
 
 const Build = require('github-build')
 
-const { buildUrl, repo, sha } = require('ci-env')
+const { jobUrl, repo, sha } = require('ci-env')
 
 const MESSAGE = {
   START: 'Checking URLs availability…',
@@ -28,7 +28,7 @@ const meta = {
   token,
   label: 'urlint',
   description: MESSAGE.START,
-  url: buildUrl
+  url: jobUrl
 }
 
 const noopBuild = {
