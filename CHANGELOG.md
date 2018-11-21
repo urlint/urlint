@@ -1,3 +1,11 @@
+<a name="1.5.2"></a>
+## 1.5.2 (2018-11-21)
+
+* build: update dependencies ([0e4f7f9](https://github.com/urlint/core/commit/0e4f7f9))
+* Fix condition ([4a9e409](https://github.com/urlint/core/commit/4a9e409))
+
+
+
 <a name="1.5.1"></a>
 ## 1.5.1 (2018-11-21)
 
