@@ -13,7 +13,6 @@ const fromHTML = async (url, { selector, prerender, ...opts }) => {
   const { html: rawHtml } = await getHTML(url, { prerender })
   const $ = cheerio.load(rawHtml)
   const html = selector ? $(selector).html() : rawHtml
-  console.log('html', html)
   const urls = await getUrlsFromHtml({ url, html, ...opts })
   return map(urls, 'normalizedUrl')
 }
