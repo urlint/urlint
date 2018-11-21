@@ -1,3 +1,11 @@
+<a name="1.7.13"></a>
+## 1.7.13 (2018-11-21)
+
+* Refactor ([01b522e](https://github.com/urlint/urlint/commit/01b522e))
+* Update dependencies ([66dd69f](https://github.com/urlint/urlint/commit/66dd69f))
+
+
+
 <a name="1.7.12"></a>
 ## 1.7.12 (2018-11-20)
 
