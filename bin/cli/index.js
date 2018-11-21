@@ -59,7 +59,7 @@ const cli = require('meow')(require('./help'), {
     timeout: {
       alias: 't',
       type: 'number',
-      default: false
+      default: undefined
     },
     retries: {
       alias: 'r',
