@@ -1,3 +1,11 @@
+<a name="1.5.1"></a>
+## 1.5.1 (2018-11-21)
+
+* fix: remove log ([439b659](https://github.com/urlint/core/commit/439b659))
+* Migrate husky ([cb4ce96](https://github.com/urlint/core/commit/cb4ce96))
+
+
+
 <a name="1.5.0"></a>
 # 1.5.0 (2018-11-18)
 
