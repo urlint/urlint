@@ -68,32 +68,34 @@ const cli = require('meow')(require('./help'), {
     }
   }
 })
-;(async () => {
+
+const main = async () => {
   const { config = {} } = (await cosmiconfig.search()) || {}
   const input = config.url || first(cli.input)
 
-  try {
-    if (isEmpty(input)) {
-      cli.showHelp()
-      await build.exit({ buildCode: 1, exitCode: 0 })
-    }
-
-    const flags = {
-      ...omit(config, ['url']),
-      ...cli.flags
-    }
-
-    const url = await getUrl(input)
-    const opts = {
-      ...flags,
-      whitelist: flags.whitelist && concat(flags.whitelist)
-    }
-
-    await build.start()
-    const emitter = await urlint(url, opts)
-    view({ emitter, ...opts })
-  } catch (genericError) {
-    console.log(beautyError(genericError))
-    await build.exit({ buildCode: 1, exitCode: 1 })
+  if (isEmpty(input)) {
+    cli.showHelp()
+    await build.exit({ buildCode: 1, exitCode: 0 })
   }
-})()
+
+  const flags = {
+    ...omit(config, ['url']),
+    ...cli.flags
+  }
+
+  const url = await getUrl(input)
+
+  const opts = {
+    ...flags,
+    whitelist: flags.whitelist && concat(flags.whitelist)
+  }
+
+  await build.start()
+  const emitter = await urlint(url, opts)
+  view({ emitter, ...opts })
+}
+
+main().catch(async genericError => {
+  console.log(beautyError(genericError))
+  await build.exit({ buildCode: 1, exitCode: 1 })
+})
