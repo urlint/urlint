@@ -71,8 +71,9 @@ const fetch = async (url, { getBrowserless = createBrowserless, ...opts }) => {
   } catch (aggregatedError) {
     const errors = Array.from(aggregatedError)
     const hasProtection = errors.some(({ statusCode }) => statusCode > 500)
-    if (!hasProtection) return withError(errors, { timestamp: timestamp() })
-    return withPrerender(url, { getBrowserless, ...opts })
+    return hasProtection
+      ? withError(errors, { timestamp: timestamp() })
+      : withPrerender(url, { getBrowserless, ...opts })
   }
 }
 
