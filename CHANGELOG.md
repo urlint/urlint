@@ -1,3 +1,10 @@
+<a name="1.5.3"></a>
+## 1.5.3 (2018-11-22)
+
+* Fix tests ([9439935](https://github.com/urlint/core/commit/9439935))
+
+
+
 <a name="1.5.2"></a>
 ## 1.5.2 (2018-11-21)
 
