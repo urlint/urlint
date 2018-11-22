@@ -1,8 +1,8 @@
 'use strict'
 
+const { concat, chain, first, pick } = require('lodash')
 const createBrowserless = require('browserless')
 const reachableUrl = require('reachable-url')
-const { first, pick } = require('lodash')
 const dnsErrors = require('dnserrors')
 const timeSpan = require('time-span')
 const aigle = require('aigle')
@@ -11,6 +11,14 @@ const mitt = require('mitt')
 const getUrls = require('./get-urls')
 
 const getStatusByGroup = statusCode => `${String(statusCode).charAt(0)}xx`
+
+const getDnsError = errors =>
+  chain(errors)
+    .map(dnsErrors)
+    .find(error => !!error.url)
+    .thru(err => ({ statusCode: 500, ...err }))
+    .pick(['statusCode', 'url'])
+    .value()
 
 const prerender = browserless =>
   browserless.evaluate((page, response) => {
@@ -25,34 +33,23 @@ const prerender = browserless =>
 
 const withPrerender = async (requestUrl, { getBrowserless, ...opts }) => {
   const browserless = await getBrowserless()
-  let timestamp = timeSpan()
-  const res = await prerender(browserless)(requestUrl, opts)
-  timestamp = timestamp()
-  const data = { ...res, requestUrl, timestamp }
-  return data
-}
-
-const withFetch = async (url, opts) => {
-  let timestamp = timeSpan()
-  const res = await reachableUrl(url, opts)
-  timestamp = timestamp()
-
   return {
-    ...pick(res, [
-      'redirectStatusCodes',
-      'redirectUrls',
-      'url',
-      'requestUrl',
-      'statusCode'
-    ]),
-    timestamp
+    ...(await prerender(browserless)(requestUrl, opts)),
+    requestUrl
   }
 }
 
+const withFetch = async (url, opts) =>
+  pick(await reachableUrl(url, opts), [
+    'redirectStatusCodes',
+    'redirectUrls',
+    'url',
+    'requestUrl',
+    'statusCode'
+  ])
+
 const withError = (errors, props) => {
-  const { statusCode = 500, url } = errors
-    .map(dnsErrors)
-    .find(error => !!error.url)
+  const { statusCode, url } = getDnsError(errors)
 
   return {
     url,
@@ -65,16 +62,23 @@ const withError = (errors, props) => {
 
 const fetch = async (url, { getBrowserless = createBrowserless, ...opts }) => {
   let timestamp = timeSpan()
+  let res
 
   try {
-    return await withFetch(url, opts)
-  } catch (aggregatedError) {
-    const errors = Array.from(aggregatedError)
-    const hasProtection = errors.some(({ statusCode }) => statusCode > 500)
-    return hasProtection
-      ? withError(errors, { timestamp: timestamp() })
-      : withPrerender(url, { getBrowserless, ...opts })
+    res = await withFetch(url, opts)
+  } catch (fetchErrors) {
+    try {
+      res = await withPrerender(url, { getBrowserless, ...opts })
+    } catch (prerenderErrors) {
+      const errors = concat(
+        Array.from(fetchErrors),
+        Array.from(prerenderErrors)
+      )
+      res = withError(errors)
+    }
   }
+
+  return { ...res, timestamp: timestamp() }
 }
 
 const pingUrl = async ({ acc, url, emitter, ...opts }) => {
