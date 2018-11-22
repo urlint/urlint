@@ -1,3 +1,11 @@
+<a name="1.7.14"></a>
+## 1.7.14 (2018-11-22)
+
+* Update dependencies ([de42c60](https://github.com/urlint/urlint/commit/de42c60))
+* fix: setup default timeout ([f387ff5](https://github.com/urlint/urlint/commit/f387ff5))
+
+
+
 <a name="1.7.13"></a>
 ## 1.7.13 (2018-11-21)
 
