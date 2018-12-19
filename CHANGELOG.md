@@ -1,3 +1,117 @@
+# Change Log
+
+All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+
+<a name="1.7.15"></a>
+## 1.7.15 (2018-12-19)
+
+
+### Bug Fixes
+
+* **package:** update normalize-url to version 4.1.0 ([e05915f](https://github.com/urlint/urlint/commit/e05915f))
+* **package:** update puppeteer to version 1.11.0 ([83bf636](https://github.com/urlint/urlint/commit/83bf636))
+
+
+
+<a name="1.7.14"></a>
+## 1.7.14 (2018-11-22)
+
+
+### Bug Fixes
+
+* setup default timeout ([f387ff5](https://github.com/urlint/urlint/commit/f387ff5))
+
+
+
+<a name="1.7.13"></a>
+## 1.7.13 (2018-11-21)
+
+
+
+<a name="1.7.12"></a>
+## 1.7.12 (2018-11-20)
+
+
+
+<a name="1.7.11"></a>
+## 1.7.11 (2018-11-18)
+
+
+### Bug Fixes
+
+* **package:** update beauty-error to version 1.1.0 ([00a1aab](https://github.com/urlint/urlint/commit/00a1aab))
+* **package:** update normalize-url to version 4.0.0 ([9b8a036](https://github.com/urlint/urlint/commit/9b8a036))
+
+
+
+<a name="1.7.10"></a>
+## 1.7.10 (2018-11-05)
+
+
+### Bug Fixes
+
+* **package:** update clean-stack to version 2.0.0 ([5f8105b](https://github.com/urlint/urlint/commit/5f8105b))
+* **package:** update neat-log to version 3.1.0 ([a0f79b0](https://github.com/urlint/urlint/commit/a0f79b0))
+* **package:** update normalize-url to version 3.3.0 ([c35fc99](https://github.com/urlint/urlint/commit/c35fc99))
+* **package:** update pretty-ms to version 4.0.0 ([3af89e2](https://github.com/urlint/urlint/commit/3af89e2))
+* **package:** update puppeteer to version 1.10.0 ([754d840](https://github.com/urlint/urlint/commit/754d840))
+* **package:** update puppeteer to version 1.7.0 ([d949d2f](https://github.com/urlint/urlint/commit/d949d2f))
+* **package:** update puppeteer to version 1.8.0 ([7163f3a](https://github.com/urlint/urlint/commit/7163f3a))
+* **package:** update puppeteer to version 1.9.0 ([a2ebae2](https://github.com/urlint/urlint/commit/a2ebae2))
+
+
+
+<a name="1.7.9"></a>
+## 1.7.9 (2018-07-20)
+
+
+### Bug Fixes
+
+* **package:** update ora to version 3.0.0 ([05deca9](https://github.com/urlint/urlint/commit/05deca9))
+* **package:** update puppeteer to version 1.6.0 ([9352e21](https://github.com/urlint/urlint/commit/9352e21))
+
+
+
+<a name="1.7.8"></a>
+## 1.7.8 (2018-07-10)
+
+
+
+<a name="1.7.7"></a>
+## 1.7.7 (2018-07-10)
+
+
+
+<a name="1.7.6"></a>
+## 1.7.6 (2018-07-10)
+
+
+
+<a name="1.7.5"></a>
+## 1.7.5 (2018-07-09)
+
+
+
+<a name="1.7.4"></a>
+## 1.7.4 (2018-07-09)
+
+
+
+<a name="1.7.3"></a>
+## 1.7.3 (2018-07-09)
+
+
+
+<a name="1.7.2"></a>
+## 1.7.2 (2018-07-07)
+
+
+
+<a name="1.7.1"></a>
+## 1.7.1 (2018-07-07)
+
+
+
 <a name="1.7.14"></a>
 ## 1.7.14 (2018-11-22)
 
@@ -325,6 +439,3 @@
 # 1.0.0 (2018-01-27)
 
 * WIP ([119221a](https://github.com/urlint/urlint-cli/commit/119221a))
-
-
-
