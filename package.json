@@ -41,7 +41,7 @@
     "lodash": "~4.17.11",
     "meow": "~5.0.0",
     "neat-log": "~3.1.0",
-    "normalize-url": "~4.0.0",
+    "normalize-url": "~4.1.0",
     "ora": "~3.0.0",
     "pretty-ms": "~4.0.0",
     "puppeteer": "~1.11.0",
