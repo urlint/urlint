@@ -1,0 +1,70 @@
+{
+  "name": "urlint",
+  "description": "Check your URLs, keep your links up to date ✨",
+  "homepage": "https://urlint.co",
+  "version": "1.8.0",
+  "main": "index.js",
+  "bin": {
+    "urlint": "./bin/cli/index.js"
+  },
+  "author": {
+    "email": "josefrancisco.verdu@gmail.com",
+    "name": "Kiko Beats",
+    "url": "https://kikobeats.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/urlint/urlint/tree/master/packages/urlint"
+  },
+  "bugs": {
+    "url": "https://github.com/urlint/urlint/issues"
+  },
+  "keywords": [
+    "classify",
+    "cli",
+    "http",
+    "link",
+    "links",
+    "lint",
+    "linter",
+    "status",
+    "url",
+    "validate"
+  ],
+  "dependencies": {
+    "@urlint/core": "~1.5.2",
+    "beauty-error": "~1.1.0",
+    "chalk": "~2.4.1",
+    "ci-env": "~1.7.0",
+    "cosmiconfig": "~5.0.7",
+    "github-build": "~1.2.0",
+    "lodash": "~4.17.11",
+    "meow": "~5.0.0",
+    "neat-log": "~3.1.0",
+    "normalize-url": "~4.1.0",
+    "ora": "~3.0.0",
+    "pretty-ms": "~4.0.0",
+    "puppeteer": "~1.11.0",
+    "reachable-url": "~1.1.6",
+    "update-notifier": "~2.5.0"
+  },
+  "devDependencies": {
+    "ava": "latest",
+    "coveralls": "latest",
+    "finepack": "latest",
+    "nyc": "latest",
+    "standard": "latest"
+  },
+  "engines": {
+    "node": ">= 8"
+  },
+  "files": [
+    "bin"
+  ],
+  "scripts": {
+    "coverage": "nyc report --reporter=text-lcov | coveralls",
+    "test": "exit 0"
+  },
+  "preferGlobal": true,
+  "license": "MIT"
+}

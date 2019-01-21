@@ -1,87 +1,63 @@
 {
-  "name": "@urlint/core",
-  "description": "Get all the links behind an url and classify them based on HTTP status code.",
-  "homepage": "https://urlint.io",
-  "version": "1.5.3",
-  "main": "src/index.js",
+  "name": "urlint",
+  "description": "Check your URLs, keep your links up to date ✨",
+  "homepage": "https://urlint.co",
+  "version": "1.8.0",
   "author": {
     "email": "josefrancisco.verdu@gmail.com",
     "name": "Kiko Beats",
     "url": "https://kikobeats.com"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/urlint/core.git"
-  },
-  "bugs": {
-    "url": "https://github.com/urlint/core/issues"
-  },
-  "keywords": [
-    "classify",
-    "http",
-    "lint",
-    "status",
-    "url",
-    "validate"
-  ],
-  "dependencies": {
-    "aigle": "~1.12.0",
-    "browserless": "~4.2.1",
-    "cheerio": "~1.0.0-rc.2",
-    "dnserrors": "~2.0.3",
-    "html-get": "~1.5.1",
-    "html-urls": "~2.3.1",
-    "mitt": "~1.1.3",
-    "reachable-url": "~1.1.6",
-    "time-span": "~2.0.0",
-    "xml-urls": "~2.1.0"
-  },
   "devDependencies": {
-    "ava": "latest",
-    "coveralls": "latest",
+    "@commitlint/cli": "latest",
+    "@commitlint/config-conventional": "latest",
+    "eachdir": "latest",
     "finepack": "latest",
-    "git-dirty": "latest",
+    "git-authors-cli": "latest",
     "husky": "latest",
+    "lerna": "latest",
     "lint-staged": "latest",
-    "lodash": "latest",
-    "nyc": "latest",
-    "p-event": "latest",
+    "npm-check-updates": "latest",
     "prettier-standard": "latest",
-    "puppeteer": "latest",
     "standard": "latest",
     "standard-markdown": "latest"
   },
-  "engines": {
-    "node": ">= 6"
-  },
-  "files": [
-    "src"
-  ],
   "scripts": {
-    "clean": "rm -rf node_modules",
-    "coveralls": "nyc report --reporter=text-lcov | coveralls",
-    "lint": "standard-markdown && standard",
+    "clean": "rm -rf node_modules && cd packages && eachdir rm -rf node_modules",
+    "coverage": "lerna exec npm run coverage",
+    "lint": "standard-markdown README.md && standard",
+    "postinstall": "lerna bootstrap && lerna link --force-local",
+    "prerelease": "npm run update:check",
     "pretest": "npm run lint",
-    "pretty": "prettier-standard index.js {core,test,bin}/**/*.js --single-quote",
-    "test": "nyc ava test --verbose --exit"
+    "preversion": "lerna exec npx finepack && git-authors-cli && finepack",
+    "release": "lerna publish --sort --conventional-commits",
+    "test": "lerna exec npm run test",
+    "update": "ncu -a",
+    "update:check": "ncu -- --error-level 2"
   },
+  "private": true,
   "license": "MIT",
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
+  },
   "husky": {
     "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
       "pre-commit": "lint-staged"
     }
   },
   "lint-staged": {
-    "package.json": [
-      "finepack",
-      "git add"
-    ],
-    "*.js": [
-      "prettier-standard",
-      "git add"
-    ]
-  },
-  "peerDependencies": {
-    "puppeteer": "1.x"
+    "linters": {
+      "*.js": [
+        "prettier-standard",
+        "git add"
+      ],
+      "package.json": [
+        "finepack",
+        "git add"
+      ]
+    }
   }
 }
