@@ -26,14 +26,14 @@
     "clean": "rm -rf node_modules && cd packages && eachdir rm -rf node_modules",
     "coverage": "lerna exec npm run coverage",
     "lint": "standard-markdown README.md && standard",
-    "postinstall": "lerna bootstrap && lerna link --force-local",
+    "postinstall": "lerna bootstrap --no-ci && lerna link --force-local",
     "prerelease": "npm run update:check",
     "pretest": "npm run lint",
     "preversion": "lerna exec npx finepack && git-authors-cli && finepack",
     "release": "lerna publish --sort --conventional-commits",
     "test": "lerna exec npm run test",
-    "update": "ncu -a",
-    "update:check": "ncu -- --error-level 2"
+    "update": "lerna exec ncu -- -u",
+    "update:check": "lerna exec ncu -- --error-level 2"
   },
   "private": true,
   "license": "MIT",
