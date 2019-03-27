@@ -33,8 +33,8 @@
   ],
   "dependencies": {
     "@urlint/core": "~1.8.1",
-    "beauty-error": "~1.1.0",
-    "chalk": "~2.4.1",
+    "beauty-error": "~1.1.3",
+    "chalk": "~2.4.2",
     "ci-env": "~1.7.0",
     "cosmiconfig": "~5.2.0",
     "github-build": "~1.2.0",
@@ -45,7 +45,7 @@
     "ora": "~3.2.0",
     "pretty-ms": "~4.0.0",
     "puppeteer": "~1.13.0",
-    "reachable-url": "~1.1.6",
+    "reachable-url": "~1.1.8",
     "update-notifier": "~2.5.0"
   },
   "devDependencies": {
