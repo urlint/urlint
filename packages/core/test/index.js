@@ -6,8 +6,7 @@ const test = require('ava')
 
 const urlint = require('..')
 
-const each = (data, fn) =>
-  forEach(data, groupByStatusCode => forEach(groupByStatusCode, fn))
+const each = (data, fn) => forEach(data, groupByStatusCode => forEach(groupByStatusCode, fn))
 
 test('resolve a simple url', async t => {
   const emitter = urlint('https://kikobeats.com')
@@ -47,30 +46,23 @@ test('resolve DNS errors', async t => {
 
 test('follow redirects', async t => {
   const emitter = await urlint(
-    'https://gist.githubusercontent.com/Kikobeats/36587e833e76f57386ebe7a048b733c0/raw/2bca227045f3a0069be59b4235c6461dee4a6454/index.html'
+    'https://gist.githubusercontent.com/Kikobeats/c8f16017391898334ea01d499eb2f35f/raw/419069eaf61ebcad310bbc22dc2bfe69fd29231a/index.html'
   )
 
   const data = await pEvent(emitter, 'end')
 
   each(data, data => {
-    const {
-      redirectStatusCodes,
-      requestUrl,
-      redirectUrls,
-      statusCodeGroup,
-      statusCode,
-      url
-    } = data
+    const { redirectStatusCodes, requestUrl, redirectUrls, statusCodeGroup, statusCode, url } = data
 
     t.is(statusCode, 200)
     t.deepEqual(redirectStatusCodes, [302, 302, 302])
     t.is(statusCodeGroup, '3xx')
-    t.is(requestUrl, 'https://httpbin-org.herokuapp.com/redirect/3')
-    t.is(url, 'https://httpbin-org.herokuapp.com/get')
+    t.is(requestUrl, 'https://httpbin.org/redirect/3')
+    t.is(url, 'https://httpbin.org/get')
     t.deepEqual(redirectUrls, [
-      'https://httpbin-org.herokuapp.com/redirect/3',
-      'https://httpbin-org.herokuapp.com/relative-redirect/2',
-      'https://httpbin-org.herokuapp.com/relative-redirect/1'
+      'https://httpbin.org/redirect/3',
+      'https://httpbin.org/relative-redirect/2',
+      'https://httpbin.org/relative-redirect/1'
     ])
   })
 })
@@ -82,14 +74,7 @@ test('prerendering support', async t => {
   const data = await pEvent(emitter, 'end')
 
   each(data, data => {
-    const {
-      statusCodeGroup,
-      statusCode,
-      requestUrl,
-      url,
-      redirectStatusCodes,
-      redirectUrls
-    } = data
+    const { statusCodeGroup, statusCode, requestUrl, url, redirectStatusCodes, redirectUrls } = data
     t.is(statusCode, 200)
     t.is(statusCodeGroup, '2xx')
     t.true(url !== 'https://linkedin.com/in/kikobeats')
