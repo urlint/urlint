@@ -30,7 +30,7 @@
     "prerelease": "npm run update:check",
     "pretest": "npm run lint",
     "preversion": "lerna exec npx finepack && git-authors-cli && finepack",
-    "release": "lerna publish --sort --conventional-commits -m \"chore(release): %s\"",
+    "release": "lerna publish --sort --conventional-commits -m \"chore(release): %s\" --yes",
     "test": "lerna exec npm run test",
     "update": "lerna exec ncu -- -u",
     "update:check": "lerna exec ncu -- --error-level 2"
