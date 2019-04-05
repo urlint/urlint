@@ -41,10 +41,10 @@
     "lodash": "~4.17.11",
     "meow": "~5.0.0",
     "neat-log": "~3.1.0",
-    "normalize-url": "~4.2.0",
-    "ora": "~3.2.0",
+    "normalize-url": "~4.3.0",
+    "ora": "~3.4.0",
     "pretty-ms": "~4.0.0",
-    "puppeteer-core": "~1.13.0",
+    "puppeteer-core": "~1.14.0",
     "reachable-url": "~1.1.8",
     "update-notifier": "~2.5.0"
   },
