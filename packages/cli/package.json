@@ -44,7 +44,7 @@
     "normalize-url": "~4.3.0",
     "ora": "~3.4.0",
     "pretty-ms": "~5.0.0",
-    "puppeteer-core": "~1.18.1",
+    "puppeteer-core": "~1.19.0",
     "reachable-url": "~1.1.9",
     "update-notifier": "~3.0.0"
   },
