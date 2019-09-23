@@ -42,7 +42,7 @@
     "meow": "~5.0.0",
     "neat-log": "~3.1.0",
     "normalize-url": "~4.4.1",
-    "ora": "~3.4.0",
+    "ora": "~4.0.1",
     "pretty-ms": "~5.0.0",
     "puppeteer-core": "~1.20.0",
     "reachable-url": "~1.2.0",
