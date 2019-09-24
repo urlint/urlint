@@ -61,7 +61,7 @@ const withError = (errors, props) => {
 }
 
 const fetch = async (url, { getBrowserless = createBrowserless, ...opts }) => {
-  let timestamp = timeSpan()
+  const timestamp = timeSpan()
   let res
 
   try {
@@ -70,10 +70,7 @@ const fetch = async (url, { getBrowserless = createBrowserless, ...opts }) => {
     try {
       res = await withPrerender(url, { getBrowserless, ...opts })
     } catch (prerenderErrors) {
-      const errors = concat(
-        Array.from(fetchErrors),
-        Array.from(prerenderErrors)
-      )
+      const errors = concat(Array.from(fetchErrors), Array.from(prerenderErrors))
       res = withError(errors)
     }
   }
@@ -84,9 +81,7 @@ const fetch = async (url, { getBrowserless = createBrowserless, ...opts }) => {
 const pingUrl = async ({ acc, url, emitter, ...opts }) => {
   emitter.emit('fetching', { url })
   const res = await fetch(url, opts)
-  const statusCodeGroup = getStatusByGroup(
-    first(res.redirectStatusCodes) || res.statusCode
-  )
+  const statusCodeGroup = getStatusByGroup(first(res.redirectStatusCodes) || res.statusCode)
   const data = { ...res, statusCodeGroup }
 
   emitter.emit('status', data)
@@ -95,17 +90,9 @@ const pingUrl = async ({ acc, url, emitter, ...opts }) => {
 }
 
 const pingUrls = async (urls, { emitter, concurrence, ...opts } = {}) =>
-  aigle.transformLimit(
-    urls,
-    concurrence,
-    (acc, url) => pingUrl({ acc, url, emitter, ...opts }),
-    {}
-  )
+  aigle.transformLimit(urls, concurrence, (acc, url) => pingUrl({ acc, url, emitter, ...opts }), {})
 
-module.exports = (
-  urls,
-  { emitter = mitt(), concurrence = 8, ...opts } = {}
-) => {
+module.exports = (urls, { emitter = mitt(), concurrence = 8, ...opts } = {}) => {
   getUrls(urls, opts)
     .then(urls => {
       emitter.emit('urls', urls)
