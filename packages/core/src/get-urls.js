@@ -11,10 +11,13 @@ const { isXmlUrl } = fromXML
 
 const fromHTML = async (url, { selector, prerender, ...opts }) => {
   const { html: rawHtml } = await getHTML(url, { prerender })
-  const $ = cheerio.load(rawHtml)
-  const html = selector ? $(selector).html() : rawHtml
+  const html = selector
+    ? cheerio
+        .load(rawHtml)(selector)
+        .html()
+    : rawHtml
   const urls = await getUrlsFromHtml({ url, html, ...opts })
-  return map(urls, 'normalizedUrl')
+  return map(urls, 'uri')
 }
 
 module.exports = async (urls, opts) => {
