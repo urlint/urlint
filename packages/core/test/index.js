@@ -10,29 +10,29 @@ const server = require('./server')
 
 const each = (data, fn) => forEach(data, groupByStatusCode => forEach(groupByStatusCode, fn))
 
-// test('resolve a simple url', async t => {
-//   const emitter = urlint('https://kikobeats.com')
-//   const data = await pEvent(emitter, 'end')
+test('resolve a simple url', async t => {
+  const emitter = urlint('https://kikobeats.com')
+  const data = await pEvent(emitter, 'end')
 
-//   each(data, ({ statusCodeGroup, statusCode, url, timestamp }) => {
-//     t.true(isString(statusCodeGroup))
-//     t.true(isNumber(statusCode))
-//     t.true(isString(url))
-//     t.true(isNumber(timestamp))
-//   })
-// })
+  each(data, ({ statusCodeGroup, statusCode, url, timestamp }) => {
+    t.true(isString(statusCodeGroup))
+    t.true(isNumber(statusCode))
+    t.true(isString(url))
+    t.true(isNumber(timestamp))
+  })
+})
 
-// test('resolve a collection of urls', async t => {
-//   const emitter = urlint(['https://kikobeats.com', 'https://microlink.io'])
-//   const data = await pEvent(emitter, 'end')
+test('resolve a collection of urls', async t => {
+  const emitter = urlint(['https://kikobeats.com', 'https://microlink.io'])
+  const data = await pEvent(emitter, 'end')
 
-//   each(data, ({ statusCodeGroup, statusCode, url, timestamp }) => {
-//     t.true(isString(statusCodeGroup))
-//     t.true(isNumber(statusCode))
-//     t.true(isString(url))
-//     t.true(isNumber(timestamp))
-//   })
-// })
+  each(data, ({ statusCodeGroup, statusCode, url, timestamp }) => {
+    t.true(isString(statusCodeGroup))
+    t.true(isNumber(statusCode))
+    t.true(isString(url))
+    t.true(isNumber(timestamp))
+  })
+})
 
 test('resolve DNS errors', async t => {
   const url = await listen(server.dnsError())
