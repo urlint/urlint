@@ -59,7 +59,7 @@ const cli = require('meow')(require('./help'), {
     timeout: {
       alias: 't',
       type: 'number',
-      default: undefined
+      default: 30000
     },
     retries: {
       alias: 'r',
@@ -96,6 +96,6 @@ const main = async () => {
 }
 
 main().catch(async genericError => {
-  console.log(beautyError(genericError))
+  console.error(beautyError(genericError))
   await build.exit({ buildCode: 1, exitCode: 1 })
 })

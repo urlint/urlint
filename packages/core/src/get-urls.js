@@ -1,6 +1,6 @@
 'use strict'
 
-const { uniq, concat, map } = require('lodash')
+const { uniq, concat, map, compact } = require('lodash')
 const getUrlsFromHtml = require('html-urls')
 const fromXML = require('xml-urls')
 const getHTML = require('html-get')
@@ -16,8 +16,9 @@ const fromHTML = async (url, { selector, prerender, ...opts }) => {
       .load(rawHtml)(selector)
       .html()
     : rawHtml
-  const urls = await getUrlsFromHtml({ url, html, ...opts })
-  return map(urls, 'uri')
+
+  const urls = await getUrlsFromHtml({ url, html })
+  return compact(map(urls, 'uri'))
 }
 
 module.exports = async (urls, opts) => {

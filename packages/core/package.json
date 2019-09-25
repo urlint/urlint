@@ -43,7 +43,6 @@
     "lodash": "latest",
     "nyc": "latest",
     "p-event": "latest",
-    "puppeteer": "latest",
     "standard": "latest",
     "test-listen": "latest"
   },
