@@ -71,7 +71,7 @@ const cli = require('meow')(require('./help'), {
 
 const main = async () => {
   const { config = {} } = (await cosmiconfig.search()) || {}
-  const input = config.url || first(cli.input)
+  const input = config.url || cli.input
 
   if (isEmpty(input)) {
     cli.showHelp()
@@ -83,7 +83,7 @@ const main = async () => {
     ...cli.flags
   }
 
-  const url = await getUrl(input)
+  const url = getUrl(input)
 
   const opts = {
     ...flags,
