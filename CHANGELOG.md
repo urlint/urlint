@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.8.5](https://github.com/urlint/urlint/compare/v1.8.4...v1.8.5) (2019-09-25)
+
+
+### Bug Fixes
+
+* linter ([c5500f1](https://github.com/urlint/urlint/commit/c5500f1))
+* pass more than one url ([c76eeb8](https://github.com/urlint/urlint/commit/c76eeb8))
+* pass props ([662a294](https://github.com/urlint/urlint/commit/662a294))
+
+
+
+
+
 ## [1.8.4](https://github.com/urlint/urlint/compare/v1.8.3...v1.8.4) (2019-09-25)
 
 
