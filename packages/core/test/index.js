@@ -80,11 +80,11 @@ test('prerendering support', async t => {
   each(data, data => {
     const { statusCodeGroup, statusCode, requestUrl, url, redirectStatusCodes, redirectUrls } = data
 
-    if (url.includes('linkedin')) {
+    if (url.includes('instagram')) {
       t.is(statusCode, 200)
       t.is(statusCodeGroup, '2xx')
-      t.true(url !== 'https://linkedin.com/in/kikobeats')
-      t.is(requestUrl, 'https://es.linkedin.com/in/kikobeats')
+      t.true(url === 'https://www.instagram.com/teslamotors/')
+      t.is(requestUrl, 'https://www.instagram.com/teslamotors/')
       t.deepEqual(redirectStatusCodes, [])
       t.deepEqual(redirectUrls, [])
     }

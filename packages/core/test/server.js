@@ -51,7 +51,7 @@ module.exports = {
           <title>Document</title>
         </head>
         <body>
-          <a href="https://es.linkedin.com/in/kikobeats"></a>
+          <a href="https://www.instagram.com/teslamotors/"></a>
         </body>
       </html>
       `)
