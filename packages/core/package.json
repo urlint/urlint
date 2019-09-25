@@ -54,7 +54,7 @@
   ],
   "scripts": {
     "coverage": "nyc report --reporter=text-lcov | coveralls",
-    "test": "nyc ava --verbose --exit"
+    "test": "nyc ava test/index.js --verbose --exit"
   },
   "license": "MIT"
 }

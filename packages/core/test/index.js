@@ -1,5 +1,7 @@
 'use strict'
 
+process.setMaxListeners(Infinity)
+
 const { isNumber, isString, forEach } = require('lodash')
 const listen = require('test-listen')
 const pEvent = require('p-event')
@@ -37,17 +39,54 @@ test('resolve a collection of urls', async t => {
 test('resolve DNS errors', async t => {
   const url = await listen(server.dnsError())
   const emitter = await urlint(url)
-  t.snapshot(await pEvent(emitter, 'end'))
+  const data = await pEvent(emitter, 'end')
+
+  each(data, ({ statusCodeGroup, statusCode, url }) => {
+    if (url.includes('android-app')) {
+      t.is(statusCode, 404)
+      t.is(statusCodeGroup, '4xx')
+    }
+  })
 })
 
 test('follow redirects', async t => {
   const url = await listen(server.followRedirects())
   const emitter = await urlint(url)
-  t.snapshot(await pEvent(emitter, 'end'))
+  const data = await pEvent(emitter, 'end')
+
+  each(data, data => {
+    const { redirectStatusCodes, requestUrl, redirectUrls, statusCodeGroup, statusCode, url } = data
+
+    if (url === 'https://httpbin.org/get') {
+      t.is(statusCode, 200)
+      t.deepEqual(redirectStatusCodes, [302, 302, 302])
+      t.is(statusCodeGroup, '3xx')
+      t.is(requestUrl, 'https://httpbin.org/redirect/3')
+      t.is(url, 'https://httpbin.org/get')
+      t.deepEqual(redirectUrls, [
+        'https://httpbin.org/redirect/3',
+        'https://httpbin.org/relative-redirect/2',
+        'https://httpbin.org/relative-redirect/1'
+      ])
+    }
+  })
 })
 
 test('prerendering support', async t => {
   const url = await listen(server.prerender())
   const emitter = await urlint(url)
-  t.snapshot(await pEvent(emitter, 'end'))
+  const data = await pEvent(emitter, 'end')
+
+  each(data, data => {
+    const { statusCodeGroup, statusCode, requestUrl, url, redirectStatusCodes, redirectUrls } = data
+
+    if (url.includes('linkedin')) {
+      t.is(statusCode, 200)
+      t.is(statusCodeGroup, '2xx')
+      t.true(url !== 'https://linkedin.com/in/kikobeats')
+      t.is(requestUrl, 'https://es.linkedin.com/in/kikobeats')
+      t.deepEqual(redirectStatusCodes, [])
+      t.deepEqual(redirectUrls, [])
+    }
+  })
 })
