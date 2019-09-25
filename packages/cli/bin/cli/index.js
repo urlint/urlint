@@ -4,7 +4,7 @@
 
 const cosmiconfig = require('cosmiconfig')('urlint')
 
-const { omit, first, concat, isEmpty } = require('lodash')
+const { omit, concat, isEmpty } = require('lodash')
 const urlint = require('@urlint/core')
 const { ci } = require('ci-env')
 
