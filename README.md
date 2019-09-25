@@ -10,13 +10,16 @@
 
 ## Features
 
-- Get HTTP Status of the links on a website.
-- XML support (RSS/Atom/Feed/Sitemap).
-- Easy CI/CD integration.
+- Collect all the links behind a URL.
+- Get HTTP status code and group (2xx, 3xx, etc) per every link.
+- HTML & XML (RSS/Atom/Feed/Sitemap) markup supported.
+- Universal UNIX interface, easy to integrate with any existence system or tooling.
 
 ## Usage
 
-The nature of the program is to be used as CLI
+### as CLI
+
+The nature of the program is to be used as CLI:
 
 ```bash
 $ npx urlint
@@ -24,42 +27,19 @@ $ npx urlint
 
 We recommend execute it using `npx` over install it globally to have the benefits of the latest version.
 
+Also, the CLI supports load the configuration via:
 
-Alternatively you can use it from Node.js
+- A `.urlintrc` file, written in YAML or JSON, with optional extensions: .yaml/.yml/.json/.js.
+- A `urlint.config.js` file that exports an object.
+- A `urlint` key in your package.json file.
 
-```js
-const url = 'https://kikobeats.com'
-const emitter = await urlint(url)
+See [options](/packages/core/README.md#options) to know what kind of settings can be place there.
 
-emitter.on('*', function (event, data) {
-	console.log(event, data)
-})
+### as Node.js module
 
-emitter.on('end', function (data) {
-	console.log('finished!')
-})
-  ```
+Alternatively you can use it from Node.js.
 
-## API
-
-### urlint(urls, [options])
-
-#### urls
-
-*Required*<br>
-Type: `string`
-
-The target URL.
-
-#### options
-
-##### concurrence
-
-Type: `number`<br>
-Default: `30`
-
-The number of urls that can be resolved in parallel.
-
+See [`@urlint/core`](/packages/core/README.md) to know more.
 
 ## License
 

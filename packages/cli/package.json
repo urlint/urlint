@@ -38,15 +38,15 @@
     "ci-env": "~1.11.0",
     "cosmiconfig": "~5.2.1",
     "github-build": "~1.2.1",
-    "lodash": "~4.17.11",
+    "lodash": "~4.17.15",
     "meow": "~5.0.0",
     "neat-log": "~3.1.0",
     "normalize-url": "~4.4.1",
     "ora": "~4.0.1",
     "pretty-ms": "~5.0.0",
     "puppeteer-core": "~1.20.0",
-    "reachable-url": "~1.2.0",
-    "update-notifier": "~3.0.0"
+    "reachable-url": "~1.2.1",
+    "update-notifier": "~3.0.1"
   },
   "devDependencies": {
     "ava": "latest",

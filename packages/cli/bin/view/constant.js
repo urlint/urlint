@@ -11,10 +11,10 @@ module.exports = {
     cyan: '#9aedfe'
   },
   STATUS_CODE_COLOR: {
-    '2': 'green',
-    '3': 'blue',
-    '4': 'yellow',
-    '5': 'red',
-    '9': 'red'
+    2: 'green',
+    3: 'blue',
+    4: 'yellow',
+    5: 'red',
+    9: 'red'
   }
 }

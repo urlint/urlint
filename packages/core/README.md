@@ -20,6 +20,7 @@ $ npm install @urlint/core --save
 
 ```js
 ;(async () => {
+  const urlint = require('@urlint/core')
   const url = 'https://kikobeats.com'
   const emitter = await urlint(url)
 
@@ -40,18 +41,73 @@ $ npm install @urlint/core --save
 #### urls
 
 *Required*<br>
-Type: `string`
+Type: `string|string[]`
 
-The target URL.
+The target URL(s) for detecting content.
 
 #### options
 
 ##### concurrence
 
 Type: `number`<br>
-Default: `30`
+Default: `8`
 
-The number of urls that can be resolved in parallel.
+The number of URLs that can be resolved in parallel.
+
+##### quiet
+
+Type: `boolean`<br>
+Default: `false`
+
+When is `true`, it avoid print progress on terminal. This is oriented for CI environment and the value will be automatically inferred.
+
+##### verbose
+
+Type: `boolean`<br>
+Default: `false`
+
+When is `true`, it will be print more detailed information per every link as output.
+
+##### prerender
+
+Type: `string|boolean`<br>
+Default: `auto`<br>
+Values: `auto|true|false`
+
+Get HTML markup from the target URL using prerendering.
+
+##### retries
+
+Type: `number`<br>
+Default: `2`
+
+Maximum quantity of retries to do per every link after consider the URL is not reachable.
+
+##### timeout
+
+Type: `timeout`<br>
+Default: `30000`
+
+Maximum quanitty of time in milliseconds to wait until consider the URL is not reachable.
+
+##### followRedirect
+
+Type: `boolean`<br>
+Default: `true`
+
+Defines if redirect responses should be followed automatically.
+
+##### whitelist
+
+Type: `string[]`
+
+A set of URLs that can be ignored.
+
+##### selector
+
+Type: `string`
+
+Specify a CSS Classname selector for getting the URLs from HTML markup.Specify a CSS Classname selector for getting the URLs from HTML markup.
 
 ## License
 
