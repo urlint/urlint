@@ -13,11 +13,11 @@ const fromHTML = async (url, { selector, prerender, ...opts }) => {
   const { html: rawHtml } = await getHTML(url, { prerender })
   const html = selector
     ? cheerio
-      .load(rawHtml)(selector)
-      .html()
+        .load(rawHtml)(selector)
+        .html()
     : rawHtml
 
-  const urls = await getUrlsFromHtml({ url, html })
+  const urls = await getUrlsFromHtml({ url, html, ...opts })
   return compact(map(urls, 'uri'))
 }
 
