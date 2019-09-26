@@ -17,6 +17,8 @@ const EXIT_CODE_METHOD_MAPPER = {
 }
 
 const token =
+  process.env.gh_token ||
+  process.env.GH_TOKEN ||
   process.env.github_token ||
   process.env.GITHUB_TOKEN ||
   process.env.urlint_github_token ||
@@ -39,9 +41,7 @@ const noopBuild = {
 }
 
 const handleError = err => {
-  const message = `Could not add github status.${err.status}: ${
-    err.error.message
-  }`
+  const message = `Could not add github status.${err.status}: ${err.error.message}`
   console.error(message)
 }
 
