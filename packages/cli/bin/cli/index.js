@@ -2,7 +2,8 @@
 
 'use strict'
 
-const cosmiconfig = require('cosmiconfig')('urlint')
+const { cosmiconfig: createCosmiconfig } = require('cosmiconfig')
+const cosmiconfig = createCosmiconfig('urlint')
 
 const { omit, concat, isEmpty } = require('lodash')
 const urlint = require('@urlint/core')
