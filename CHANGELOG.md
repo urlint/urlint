@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.8.6](https://github.com/urlint/urlint/compare/v1.8.5...v1.8.6) (2019-12-10)
+
+
+### Bug Fixes
+
+* ensure checkout branch ([2afae29](https://github.com/urlint/urlint/commit/2afae2951b24cc3dd91927a48872639a675d2fee))
+
+
+
+
+
 ## [1.8.5](https://github.com/urlint/urlint/compare/v1.8.4...v1.8.5) (2019-09-25)
 
 
