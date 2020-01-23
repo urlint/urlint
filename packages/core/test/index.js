@@ -13,7 +13,7 @@ const server = require('./server')
 const each = (data, fn) => forEach(data, groupByStatusCode => forEach(groupByStatusCode, fn))
 
 test('resolve a simple url', async t => {
-  const emitter = urlint('https://kikobeats.com')
+  const emitter = urlint('https://kikobeats.com', { timeout: 5000 })
   const data = await pEvent(emitter, 'end')
 
   each(data, ({ statusCodeGroup, statusCode, url, timestamp }) => {
@@ -25,7 +25,7 @@ test('resolve a simple url', async t => {
 })
 
 test('resolve a collection of urls', async t => {
-  const emitter = urlint(['https://kikobeats.com', 'https://microlink.io'])
+  const emitter = urlint(['https://kikobeats.com', 'https://microlink.io'], { timeout: 5000 })
   const data = await pEvent(emitter, 'end')
 
   each(data, ({ statusCodeGroup, statusCode, url, timestamp }) => {
