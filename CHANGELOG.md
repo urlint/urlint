@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.9.0](https://github.com/urlint/urlint/compare/v1.8.7...v1.9.0) (2020-01-23)
+
+
+### Bug Fixes
+
+* pretty print ([c3e4837](https://github.com/urlint/urlint/commit/c3e4837eddfda62d8d9bb112cd39bd3e4a4d860b))
+
+
+
+
+
 ## [1.8.7](https://github.com/urlint/urlint/compare/v1.8.6...v1.8.7) (2019-12-13)
 
 **Note:** Version bump only for package urlint
