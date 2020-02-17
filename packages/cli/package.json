@@ -44,7 +44,7 @@
     "ora": "~4.0.3",
     "pretty-ms": "~6.0.0",
     "puppeteer-core": "~2.1.0",
-    "update-notifier": "~4.0.0"
+    "update-notifier": "~4.1.0"
   },
   "devDependencies": {
     "ava": "latest",
