@@ -34,7 +34,7 @@
   "dependencies": {
     "@urlint/core": "^1.9.6",
     "beauty-error": "~1.2.3",
-    "chalk": "~3.0.0",
+    "chalk": "~4.0.0",
     "ci-env": "~1.12.0",
     "cosmiconfig": "6",
     "github-build": "~1.2.1",
