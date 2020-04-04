@@ -26,13 +26,13 @@
   ],
   "dependencies": {
     "aigle": "~1.14.1",
-    "browserless": "~6.12.1",
+    "browserless": "~6.12.5",
     "cheerio": "~1.0.0-rc.3",
     "dnserrors": "~2.0.3",
-    "html-get": "~2.4.1",
+    "html-get": "~2.4.3",
     "html-urls": "~2.4.10",
     "mitt": "~1.2.0",
-    "reachable-url": "~1.4.3",
+    "reachable-url": "~1.4.4",
     "time-span": "~4.0.0",
     "xml-urls": "~2.1.11"
   },
