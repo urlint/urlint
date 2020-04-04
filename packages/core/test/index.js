@@ -90,3 +90,25 @@ test('prerendering support', async t => {
     }
   })
 })
+
+test('resolve data URIs ', async t => {
+  const url = await listen(server.dataUris())
+  const emitter = await urlint(url)
+  const data = await pEvent(emitter, 'end')
+
+  each(data, data => {
+    const { statusCodeGroup, statusCode, requestUrl, url, redirectStatusCodes, redirectUrls } = data
+
+    if (url.startsWith('data:image/jpeg;base64')) {
+      t.is(statusCode, 200)
+      t.is(statusCodeGroup, '2xx')
+      t.true(url === requestUrl)
+      t.deepEqual(redirectStatusCodes, [])
+      t.deepEqual(redirectUrls, [])
+    }
+  })
+})
+
+test.todo('resolve CDNs URLs')
+test.todo('resolve meta tags')
+test.todo('resolve mailto, etc urls')

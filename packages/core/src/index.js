@@ -5,6 +5,7 @@ const createBrowserless = require('browserless')
 const reachableUrl = require('reachable-url')
 const dnsErrors = require('dnserrors')
 const timeSpan = require('time-span')
+const isUrl = require('is-url-http')
 const aigle = require('aigle')
 const mitt = require('mitt')
 
@@ -39,14 +40,33 @@ const withPrerender = async (requestUrl, { getBrowserless, ...opts }) => {
   }
 }
 
-const withFetch = async (url, opts) =>
-  pick(await reachableUrl(url, opts), [
+const withFetch = async (url, opts) => {
+  if (!isUrl(url)) {
+    return url.startsWith('http')
+      ? {
+          redirectStatusCodes: [],
+          redirectUrls: [],
+          requestUrl: url,
+          url,
+          statusCode: 404
+        }
+      : {
+          url,
+          requestUrl: url,
+          statusCode: 200,
+          redirectStatusCodes: [],
+          redirectUrls: []
+        }
+  }
+
+  return pick(await reachableUrl(url, opts), [
     'redirectStatusCodes',
     'redirectUrls',
     'url',
     'requestUrl',
     'statusCode'
   ])
+}
 
 const withError = (errors, props) => {
   const { statusCode, url } = getDnsError(errors)
