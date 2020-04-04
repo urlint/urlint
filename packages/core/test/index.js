@@ -109,6 +109,59 @@ test('resolve data URIs ', async t => {
   })
 })
 
-test.todo('resolve CDNs URLs')
-test.todo('resolve meta tags')
-test.todo('resolve mailto, etc urls')
+test('resolve CDNs URLs ', async t => {
+  const url = await listen(server.cdnUrls())
+  const emitter = await urlint(url)
+  const data = await pEvent(emitter, 'end')
+
+  each(data, data => {
+    const { statusCodeGroup, statusCode, requestUrl, url, redirectStatusCodes, redirectUrls } = data
+
+    if (url.startsWith('https://cdn')) {
+      t.is(statusCode, 200)
+      t.is(statusCodeGroup, '3xx')
+      t.is(requestUrl, 'http://cdn.jsdelivr.net/npm/@microlink/mql@0.6.11/src/browser.js')
+      t.is(url, 'https://cdn.jsdelivr.net/npm/@microlink/mql@0.6.11/src/browser.js')
+      t.deepEqual(redirectStatusCodes, [301])
+      t.deepEqual(redirectUrls, [
+        'http://cdn.jsdelivr.net/npm/@microlink/mql@0.6.11/src/browser.js'
+      ])
+    }
+  })
+})
+
+test('resolve mailto ', async t => {
+  const url = await listen(server.mailTo())
+  const emitter = await urlint(url)
+  const data = await pEvent(emitter, 'end')
+
+  each(data, data => {
+    const { statusCodeGroup, statusCode, requestUrl, url, redirectStatusCodes, redirectUrls } = data
+
+    if (url.includes('example.com')) {
+      t.is(statusCode, 200)
+      t.is(statusCodeGroup, '2xx')
+      t.is(requestUrl, 'http://example.com/')
+      t.is(url, 'http://example.com/')
+      t.deepEqual(redirectStatusCodes, [])
+      t.deepEqual(redirectUrls, [])
+    }
+  })
+})
+
+test.skip('resolve meta tags ', async t => {
+  // const url = await listen(server.metaTags())
+  // const emitter = await urlint(url)
+  // const data = await pEvent(emitter, 'end')
+  // each(data, data => {
+  //   const { statusCodeGroup, statusCode, requestUrl, url, redirectStatusCodes, redirectUrls } = data
+  //   if (url.includes('example.com')) {
+  //     t.is(statusCode, 200)
+  //     t.is(statusCodeGroup, '2xx')
+  //     t.is(requestUrl, 'http://example.com/')
+  //     t.is(url, 'http://example.com/')
+  //     t.deepEqual(redirectStatusCodes, [])
+  //     t.deepEqual(redirectUrls, [])
+  //   }
+  // })
+})
