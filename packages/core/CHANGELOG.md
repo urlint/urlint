@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.9.8](https://github.com/urlint/urlint/tree/master/packages/core/compare/v1.9.7...v1.9.8) (2020-04-04)
+
+
+### Bug Fixes
+
+* resolve base64 urls ([b217974](https://github.com/urlint/urlint/tree/master/packages/core/commit/b217974de3ad4944fd9a9ae3a82180a599d27470)), closes [#121](https://github.com/urlint/urlint/tree/master/packages/core/issues/121)
+
+
+
+
+
 ## [1.9.7](https://github.com/urlint/urlint/tree/master/packages/core/compare/v1.9.6...v1.9.7) (2020-04-04)
 
 **Note:** Version bump only for package @urlint/core
