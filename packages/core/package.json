@@ -26,10 +26,10 @@
   ],
   "dependencies": {
     "aigle": "~1.14.1",
-    "browserless": "~6.14.1",
+    "browserless": "~7.0.0",
     "cheerio": "~1.0.0-rc.3",
     "dnserrors": "~2.0.3",
-    "html-get": "~2.4.3",
+    "html-get": "~2.4.4",
     "html-urls": "~2.4.10",
     "is-url-http": "~2.1.2",
     "mitt": "~1.2.0",
