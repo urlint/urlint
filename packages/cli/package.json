@@ -33,17 +33,17 @@
   ],
   "dependencies": {
     "@urlint/core": "^1.9.12",
-    "beauty-error": "~1.2.3",
+    "beauty-error": "~1.2.4",
     "chalk": "~4.0.0",
-    "ci-env": "~1.13.0",
+    "ci-env": "~1.14.0",
     "cosmiconfig": "6",
     "github-build": "~1.2.1",
     "lodash": "~4.17.15",
-    "meow": "~6.1.0",
+    "meow": "~7.0.0",
     "neat-log": "~3.1.0",
     "ora": "~4.0.4",
     "pretty-ms": "~7.0.0",
-    "puppeteer-core": "~3.0.1",
+    "puppeteer-core": "~3.0.3",
     "update-notifier": "~4.1.0"
   },
   "devDependencies": {
