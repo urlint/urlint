@@ -39,11 +39,11 @@
     "cosmiconfig": "6",
     "github-build": "~1.2.1",
     "lodash": "~4.17.15",
-    "meow": "~7.0.0",
+    "meow": "~7.0.1",
     "neat-log": "~3.1.0",
     "ora": "~4.0.4",
     "pretty-ms": "~7.0.0",
-    "puppeteer-core": "~3.1.0",
+    "puppeteer-core": "~3.2.0",
     "update-notifier": "~4.1.0"
   },
   "devDependencies": {
