@@ -33,7 +33,7 @@ module.exports = {
           <title>Document</title>
         </head>
         <body>
-          <a href="https://httpbin.org/redirect/3"></a>
+          <a href="https://test-redirect-drab.vercel.app?url=https%3A%2F%2Ftest-redirect-drab.vercel.app%3Furl%3Dhttps%253A%252F%252Ftest-redirect-drab.vercel.app%252F%253Furl%253Dhttps%253A%252F%252Fexample.com"></a>
         </body>
       </html>
       `)

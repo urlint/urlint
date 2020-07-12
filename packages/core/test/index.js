@@ -57,16 +57,19 @@ test('follow redirects', async t => {
   each(data, data => {
     const { redirectStatusCodes, requestUrl, redirectUrls, statusCodeGroup, statusCode, url } = data
 
-    if (url === 'https://httpbin.org/get') {
+    if (url === 'https://example.com/') {
       t.is(statusCode, 200)
       t.deepEqual(redirectStatusCodes, [302, 302, 302])
       t.is(statusCodeGroup, '3xx')
-      t.is(requestUrl, 'https://httpbin.org/redirect/3')
-      t.is(url, 'https://httpbin.org/get')
+      t.is(
+        requestUrl,
+        'https://test-redirect-drab.vercel.app/?url=https%3A%2F%2Ftest-redirect-drab.vercel.app%3Furl%3Dhttps%253A%252F%252Ftest-redirect-drab.vercel.app%252F%253Furl%253Dhttps%253A%252F%252Fexample.com'
+      )
+      t.is(url, 'https://example.com/')
       t.deepEqual(redirectUrls, [
-        'https://httpbin.org/redirect/3',
-        'https://httpbin.org/relative-redirect/2',
-        'https://httpbin.org/relative-redirect/1'
+        'https://test-redirect-drab.vercel.app/?url=https%3A%2F%2Ftest-redirect-drab.vercel.app%3Furl%3Dhttps%253A%252F%252Ftest-redirect-drab.vercel.app%252F%253Furl%253Dhttps%253A%252F%252Fexample.com',
+        'https://test-redirect-drab.vercel.app/?url=https%3A%2F%2Ftest-redirect-drab.vercel.app%2F%3Furl%3Dhttps%3A%2F%2Fexample.com',
+        'https://test-redirect-drab.vercel.app/?url=https://example.com'
       ])
     }
   })
