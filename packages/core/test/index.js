@@ -152,19 +152,7 @@ test('resolve mailto ', async t => {
   })
 })
 
-test.skip('resolve meta tags ', async t => {
-  // const url = await listen(server.metaTags())
-  // const emitter = await urlint(url)
-  // const data = await pEvent(emitter, 'end')
-  // each(data, data => {
-  //   const { statusCodeGroup, statusCode, requestUrl, url, redirectStatusCodes, redirectUrls } = data
-  //   if (url.includes('example.com')) {
-  //     t.is(statusCode, 200)
-  //     t.is(statusCodeGroup, '2xx')
-  //     t.is(requestUrl, 'http://example.com/')
-  //     t.is(url, 'http://example.com/')
-  //     t.deepEqual(redirectStatusCodes, [])
-  //     t.deepEqual(redirectUrls, [])
-  //   }
-  // })
-})
+test.todo('resolve URLs inside common meta tags (https://github.com/Kikobeats/html-urls/issues/46)')
+test.todo('resolve anchor URLs (https://github.com/urlint/urlint/issues/122)')
+test.todo('resolve URLs inside dynamic scripts (https://github.com/urlint/urlint/issues/32)')
+test.todo('resolve URLs based on a deep level (https://github.com/urlint/urlint/issues/70)')
