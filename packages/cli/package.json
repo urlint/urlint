@@ -41,9 +41,9 @@
     "lodash": "~4.17.19",
     "meow": "~7.0.1",
     "neat-log": "~3.1.0",
-    "ora": "~4.1.0",
+    "ora": "~5.0.0",
     "pretty-ms": "~7.0.0",
-    "puppeteer-core": "~5.2.0",
+    "puppeteer-core": "~5.2.1",
     "update-notifier": "~4.1.0"
   },
   "devDependencies": {
