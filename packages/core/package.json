@@ -2,7 +2,7 @@
   "name": "@urlint/core",
   "description": "Check your URLs, keep your links up to date ✨",
   "homepage": "https://urlint.co",
-  "version": "1.9.16",
+  "version": "1.9.17",
   "main": "src/index.js",
   "author": {
     "email": "josefrancisco.verdu@gmail.com",
