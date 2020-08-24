@@ -29,7 +29,7 @@
     "browserless": "~8.0.8",
     "cheerio": "~1.0.0-rc.3",
     "dnserrors": "~2.0.3",
-    "html-get": "~2.7.29",
+    "html-get": "~2.8.0",
     "html-urls": "~2.4.13",
     "is-url-http": "~2.1.2",
     "mitt": "~2.1.0",
