@@ -26,16 +26,16 @@
   ],
   "dependencies": {
     "aigle": "~1.14.1",
-    "browserless": "~8.1.7",
+    "browserless": "~8.1.14",
     "cheerio": "~1.0.0-rc.3",
     "dnserrors": "~2.0.3",
-    "html-get": "~2.8.0",
-    "html-urls": "~2.4.13",
+    "html-get": "~2.8.4",
+    "html-urls": "~2.4.14",
     "is-url-http": "~2.1.2",
     "mitt": "~2.1.0",
-    "reachable-url": "~1.4.13",
+    "reachable-url": "~1.4.14",
     "time-span": "~4.0.0",
-    "xml-urls": "~2.1.16"
+    "xml-urls": "~2.1.18"
   },
   "devDependencies": {
     "ava": "latest",

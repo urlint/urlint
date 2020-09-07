@@ -38,13 +38,13 @@
     "ci-env": "~1.16.0",
     "cosmiconfig": "7",
     "github-build": "~1.2.1",
-    "lodash": "~4.17.19",
-    "meow": "~7.1.0",
+    "lodash": "~4.17.20",
+    "meow": "~7.1.1",
     "neat-log": "~3.1.0",
     "ora": "~5.1.0",
     "pretty-ms": "~7.0.0",
     "puppeteer-core": "~5.2.1",
-    "update-notifier": "~4.1.0"
+    "update-notifier": "~4.1.1"
   },
   "devDependencies": {
     "ava": "latest",
