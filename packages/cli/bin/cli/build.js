@@ -41,8 +41,10 @@ const noopBuild = {
 }
 
 const handleError = err => {
-  const message = `Could not add github status (${err.status}): ${err.error.message}`
-  console.error(message)
+  if (err.status !== 404) {
+    const message = `\n\nCould not add github status (${err.status}): ${err.error.message}`
+    console.error(message)
+  }
 }
 
 const createBuild = build => ({
