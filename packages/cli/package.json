@@ -42,8 +42,8 @@
     "meow": "~7.1.1",
     "neat-log": "~3.1.0",
     "ora": "~5.1.0",
-    "pretty-ms": "~7.0.0",
-    "puppeteer-core": "~5.3.0",
+    "pretty-ms": "~7.0.1",
+    "puppeteer-core": "~5.3.1",
     "update-notifier": "~5.0.0"
   },
   "devDependencies": {
