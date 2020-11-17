@@ -2,7 +2,7 @@
   "name": "urlint",
   "description": "Check your URLs, keep your links up to date ✨",
   "homepage": "https://urlint.co",
-  "version": "1.9.23",
+  "version": "1.9.24",
   "main": "index.js",
   "bin": {
     "urlint": "./bin/cli/index.js"
@@ -32,7 +32,7 @@
     "validate"
   ],
   "dependencies": {
-    "@urlint/core": "^1.9.22",
+    "@urlint/core": "^1.9.24",
     "beauty-error": "~1.2.6",
     "chalk": "~4.1.0",
     "ci-env": "~1.16.0",
