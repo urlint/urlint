@@ -33,7 +33,7 @@
   ],
   "dependencies": {
     "@urlint/core": "^1.9.22",
-    "beauty-error": "~1.2.5",
+    "beauty-error": "~1.2.6",
     "chalk": "~4.1.0",
     "ci-env": "~1.16.0",
     "cosmiconfig": "7",
@@ -44,7 +44,7 @@
     "ora": "~5.1.0",
     "pretty-ms": "~7.0.1",
     "puppeteer-core": "~5.5.0",
-    "update-notifier": "~5.0.0"
+    "update-notifier": "~5.0.1"
   },
   "devDependencies": {
     "ava": "latest",
