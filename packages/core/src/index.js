@@ -44,19 +44,19 @@ const withFetch = async (url, opts) => {
   if (!isUrl(url)) {
     return url.startsWith('http')
       ? {
-        redirectStatusCodes: [],
-        redirectUrls: [],
-        requestUrl: url,
-        url,
-        statusCode: 404
-      }
+          redirectStatusCodes: [],
+          redirectUrls: [],
+          requestUrl: url,
+          url,
+          statusCode: 404
+        }
       : {
-        url,
-        requestUrl: url,
-        statusCode: 200,
-        redirectStatusCodes: [],
-        redirectUrls: []
-      }
+          url,
+          requestUrl: url,
+          statusCode: 200,
+          redirectStatusCodes: [],
+          redirectUrls: []
+        }
   }
 
   return pick(await reachableUrl(url, opts), [
