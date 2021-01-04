@@ -33,7 +33,7 @@
   ],
   "dependencies": {
     "@urlint/core": "^1.9.26",
-    "beauty-error": "~1.2.6",
+    "beauty-error": "~1.2.7",
     "chalk": "~4.1.0",
     "ci-env": "~1.16.0",
     "cosmiconfig": "7",
