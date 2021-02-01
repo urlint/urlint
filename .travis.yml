@@ -1,29 +1,25 @@
 language: node_js
 
 node_js:
-  - lts/*
   - node
 
 after_success: npm run coverage
 
 stages:
   - Test
+    if: branch = master AND commit_message !~ /(docs|release|no-release)/
   - name: Release
-    if: branch = master AND commit_message !~ /(release|no-release)/
-
-install:
-  - npm config set package-lock false
-  - npm install
+    if: branch = master AND commit_message !~ /(docs|release|no-release)/
 
 jobs:
   include:
     - stage: Release
       node_js: lts/*
+      install: npm install --no-package-lock
       before_deploy:
-        - git config --global user.email ${GITHUB_EMAIL}
-        - git config --global user.name ${GITHUB_USER}
+        - git config user.email ${GITHUB_EMAIL:-"travis@travis-ci.org"}
+        - git config user.name ${GITHUB_USER:-"Travis CI"}
         - git remote set-url origin https://${GH_TOKEN}@github.com/${TRAVIS_REPO_SLUG}.git
-        - echo "//registry.npmjs.org/:_authToken=\${NPM_TOKEN}" >> $HOME/.npmrc 2> /dev/null
         - git checkout master
       deploy:
         skip_cleanup: true
