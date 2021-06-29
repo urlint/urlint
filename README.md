@@ -3,10 +3,8 @@
 </h1>
 
 ![Last version](https://img.shields.io/github/tag/urlint/urlint.svg?style=flat-square)
-[![Build Status](https://img.shields.io/travis/urlint/urlint/master.svg?style=flat-square)](https://travis-ci.org/urlint/urlint)
-[![Dependency status](https://img.shields.io/david/urlint/urlint.svg?style=flat-square)](https://david-dm.org/urlint/urlint)
-[![Dev Dependencies Status](https://img.shields.io/david/dev/urlint/urlint.svg?style=flat-square)](https://david-dm.org/urlint/urlint#info=devDependencies)
-[![NPM Status](https://img.shields.io/npm/dm/urlint.svg?style=flat-square)](https://www.npmjs.org/package/urlint)
+[![Coverage Status](https://img.shields.io/coveralls/urlint/urlint.svg?style=flat-square)](https://coveralls.io/github/urlint/urlint)
+[![NPM Status](https://img.shields.io/npm/dm/metascraper.svg?style=flat-square)](https://www.npmjs.org/package/urlint)
 
 ## Features
 
