@@ -14,11 +14,11 @@
     "eachdir": "latest",
     "finepack": "latest",
     "git-authors-cli": "latest",
-    "simple-git-hooks": "latest",
     "lerna": "latest",
     "lint-staged": "latest",
     "npm-check-updates": "latest",
     "prettier-standard": "latest",
+    "simple-git-hooks": "latest",
     "standard": "latest",
     "standard-markdown": "latest"
   },
@@ -48,10 +48,6 @@
       "@commitlint/config-conventional"
     ]
   },
-  "simple-git-hooks": {
-    "commit-msg": "npx commitlint --edit",
-    "pre-commit": "npx lint-staged"
-  },
   "lint-staged": {
     "*.js": [
       "prettier-standard"
@@ -59,5 +55,9 @@
     "package.json": [
       "finepack"
     ]
+  },
+  "simple-git-hooks": {
+    "commit-msg": "npx commitlint --edit",
+    "pre-commit": "npx lint-staged"
   }
 }
