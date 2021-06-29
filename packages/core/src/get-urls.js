@@ -9,8 +9,8 @@ const aigle = require('aigle')
 
 const { isXmlUrl } = fromXML
 
-const fromHTML = async (url, { selector, prerender, ...opts }) => {
-  const { html: rawHtml } = await getHTML(url, { prerender })
+const fromHTML = async (url, { selector, prerender, getBrowserless, ...opts }) => {
+  const { html: rawHtml } = await getHTML(url, { prerender, getBrowserless })
   const html = selector
     ? cheerio
         .load(rawHtml)(selector)

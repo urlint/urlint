@@ -1,7 +1,6 @@
 'use strict'
 
 const { concat, chain, first, pick } = require('lodash')
-const createBrowserless = require('browserless')
 const reachableUrl = require('reachable-url')
 const dnsErrors = require('dnserrors')
 const timeSpan = require('time-span')
@@ -9,6 +8,7 @@ const isUrl = require('is-url-http')
 const aigle = require('aigle')
 const mitt = require('mitt')
 
+const _getBrowserless = require('./get-browserless')
 const getUrls = require('./get-urls')
 
 const getStatusByGroup = statusCode => `${String(statusCode).charAt(0)}xx`
@@ -33,7 +33,7 @@ const prerender = browserless =>
   })
 
 const withPrerender = async (requestUrl, { getBrowserless, ...opts }) => {
-  const browserless = await getBrowserless()
+  const browserless = await getBrowserless(requestUrl)
   return {
     ...(await prerender(browserless)(requestUrl, opts)),
     requestUrl
@@ -80,7 +80,7 @@ const withError = (errors, props) => {
   }
 }
 
-const fetch = async (url, { getBrowserless = createBrowserless, ...opts }) => {
+const fetch = async (url, opts) => {
   const timestamp = timeSpan()
   let res
 
@@ -88,7 +88,7 @@ const fetch = async (url, { getBrowserless = createBrowserless, ...opts }) => {
     res = await withFetch(url, opts)
   } catch (fetchErrors) {
     try {
-      res = await withPrerender(url, { getBrowserless, ...opts })
+      res = await withPrerender(url, opts)
     } catch (prerenderErrors) {
       const errors = concat(Array.from(fetchErrors), Array.from(prerenderErrors))
       res = withError(errors)
@@ -112,11 +112,14 @@ const pingUrl = async ({ acc, url, emitter, ...opts }) => {
 const pingUrls = async (urls, { emitter, concurrence, ...opts } = {}) =>
   aigle.transformLimit(urls, concurrence, (acc, url) => pingUrl({ acc, url, emitter, ...opts }), {})
 
-module.exports = (urls, { emitter = mitt(), concurrence = 8, ...opts } = {}) => {
-  getUrls(urls, opts)
+module.exports = (
+  urls,
+  { emitter = mitt(), concurrence = 8, getBrowserless = _getBrowserless, ...opts } = {}
+) => {
+  getUrls(urls, { getBrowserless, ...opts })
     .then(urls => {
       emitter.emit('urls', urls)
-      return pingUrls(urls, { emitter, concurrence, ...opts })
+      return pingUrls(urls, { emitter, concurrence, getBrowserless, ...opts })
     })
     .then(data => emitter.emit('end', data))
     .catch(error => emitter.emit('error', error))

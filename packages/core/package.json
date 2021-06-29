@@ -34,6 +34,8 @@
     "is-url-http": "~2.2.3",
     "mitt": "~3.0.0",
     "reachable-url": "~1.5.1",
+    "require-one-of": "~1.0.15",
+    "signal-exit": "~3.0.3",
     "time-span": "~4.0.0",
     "xml-urls": "~2.1.24"
   },
