@@ -1,7 +1,7 @@
 'use strict'
 
 const creatBrowserlessFactory = opts => {
-  const requireOneOf = require('requireOneOf')
+  const requireOneOf = require('require-one-of')
   const createBrowserless = requireOneOf(['@browserless/pool', 'browserless'])
   const onExit = require('signal-exit')
 

@@ -13,8 +13,9 @@
     "url": "https://kikobeats.com"
   },
   "repository": {
+    "directory": "packages/cli",
     "type": "git",
-    "url": "https://github.com/urlint/urlint/tree/master/packages/urlint"
+    "url": "git+https://github.com/urlint/urlint.git#master"
   },
   "bugs": {
     "url": "https://github.com/urlint/urlint/issues"
@@ -46,13 +47,6 @@
     "puppeteer-core": "~10.1.0",
     "update-notifier": "~5.1.0"
   },
-  "devDependencies": {
-    "ava": "latest",
-    "coveralls": "latest",
-    "finepack": "latest",
-    "nyc": "latest",
-    "standard": "latest"
-  },
   "engines": {
     "node": ">= 10"
   },
@@ -60,7 +54,6 @@
     "bin"
   ],
   "scripts": {
-    "coverage": "nyc report --reporter=text-lcov | coveralls",
     "test": "exit 0"
   },
   "preferGlobal": true,

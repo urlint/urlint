@@ -10,8 +10,9 @@
     "url": "https://kikobeats.com"
   },
   "repository": {
+    "directory": "packages/core",
     "type": "git",
-    "url": "https://github.com/urlint/urlint/tree/master/packages/core"
+    "url": "git+https://github.com/urlint/urlint.git#master"
   },
   "bugs": {
     "url": "https://github.com/urlint/urlint/issues"
@@ -41,12 +42,9 @@
   },
   "devDependencies": {
     "ava": "latest",
-    "coveralls": "latest",
-    "finepack": "latest",
     "lodash": "latest",
     "nyc": "latest",
     "p-event": "latest",
-    "standard": "latest",
     "test-listen": "latest"
   },
   "engines": {
@@ -56,8 +54,7 @@
     "src"
   ],
   "scripts": {
-    "coverage": "nyc report --reporter=text-lcov | coveralls",
-    "test": "nyc ava test/index.js"
+    "test": "nyc --temp-dir ../../.nyc_output ava test/index.js"
   },
   "license": "MIT",
   "ava": {
