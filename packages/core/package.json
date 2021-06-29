@@ -27,15 +27,15 @@
   "dependencies": {
     "aigle": "~1.14.1",
     "browserless": "~9.0.1",
-    "cheerio": "~1.0.0-rc.5",
+    "cheerio": "~1.0.0-rc.10",
     "dnserrors": "~2.0.3",
-    "html-get": "~2.8.19",
-    "html-urls": "~2.4.21",
+    "html-get": "~2.9.0",
+    "html-urls": "~2.4.23",
     "is-url-http": "~2.2.3",
     "mitt": "~3.0.0",
-    "reachable-url": "~1.4.20",
+    "reachable-url": "~1.5.1",
     "time-span": "~4.0.0",
-    "xml-urls": "~2.1.22"
+    "xml-urls": "~2.1.24"
   },
   "devDependencies": {
     "ava": "latest",
