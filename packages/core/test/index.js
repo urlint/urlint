@@ -24,7 +24,7 @@ test('resolve a simple url', async t => {
   })
 })
 
-test.skip('resolve a collection of urls', async t => {
+test('resolve a collection of urls', async t => {
   const emitter = urlint(['https://kikobeats.com', 'https://microlink.io'], { timeout: 5000 })
   const data = await pEvent(emitter, 'end')
 
@@ -114,7 +114,7 @@ test('resolve CDNs URLs ', async t => {
   })
 })
 
-test.skip('resolve mailto ', async t => {
+test('resolve mailto ', async t => {
   const url = await listen(server.mailTo())
   const emitter = await urlint(url)
   const data = await pEvent(emitter, 'end')
@@ -122,13 +122,13 @@ test.skip('resolve mailto ', async t => {
   each(data, data => {
     const { statusCodeGroup, statusCode, requestUrl, url, redirectStatusCodes, redirectUrls } = data
 
-    if (url.includes('example.com')) {
+    if (url.includes('kikobeats.com')) {
       t.is(statusCode, 200)
-      t.is(statusCodeGroup, '2xx')
-      t.is(requestUrl, 'http://example.com/')
-      t.is(url, 'http://example.com/')
-      t.deepEqual(redirectStatusCodes, [])
-      t.deepEqual(redirectUrls, [])
+      t.is(statusCodeGroup, '3xx')
+      t.is(requestUrl, 'http://kikobeats.com/')
+      t.is(url, 'https://kikobeats.com/')
+      t.deepEqual(redirectStatusCodes, [301])
+      t.deepEqual(redirectUrls, ['http://kikobeats.com/'])
     }
   })
 })

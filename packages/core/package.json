@@ -59,7 +59,7 @@
   "license": "MIT",
   "ava": {
     "failFast": true,
-    "timeout": "5m",
+    "timeout": "2m",
     "verbose": true
   }
 }

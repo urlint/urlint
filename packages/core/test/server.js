@@ -92,7 +92,7 @@ module.exports = {
       <html lang="en">
       <head></head>
       <body>
-        <a href="mailto:test@example.com">mail us</a>
+        <a href="mailto:test@kikobeats.com">mail us</a>
       </body>
       </html>
       `)
