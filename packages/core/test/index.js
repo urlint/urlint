@@ -24,7 +24,7 @@ test('resolve a simple url', async t => {
   })
 })
 
-test('resolve a collection of urls', async t => {
+test.skip('resolve a collection of urls', async t => {
   const emitter = urlint(['https://kikobeats.com', 'https://microlink.io'], { timeout: 5000 })
   const data = await pEvent(emitter, 'end')
 
@@ -114,7 +114,7 @@ test('resolve CDNs URLs ', async t => {
   })
 })
 
-test('resolve mailto ', async t => {
+test.skip('resolve mailto ', async t => {
   const url = await listen(server.mailTo())
   const emitter = await urlint(url)
   const data = await pEvent(emitter, 'end')
