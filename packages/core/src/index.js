@@ -80,7 +80,7 @@ const withError = (errors, props) => {
   }
 }
 
-const fetch = async (url, opts) => {
+const doPing = async (url, opts) => {
   const timestamp = timeSpan()
   let res
 
@@ -90,6 +90,7 @@ const fetch = async (url, opts) => {
     try {
       res = await withPrerender(url, opts)
     } catch (prerenderErrors) {
+      console.log(prerenderErrors)
       const errors = concat(Array.from(fetchErrors), Array.from(prerenderErrors))
       res = withError(errors)
     }
@@ -100,7 +101,7 @@ const fetch = async (url, opts) => {
 
 const pingUrl = async ({ acc, url, emitter, ...opts }) => {
   emitter.emit('fetching', { url })
-  const res = await fetch(url, opts)
+  const res = await doPing(url, opts)
   const statusCodeGroup = getStatusByGroup(first(res.redirectStatusCodes) || res.statusCode)
   const data = { ...res, statusCodeGroup }
 
@@ -114,7 +115,12 @@ const pingUrls = async (urls, { emitter, concurrence, ...opts } = {}) =>
 
 module.exports = (
   urls,
-  { emitter = mitt(), concurrence = 8, getBrowserless = _getBrowserless, ...opts } = {}
+  {
+    emitter = mitt(),
+    concurrence = require('os').cpus().length,
+    getBrowserless = _getBrowserless,
+    ...opts
+  } = {}
 ) => {
   getUrls(urls, { getBrowserless, ...opts })
     .then(urls => {
