@@ -1,12 +1,12 @@
 'use strict'
 
 const { green, gray } = require('../view/colorize')
-const { description } = require('../../package.json')
+const { name, description } = require('../../package.json')
 
 module.exports = gray(`${gray(description)}
 
   Usage
-    $ ${green('urlint')} <url> [<flags>]
+    $ ${green(name)} <url> [<flags>]
 
   Flags
     -c, --concurrence     Number of concurrent petitions (defaults to 8)
@@ -23,15 +23,13 @@ module.exports = gray(`${gray(description)}
   Examples
 
   – Get all HTTP status from an URL
-    $ ${green('urlint')} https://kikobeats.com
+    $ ${green(name)} https://kikobeats.com
 
   – Exclude a particular URL
-    $ ${green(
-    'urlint'
-  )} https://kikobeats.com --whitelist https://www.linkedin.com/in/kikobeats
+    $ ${green(name)} https://kikobeats.com --whitelist https://www.linkedin.com/in/kikobeats
 
   – Exclude based in a matcher
-    $ ${green('urlint')} https://kikobeats.com --whitelist "https://github.com*
+    $ ${green(name)} https://kikobeats.com --whitelist "https://github.com*
 
   – Just detect URLs inside body selector
-    $ ${green('urlint')} https://kikobeats.com --selector body`)
+    $ ${green(name)} https://kikobeats.com --selector body`)
