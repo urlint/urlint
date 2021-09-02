@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.9.39](https://github.com/urlint/urlint/compare/v1.9.38...v1.9.39) (2021-09-02)
+
+
+### Bug Fixes
+
+* always resolve input as array ([e10bb9e](https://github.com/urlint/urlint/commit/e10bb9e3a0342de47f1659aa497c5cbbbe0d9a03))
+
+
+
+
+
 ## [1.9.38](https://github.com/urlint/urlint/compare/v1.9.37...v1.9.38) (2021-08-05)
 
 **Note:** Version bump only for package urlint
