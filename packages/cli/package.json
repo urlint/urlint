@@ -36,7 +36,7 @@
     "@urlint/core": "^1.9.40",
     "beauty-error": "~1.2.8",
     "chalk": "~4.1.1",
-    "ci-env": "~1.16.0",
+    "ci-env": "~1.17.0",
     "cosmiconfig": "7",
     "github-build": "~1.2.2",
     "lodash": "~4.17.21",
