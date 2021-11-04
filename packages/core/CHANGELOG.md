@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.9.43](https://github.com/urlint/urlint/compare/v1.9.42...v1.9.43) (2021-11-04)
+
+**Note:** Version bump only for package @urlint/core
+
+
+
+
+
 ## [1.9.40](https://github.com/urlint/urlint/compare/v1.9.39...v1.9.40) (2021-09-06)
 
 **Note:** Version bump only for package @urlint/core

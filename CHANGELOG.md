@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.9.43](https://github.com/urlint/urlint/compare/v1.9.42...v1.9.43) (2021-11-04)
+
+**Note:** Version bump only for package urlint
+
+
+
+
+
 ## [1.9.42](https://github.com/urlint/urlint/compare/v1.9.41...v1.9.42) (2021-10-26)
 
 **Note:** Version bump only for package urlint
