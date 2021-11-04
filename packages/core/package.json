@@ -44,7 +44,7 @@
     "ava": "latest",
     "lodash": "latest",
     "nyc": "latest",
-    "p-event": "latest",
+    "p-event": "4",
     "test-listen": "latest"
   },
   "engines": {
