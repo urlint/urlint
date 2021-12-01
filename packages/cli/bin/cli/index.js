@@ -2,11 +2,9 @@
 
 'use strict'
 
-const { cosmiconfig: createCosmiconfig } = require('cosmiconfig')
-const cosmiconfig = createCosmiconfig('urlint')
-
 const { omit, concat, isEmpty } = require('lodash')
 const urlint = require('@urlint/core')
+const JoyCon = require('joycon')
 const { ci } = require('ci-env')
 
 const beautyError = require('beauty-error')
@@ -70,8 +68,14 @@ const cli = require('meow')(require('./help'), {
   }
 })
 
+const joycon = new JoyCon({
+  packageKey: 'urlint',
+  files: ['package.json', '.urlintrc', '.urlintrc.json', '.urlintrc.js', 'urlint.config.js']
+})
+
 const main = async () => {
-  const { config = {} } = (await cosmiconfig.search()) || {}
+  const { data: config } = await joycon.load()
+
   const input = config.url || cli.input
 
   if (isEmpty(input)) {
