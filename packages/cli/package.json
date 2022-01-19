@@ -34,17 +34,17 @@
   ],
   "dependencies": {
     "@urlint/core": "^1.9.47",
-    "beauty-error": "~1.2.8",
     "chalk": "~4.1.1",
+    "beauty-error": "~1.2.9",
     "ci-env": "~1.17.0",
-    "github-build": "~1.2.2",
-    "joycon": "~3.1.0",
+    "github-build": "~1.2.3",
+    "joycon": "~3.1.1",
     "lodash": "~4.17.21",
     "meow": "~9.0.0",
     "neat-log": "~3.1.0",
     "ora": "~5.4.1",
     "pretty-ms": "~7.0.1",
-    "puppeteer": "~13.0.1",
+    "puppeteer": "~13.1.1",
     "update-notifier": "~5.1.0"
   },
   "engines": {
