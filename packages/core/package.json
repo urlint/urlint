@@ -30,7 +30,7 @@
     "browserless": "~9.3.5",
     "cheerio": "~1.0.0-rc.10",
     "dnserrors": "~2.0.3",
-    "exit-hook": "~2.2.1",
+    "exit-hook": "~3.0.0",
     "html-get": "~2.9.8",
     "html-urls": "~2.4.27",
     "is-url-http": "~2.2.7",
