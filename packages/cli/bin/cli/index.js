@@ -74,7 +74,7 @@ const joycon = new JoyCon({
 })
 
 const main = async () => {
-  const { data: config } = await joycon.load()
+  const { data: config = {} } = (await joycon.load()) || {}
 
   const input = config.url || cli.input
 
