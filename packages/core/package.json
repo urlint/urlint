@@ -43,7 +43,6 @@
   "devDependencies": {
     "ava": "latest",
     "lodash": "latest",
-    "c8": "latest",
     "p-event": "4",
     "test-listen": "latest"
   },
@@ -54,7 +53,7 @@
     "src"
   ],
   "scripts": {
-    "test": "c8 ava test/index.js"
+    "test": "ava test/index.js"
   },
   "license": "MIT",
   "ava": {
