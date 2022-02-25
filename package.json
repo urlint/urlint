@@ -11,12 +11,12 @@
   "devDependencies": {
     "@commitlint/cli": "latest",
     "@commitlint/config-conventional": "latest",
+    "c8": "latest",
     "finepack": "latest",
     "git-authors-cli": "latest",
     "lerna": "latest",
     "nano-staged": "latest",
     "npm-check-updates": "latest",
-    "nyc": "latest",
     "prettier-standard": "latest",
     "simple-git-hooks": "latest",
     "standard": "latest",

@@ -43,7 +43,7 @@
   "devDependencies": {
     "ava": "latest",
     "lodash": "latest",
-    "nyc": "latest",
+    "c8": "latest",
     "p-event": "4",
     "test-listen": "latest"
   },
@@ -54,7 +54,7 @@
     "src"
   ],
   "scripts": {
-    "test": "nyc --temp-dir ../../.nyc_output ava test/index.js"
+    "test": "c8 ava test/index.js"
   },
   "license": "MIT",
   "ava": {
