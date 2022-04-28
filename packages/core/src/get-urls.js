@@ -13,8 +13,8 @@ const fromHTML = async (url, { selector, prerender, getBrowserless, ...opts }) =
   const { html: rawHtml } = await getHTML(url, { prerender, getBrowserless })
   const html = selector
     ? cheerio
-        .load(rawHtml)(selector)
-        .html()
+      .load(rawHtml)(selector)
+      .html()
     : rawHtml
 
   const urls = await getUrlsFromHtml({ url, html, ...opts })

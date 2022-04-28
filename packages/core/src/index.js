@@ -75,7 +75,7 @@ const withError = (errors, props) => {
     url,
     requestUrl: url,
     redirectUrls: [],
-    statusCode: statusCode,
+    statusCode,
     ...props
   }
 }
