@@ -4,7 +4,7 @@
 
 ![Last version](https://img.shields.io/github/tag/urlint/urlint.svg?style=flat-square)
 [![Coverage Status](https://img.shields.io/coveralls/urlint/urlint.svg?style=flat-square)](https://coveralls.io/github/urlint/urlint)
-[![NPM Status](https://img.shields.io/npm/dm/metascraper.svg?style=flat-square)](https://www.npmjs.org/package/urlint)
+[![NPM Status](https://img.shields.io/npm/dm/urlint.svg?style=flat-square)](https://www.npmjs.org/package/urlint)
 
 ## Features
 
