@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.9.54](https://github.com/urlint/urlint/compare/v1.9.53...v1.9.54) (2022-05-06)
+
+
+### Bug Fixes
+
+* linter ([789cb8a](https://github.com/urlint/urlint/commit/789cb8abfb2f2ee247dfa784d38c764e6a31c2ac))
+
+
+
+
+
 ## [1.9.53](https://github.com/urlint/urlint/compare/v1.9.52...v1.9.53) (2022-02-25)
 
 **Note:** Version bump only for package @urlint/core
