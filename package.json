@@ -8,6 +8,13 @@
     "name": "Kiko Beats",
     "url": "https://kikobeats.com"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/urlint/urlint.git"
+  },
+  "bugs": {
+    "url": "https://github.com/urlint/urlint/issues"
+  },
   "devDependencies": {
     "@commitlint/cli": "latest",
     "@commitlint/config-conventional": "latest",

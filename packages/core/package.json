@@ -12,7 +12,7 @@
   "repository": {
     "directory": "packages/core",
     "type": "git",
-    "url": "git+https://github.com/urlint/urlint.git#master"
+    "url": "git+https://github.com/urlint/urlint.git"
   },
   "bugs": {
     "url": "https://github.com/urlint/urlint/issues"
