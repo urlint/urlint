@@ -45,7 +45,7 @@
     "ora": "~5.4.1",
     "pretty-ms": "~7.0.1",
     "puppeteer": "~15.0.0",
-    "update-notifier": "~5.1.0"
+    "update-notifier": "~6.0.1"
   },
   "engines": {
     "node": ">= 10"
