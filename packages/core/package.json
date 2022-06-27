@@ -37,7 +37,7 @@
     "mitt": "~3.0.0",
     "reachable-url": "~1.6.5",
     "require-one-of": "~1.0.15",
-    "time-span": "~4.0.0",
+    "time-span": "~5.1.0",
     "xml-urls": "~2.1.26"
   },
   "devDependencies": {
