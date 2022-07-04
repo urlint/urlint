@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 1.9.66 (2022-07-04)
+
+**Note:** Version bump only for package @urlint/core
+
 ## 1.9.65 (2022-07-01)
 
 **Note:** Version bump only for package @urlint/core
