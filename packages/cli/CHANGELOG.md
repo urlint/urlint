@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 1.9.69 (2022-08-03)
+
+**Note:** Version bump only for package urlint
+
 ## 1.9.68 (2022-07-22)
 
 **Note:** Version bump only for package urlint
