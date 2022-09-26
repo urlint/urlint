@@ -35,7 +35,7 @@
     "html-urls": "~2.4.27",
     "is-url-http": "~2.3.1",
     "mitt": "~3.0.0",
-    "reachable-url": "~1.6.5",
+    "reachable-url": "~1.7.0",
     "require-one-of": "~1.0.15",
     "time-span": "~4.0.0",
     "xml-urls": "~2.1.26"
