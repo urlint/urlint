@@ -27,18 +27,18 @@
   ],
   "dependencies": {
     "aigle": "~1.14.1",
-    "browserless": "~9.6.0",
-    "cheerio": "~1.0.0-rc.11",
+    "browserless": "~9.7.0",
+    "cheerio": "~1.0.0-rc.12",
     "dnserrors": "~2.0.3",
     "exit-hook": "~2.2.1",
-    "html-get": "~2.9.8",
-    "html-urls": "~2.4.27",
-    "is-url-http": "~2.3.1",
+    "html-get": "~2.9.23",
+    "html-urls": "~2.4.39",
+    "is-url-http": "~2.3.2",
     "mitt": "~3.0.0",
     "reachable-url": "~1.7.1",
-    "require-one-of": "~1.0.15",
+    "require-one-of": "~1.0.16",
     "time-span": "~4.0.0",
-    "xml-urls": "~2.1.26"
+    "xml-urls": "~2.1.34"
   },
   "devDependencies": {
     "ava": "latest",
