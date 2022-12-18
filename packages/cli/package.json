@@ -44,7 +44,7 @@
     "neat-log": "~3.1.0",
     "ora": "~5.4.1",
     "pretty-ms": "~7.0.1",
-    "puppeteer": "~19.3.0",
+    "puppeteer": "~19.4.1",
     "update-notifier": "~5.1.0"
   },
   "engines": {
@@ -54,6 +54,7 @@
     "bin"
   ],
   "scripts": {
+    "postinstall": "node node_modules/puppeteer/install.js",
     "test": "exit 0"
   },
   "preferGlobal": true,
