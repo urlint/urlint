@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 1.9.83 (2022-12-23)
+
+### Bug Fixes
+
+* remove postinstall ([9b35b07](https://github.com/urlint/urlint/commit/9b35b0798fd69942fc52d190c8dbc3fd68637a87))
+
 ## 1.9.82 (2022-12-18)
 
 **Note:** Version bump only for package @urlint/core
