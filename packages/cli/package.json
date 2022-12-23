@@ -54,7 +54,6 @@
     "bin"
   ],
   "scripts": {
-    "postinstall": "node node_modules/puppeteer/install.js",
     "test": "exit 0"
   },
   "preferGlobal": true,
