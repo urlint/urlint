@@ -27,7 +27,7 @@
   ],
   "dependencies": {
     "aigle": "~1.14.1",
-    "browserless": "~9.8.0",
+    "browserless": "~9.9.1",
     "cheerio": "~1.0.0-rc.12",
     "dnserrors": "~2.0.3",
     "exit-hook": "~2.2.1",
