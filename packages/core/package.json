@@ -31,7 +31,7 @@
     "cheerio": "~1.0.0-rc.12",
     "dnserrors": "~2.0.3",
     "exit-hook": "~2.2.1",
-    "html-get": "~2.9.27",
+    "html-get": "~2.10.0",
     "html-urls": "~2.4.40",
     "is-url-http": "~2.3.2",
     "mitt": "~3.0.0",
