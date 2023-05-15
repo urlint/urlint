@@ -3,7 +3,7 @@
 process.setMaxListeners(Infinity)
 
 const { isNumber, isString, forEach } = require('lodash')
-const listen = require('test-listen')
+const { listen } = require('async-listen')
 const pEvent = require('p-event')
 const test = require('ava')
 
@@ -37,7 +37,7 @@ test('resolve a collection of urls', async t => {
 })
 
 test('resolve DNS errors', async t => {
-  const url = await listen(server.dnsError())
+  const url = (await listen(server.dnsError())).toString()
   const emitter = await urlint(url)
   const data = await pEvent(emitter, 'end')
 
@@ -50,7 +50,7 @@ test('resolve DNS errors', async t => {
 })
 
 test('follow redirects', async t => {
-  const url = await listen(server.followRedirects())
+  const url = (await listen(server.followRedirects())).toString()
   const emitter = await urlint(url)
   const data = await pEvent(emitter, 'end')
 
@@ -75,8 +75,8 @@ test('follow redirects', async t => {
   })
 })
 
-test('resolve data URIs ', async t => {
-  const url = await listen(server.dataUris())
+test('resolve data URIs', async t => {
+  const url = (await listen(server.dataUris())).toString()
   const emitter = await urlint(url)
   const data = await pEvent(emitter, 'end')
 
@@ -93,8 +93,8 @@ test('resolve data URIs ', async t => {
   })
 })
 
-test('resolve CDNs URLs ', async t => {
-  const url = await listen(server.cdnUrls())
+test('resolve CDNs URLs', async t => {
+  const url = (await listen(server.cdnUrls())).toString()
   const emitter = await urlint(url)
   const data = await pEvent(emitter, 'end')
 
@@ -114,8 +114,8 @@ test('resolve CDNs URLs ', async t => {
   })
 })
 
-test('resolve mailto ', async t => {
-  const url = await listen(server.mailTo())
+test('resolve mailto', async t => {
+  const url = (await listen(server.mailTo())).toString()
   const emitter = await urlint(url)
   const data = await pEvent(emitter, 'end')
 

@@ -27,24 +27,24 @@
   ],
   "dependencies": {
     "aigle": "~1.14.1",
-    "browserless": "~9.10.1",
+    "browserless": "~9.10.2",
     "cheerio": "~1.0.0-rc.12",
     "dnserrors": "~2.0.3",
-    "exit-hook": "~2.2.1",
-    "html-get": "~2.10.0",
-    "html-urls": "~2.4.40",
-    "is-url-http": "~2.3.2",
+    "html-get": "~2.10.6",
+    "html-urls": "~2.4.44",
+    "is-url-http": "~2.3.5",
     "mitt": "~3.0.0",
     "reachable-url": "~1.7.1",
     "require-one-of": "~1.0.16",
+    "signal-exit": "~4.0.2",
     "time-span": "~4.0.0",
-    "xml-urls": "~2.1.35"
+    "xml-urls": "~2.1.39"
   },
   "devDependencies": {
+    "async-listen": "latest",
     "ava": "latest",
     "lodash": "latest",
-    "p-event": "4",
-    "test-listen": "latest"
+    "p-event": "4"
   },
   "engines": {
     "node": ">= 10"
