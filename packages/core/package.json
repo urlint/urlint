@@ -44,7 +44,7 @@
     "async-listen": "latest",
     "ava": "latest",
     "lodash": "latest",
-    "p-event": "4"
+    "p-event": "6"
   },
   "engines": {
     "node": ">= 10"
