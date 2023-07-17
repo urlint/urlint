@@ -20,6 +20,7 @@
     "@commitlint/config-conventional": "latest",
     "@ksmithut/prettier-standard": "latest",
     "@lerna-lite/cli": "latest",
+    "@lerna-lite/publish": "latest",
     "c8": "latest",
     "finepack": "latest",
     "git-authors-cli": "latest",
