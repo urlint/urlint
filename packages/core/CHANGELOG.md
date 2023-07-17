@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.9.90](https://github.com/urlint/urlint/compare/v1.9.89...v1.9.90) (2023-07-17)
+
+### Bug Fixes
+
+* signal-exit export ([#284](https://github.com/urlint/urlint/issues/284)) ([2ff2a6b](https://github.com/urlint/urlint/commit/2ff2a6b5798851df054a3b89c9a85677a4fa972d))
+
 ## 1.9.89 (2023-03-27)
 
 **Note:** Version bump only for package @urlint/core
