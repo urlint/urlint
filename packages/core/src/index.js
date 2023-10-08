@@ -1,9 +1,9 @@
 'use strict'
 
 const { concat, chain, first, pick } = require('lodash')
+const timeSpan = require('@kikobeats/time-span')()
 const reachableUrl = require('reachable-url')
 const dnsErrors = require('dnserrors')
-const timeSpan = require('time-span')
 const isUrl = require('is-url-http')
 const aigle = require('aigle')
 const mitt = require('mitt')
@@ -81,7 +81,7 @@ const withError = (errors, props) => {
 }
 
 const doPing = async (url, opts) => {
-  const timestamp = timeSpan()
+  const duration = timeSpan()
   let res
 
   try {
@@ -96,7 +96,7 @@ const doPing = async (url, opts) => {
     }
   }
 
-  return { ...res, timestamp: timestamp() }
+  return { ...res, timestamp: duration() }
 }
 
 const pingUrl = async ({ acc, url, emitter, ...opts }) => {
