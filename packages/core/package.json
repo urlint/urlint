@@ -31,7 +31,7 @@
     "browserless": "~10.2.0",
     "cheerio": "~1.0.0-rc.12",
     "dnserrors": "~2.0.3",
-    "html-get": "~2.15.0",
+    "html-get": "~2.16.0",
     "html-urls": "~2.4.45",
     "is-url-http": "~2.3.5",
     "mitt": "~3.0.1",
