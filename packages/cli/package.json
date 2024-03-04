@@ -44,7 +44,7 @@
     "neat-log": "~3.1.0",
     "ora": "~5.4.1",
     "pretty-ms": "~7.0.1",
-    "puppeteer": "~21.9.0",
+    "puppeteer": "~22.3.0",
     "update-notifier": "~5.1.0"
   },
   "engines": {
