@@ -28,7 +28,7 @@
   "dependencies": {
     "@kikobeats/time-span": "~1.0.2",
     "aigle": "~1.14.1",
-    "browserless": "~10.3.0",
+    "browserless": "~10.4.0",
     "cheerio": "~1.0.0-rc.12",
     "dnserrors": "~2.0.3",
     "html-get": "~2.16.0",
